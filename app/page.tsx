@@ -1,9 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { HeroSlider } from "./components/HeroSlider";
+import { HomeCoreCommitments } from "./components/HomeCoreCommitments";
 import { HomeServiceCards } from "./components/HomeServiceCards";
-import { HomeTestimonials } from "./components/HomeTestimonials";
+import { HomeValuesAccordion } from "./components/HomeValuesAccordion";
 import { HomeChatWidget } from "./components/HomeChatWidget";
+import { PrimaryServicesMobileCarousel } from "./components/PrimaryServicesMobileCarousel";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -183,6 +184,12 @@ const primaryServices: PrimaryService[] = [
     tone: "blue",
     iconSrc: "/service-icons/safety-inspections-testing.svg",
     href: "/compliance/safety-inspections-testing",
+  },
+  {
+    title: "Portable Appliance Testing (PAT)",
+    tone: "red",
+    iconSrc: "/service-icons/certification-compliance.svg",
+    href: "/smart-systems/portable-appliance-testing-pat",
   },
 ] as const;
 
@@ -374,19 +381,12 @@ export default function Home() {
       <HeroSlider />
 
       <section className="services-overview" id="services">
-        <div className="services-intro">
-          <h2>
-            Consultation to <span>completion</span>, all in <span>house.</span>
-          </h2>
+        <div className="services-intro section-intro section-intro--center">
+          <h2>From Consultation to Completion — All In-House</h2>
           <p>
-            <span>
-              We set ourselves apart through fully integrated delivery across fire protection, security
-              systems, and compliance support,
-            </span>
-            <span>
-              giving clients one accountable team from survey through installation, maintenance, and
-              reporting.
-            </span>
+            We deliver fully integrated fire protection, security and compliance services from one
+            accountable in-house team — from survey and design through installation, maintenance,
+            servicing and reporting.
           </p>
         </div>
 
@@ -394,13 +394,12 @@ export default function Home() {
       </section>
 
       <section className="primary-services-section" id="our-company">
-        <div className="primary-services-intro">
+        <div className="primary-services-intro section-intro">
           <h2>Our Primary Services</h2>
-          <p className="!max-w-[80ch]">
-            <span className="md:block">Providing complete fire safety, security, and compliance services — from fire alarm </span>
-            <span className="md:block">installation, servicing, monitoring, and clear zone plans, to modern CCTV, access control, </span>
-            <span className="md:block">and intruder alarm systems. We also support your ongoing compliance through inspections, </span>
-            <span className="md:block">testing, certification, and maintenance, helping keep your premises safe, compliant, and fully operational — all delivered by our in-house team.</span>
+          <p>
+            Providing complete fire safety, security and compliance services — from fire alarm installation,
+            servicing and monitoring to CCTV, access control, intruder alarms, emergency systems, PAT testing
+            and certification — all delivered by our in-house team.
           </p>
         </div>
 
@@ -423,261 +422,60 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Mobile View (Marquee) */}
-        <div className="marquee-wrapper block md:hidden overflow-hidden relative w-full pt-2 pb-4" style={{ marginLeft: "calc(var(--page-gutter) * -1)", width: "100vw" }}>
-          <style>{`
-            @keyframes scroll-marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(calc(-50% - 6px)); }
-            }
-            .animate-scroll-marquee {
-              animation: scroll-marquee 20s linear infinite;
-            }
-            .marquee-wrapper:hover .animate-scroll-marquee,
-            .animate-scroll-marquee:hover {
-              -webkit-animation-play-state: paused !important;
-              animation-play-state: paused !important;
-            }
-            .mobile-card-tone-red:hover .mobile-icon { background-color: var(--red); }
-            .mobile-card-tone-blue:hover .mobile-icon { background-color: #2d66d5; }
-          `}</style>
-          <div className="flex gap-3 w-max animate-scroll-marquee" style={{ paddingLeft: "var(--page-gutter)" }}>
-            {[...primaryServices, ...primaryServices].map((service, index) => (
-              <Link
-                key={`${service.title}-${index}`}
-                href={service.href}
-                className={`mobile-card-tone-${service.tone} relative flex flex-col justify-start min-h-[150px] w-[calc(50vw-20px)] shrink-0 p-4 rounded-2xl bg-white text-[#34383c] shadow-[0_10px_24px_rgba(10,17,20,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(10,17,20,0.12)]`}
-              >
-                <span className="card-launch absolute top-3 right-3 flex items-center justify-center w-5 h-5 text-[#34383c]/40" aria-hidden="true" />
-                <span
-                  className="mobile-icon mb-3 w-[34px] h-[34px] bg-[var(--navy)] transition-colors duration-200"
-                  aria-hidden="true"
-                  style={{ 
-                    WebkitMaskImage: `url('${service.iconSrc}')`,
-                    maskImage: `url('${service.iconSrc}')`,
-                    WebkitMaskSize: 'contain',
-                    maskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    maskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
-                    maskPosition: 'center'
-                  }}
-                />
-                <h3 className="mt-auto font-heading text-[0.95rem] leading-[1.15] font-extrabold tracking-tight">{service.title}</h3>
-              </Link>
-            ))}
-          </div>
+        <div className="block md:hidden">
+          <PrimaryServicesMobileCarousel services={[...primaryServices]} />
         </div>
       </section>
 
-      <section className="compliance-feature-section">
-        <div className="compliance-feature-card">
-          <div className="compliance-copy">
-            <span className="compliance-kicker">For compliance</span>
-            <h2>
-              <span>Your</span>
-              <span>Responsibility</span>
-              <span>to Fire Safety</span>
-            </h2>
-            <p>
-              <span>
-                A fire risk assessment is a methodical investigation of a business premises,
-              </span>
-              <span>
-                highlighting the fire risks and safety levels of the surroundings.
-              </span>
-              <span>
-                There are many factors the Responsible Person must consider in this role to
-                ensure compliance with
-              </span>
-              <span>The Regulatory Reform (Fire Safety) Order 2005.</span>
-            </p>
-            <a className="compliance-button" href="/book-now">
-              Your Responsibilities
-              <span className="homepage-inline-arrow" aria-hidden="true" />
-            </a>
-          </div>
-
-          <div className="compliance-video-shell">
-            <video
-              className="compliance-video"
-              controls
-              playsInline
-              preload="metadata"
-              poster="/images/001 - FIRE SYSTEMS/004 - Fire Safety Signage/Fire safety signage in University Library.png"
-            >
-              <source
-                src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
+      <section className="compliance-feature-section" aria-labelledby="compliance-feature-heading">
+        <div className="compliance-feature-shell">
+          <article className="compliance-feature-card">
+            <div className="compliance-feature-copy">
+              <span className="compliance-kicker">For compliance</span>
+              <h2 id="compliance-feature-heading">Your Responsibility to Fire Safety</h2>
+              <p>
+                A fire risk assessment is a structured review of your premises, identifying fire risks,
+                safety measures and the steps needed to protect people and property. As the Responsible
+                Person, you must maintain suitable fire safety arrangements and evidence of compliance
+                with the Regulatory Reform (Fire Safety) Order 2005.
+              </p>
+              <a className="compliance-button" href="/resources/your-responsibilities">
+                Your Responsibilities
+                <span className="homepage-inline-arrow" aria-hidden="true" />
+              </a>
+            </div>
+            <div className="compliance-feature-media">
+              <video
+                className="compliance-video"
+                controls
+                playsInline
+                preload="metadata"
+                poster="/images/001 - FIRE SYSTEMS/004 - Fire Safety Signage/Fire safety signage in University Library.png"
+              >
+                <source
+                  src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </article>
         </div>
       </section>
 
       <section className="values-section">
-        <div className="values-shell">
+        <div className="values-shell section-intro">
           <h2>Our Values</h2>
-          <div className="values-list">
-            {companyValues.map((value) => (
-              <details key={value.title} className="value-item">
-                <summary className="value-summary">
-                  <div className="value-title-wrap">
-                    <span className="value-icon">
-                      <ValueIcon kind={value.icon} />
-                    </span>
-                    <span className="value-title">{value.title}</span>
-                  </div>
-                  <span className="value-chevron" aria-hidden="true">
-                    ⌃
-                  </span>
-                </summary>
-                <div className="value-content">
-                  <ul>
-                    {value.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              </details>
-            ))}
-          </div>
+          <HomeValuesAccordion
+            items={companyValues.map((value) => ({
+              title: value.title,
+              icon: <ValueIcon kind={value.icon} />,
+              points: value.points,
+            }))}
+          />
         </div>
       </section>
 
-      <section className="py-24 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-16 md:mb-20 text-center">
-            <span className="inline-block py-1 px-3 rounded-full bg-red/10 text-red font-heading text-sm font-bold tracking-wider uppercase mb-4">
-              What We Value
-            </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-navy">
-              Our Core Commitments
-            </h2>
-            <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
-              We provide an unrivalled quality of service with confidence, driven by integrity, honesty, and an unwavering focus on our customers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[minmax(280px,auto)]">
-            
-            {/* Card 1: 24/7 (Red) */}
-            <article className="mosaic-card mosaic-card-red col-span-1 lg:col-span-1 shadow-sm transition-transform hover:-translate-y-1 flex flex-col justify-center items-center min-h-[280px] !p-8">
-              <p className="uppercase tracking-widest !text-sm mb-4">We are here for our customers</p>
-              <h3 className="!mt-0">
-                <span>24 hrs</span>
-                <span>365 days</span>
-              </h3>
-            </article>
-
-            {/* Card 2: Photo Card */}
-            <article className="mosaic-card mosaic-card-photo col-span-1 md:col-span-1 lg:col-span-2 shadow-sm transition-transform hover:-translate-y-1 group min-h-[280px] !p-8 flex flex-col justify-end">
-              <div className="mosaic-photo-overlay transition-colors group-hover:bg-black/20" />
-              <p className="!text-xl md:!text-2xl !max-w-lg !font-medium leading-snug">
-                We provide an unrivalled quality of service with confidence and we shape our
-                services according to our customer's needs.
-              </p>
-            </article>
-
-            {/* Card 3: Values List (White) */}
-            <article className="mosaic-card mosaic-card-light col-span-1 md:col-span-2 lg:col-span-1 lg:row-span-2 shadow-sm transition-transform hover:-translate-y-1 flex flex-col min-h-[280px] !bg-white !border !border-slate-200 relative overflow-hidden group">
-              {/* Image filling top empty space */}
-              <div className="relative w-full h-48 lg:h-56 overflow-hidden shrink-0">
-                <Image 
-                  src="/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Tech HQ and glass corridor 2.png" 
-                  alt="Helix corporate values" 
-                  fill 
-                  className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white" />
-              </div>
-
-              {/* Decorative Background Elements */}
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-slate-50/50 rounded-full border border-slate-100/50 flex items-center justify-center pointer-events-none">
-                <div className="w-48 h-48 bg-white/50 rounded-full border border-slate-100/50 shadow-sm" />
-              </div>
-
-              <div className="relative z-10 w-full flex flex-col h-full px-8 pb-8 pt-4 lg:items-center">
-                <div className="w-full lg:w-fit flex flex-col h-full">
-                  <p className="mosaic-label !mb-6 uppercase tracking-wider text-slate-500 font-bold !text-left !ml-0">We act with:</p>
-                  
-                  <ul className="mosaic-list flex-1 flex flex-col justify-end lg:justify-center space-y-8">
-                    <li className="!block !mb-0 w-full group/item">
-                      <div className="flex items-center justify-start gap-4 w-full mb-1">
-                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-slate-700 shrink-0 shadow-sm border border-slate-200">
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                        </div>
-                        <div className="flex flex-col items-start !text-left w-full">
-                          <strong className="!text-3xl lg:!text-4xl text-red leading-none mb-1 group-hover/item:translate-x-1 transition-transform origin-left inline-block !text-left">Integrity</strong>
-                          <span className="!text-slate-500 !font-medium !text-sm !text-left">doing what&apos;s right</span>
-                        </div>
-                      </div>
-                    </li>
-                    
-                    <li className="!block !mb-0 w-full group/item">
-                      <div className="flex items-center justify-start gap-4 w-full mb-1">
-                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-slate-700 shrink-0 shadow-sm border border-slate-200">
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" /></svg>
-                        </div>
-                        <div className="flex flex-col items-start !text-left w-full">
-                          <strong className="!text-3xl lg:!text-4xl text-red leading-none mb-1 group-hover/item:translate-x-1 transition-transform origin-left inline-block !text-left">Honesty</strong>
-                          <span className="!text-slate-500 !font-medium !text-sm !text-left">fulfilling obligations</span>
-                        </div>
-                      </div>
-                    </li>
-                    
-                    <li className="!block !mb-0 w-full group/item">
-                      <div className="flex items-center justify-start gap-4 w-full mb-1">
-                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-slate-700 shrink-0 shadow-sm border border-slate-200">
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                        </div>
-                        <div className="flex flex-col items-start !text-left w-full">
-                          <strong className="!text-3xl lg:!text-4xl text-red leading-none mb-1 group-hover/item:translate-x-1 transition-transform origin-left inline-block !text-left">Pride</strong>
-                          <span className="!text-slate-500 !font-medium !text-sm !text-left">nurturing long-term relationships</span>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            {/* Card 4: Coverage Map */}
-            <article className="mosaic-card mosaic-card-map col-span-1 lg:col-span-1 shadow-sm transition-transform hover:-translate-y-1 !bg-[#204159] !bg-none min-h-[280px] !p-8 flex flex-col justify-end">
-              <div className="mosaic-map-blob mosaic-map-blob-top opacity-30" />
-              <div className="mosaic-map-blob mosaic-map-blob-bottom opacity-30" />
-              <div className="absolute top-8 right-8 flex">
-                <span className="w-10 h-10 -ml-2 rounded-full border-2 border-white/20 bg-gradient-to-br from-amber-200 to-slate-400" />
-                <span className="w-10 h-10 -ml-2 rounded-full border-2 border-white/20 bg-gradient-to-br from-amber-400 to-slate-600" />
-                <span className="w-10 h-10 -ml-2 rounded-full border-2 border-white/20 bg-gradient-to-br from-orange-200 to-slate-500" />
-              </div>
-              <p className="!mt-24 !text-white !font-medium !text-lg leading-relaxed !text-left z-10 !ml-0 w-full">
-                Our nationwide team of highly-trained technicians are our greatest assets,
-                providing the UK with world-class fire safety and security.
-              </p>
-            </article>
-
-            {/* Card 5: Support Notes */}
-            <article className="mosaic-card mosaic-card-support col-span-1 lg:col-span-1 shadow-sm transition-transform hover:-translate-y-1 flex flex-col justify-center min-h-[280px] !p-8">
-              <p className="mosaic-support-title !mt-0 !mb-8 uppercase tracking-wider !text-slate-300 !text-left !ml-0 font-bold !max-w-full">We support our technicians through</p>
-              <div className="mosaic-support-notes !mt-0 gap-3 !justify-center w-full flex-wrap">
-                <div className="shadow-lg !bg-[#1f3c55] !text-white !rotate-[-6deg] flex items-center justify-center">A team of Technical managers</div>
-                <div className="shadow-lg flex items-center justify-center">Experienced account handlers</div>
-                <div className="shadow-lg !rotate-[4deg] flex items-center justify-center">Designers and support staff</div>
-              </div>
-            </article>
-
-            {/* Card 6: Industry Experts */}
-            <article className="mosaic-card mosaic-card-expert col-span-1 md:col-span-2 lg:col-span-1 shadow-sm transition-transform hover:-translate-y-1 !bg-[#e3ecda] flex flex-col items-start justify-center min-h-[280px] !p-8">
-              <span className="mosaic-pill shadow-md tracking-wide font-bold self-start !ml-0">Industry Experts</span>
-              <p className="!text-slate-800 !text-xl md:!text-2xl mt-6 !max-w-full leading-tight font-medium !text-left !ml-0">
-                Total adherence to legal fire safety, security responsibilities and compliance
-              </p>
-            </article>
-
-          </div>
-        </div>
-      </section>
+      <HomeCoreCommitments />
 
       {/* <HomeTestimonials /> */}
 
@@ -687,7 +485,7 @@ export default function Home() {
             {/* Background image visual - content removed as requested */}
           </div>
 
-          <div className="closing-cta-copy">
+          <div className="closing-cta-copy closing-cta-copy--centered">
             <h2>Contact Our Team Today</h2>
             <p>
               Helix Fire &amp; Security lead the way in the industry by offering your business a
@@ -697,7 +495,7 @@ export default function Home() {
 
             <div className="closing-cta-actions">
               <a className="closing-cta-primary" href="/book-now">
-                Get in Touch Today
+                Contact us now
               </a>
               <span>or</span>
               <a className="closing-cta-secondary" href="/book-now">

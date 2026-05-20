@@ -21,7 +21,7 @@ export function FireDetailTemplate({ page }: FireDetailTemplateProps) {
       </section>
 
       {/* 2. Heading & 3. Text */}
-      <section className="clear-header-section">
+      <section className="clear-header-section section-intro">
         <div className="info-container">
           <p className="info-eyebrow">{page.eyebrow}</p>
           <h1>{page.title}</h1>

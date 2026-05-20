@@ -9,8 +9,8 @@ export function SiteFooter({ theme = "light" }: { theme?: "light" | "dark" }) {
         <div className="footer-main-grid">
           {/* Left Column Card */}
           <div className="footer-contact-card">
-            <div className="footer-card-header">
-              <div className="footer-logo-circle">
+            <div className="footer-card-header flex-col sm:flex-row">
+              <div className="footer-logo-circle shrink-0">
                 <Image
                   src="/helix-logo-footer.png"
                   alt="Helix footer logo"
@@ -32,18 +32,12 @@ export function SiteFooter({ theme = "light" }: { theme?: "light" | "dark" }) {
                   </svg>
                   <a href="mailto:hello@helixfiresecurity.com">Customer Services</a>
                 </div>
-                <div className="contact-row">
-                  <svg className="w-5 h-5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>Open: 24/7</span>
-                </div>
                 <div className="contact-row !items-start">
                   <svg className="w-5 h-5 text-slate-400 shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <address className={`not-italic ${theme === "dark" ? "!text-white" : "!text-[#0f172a]"} text-[15px] font-semibold tracking-[-0.2px] leading-relaxed`}>
+                  <address className={`not-italic ${theme === "dark" ? "!text-white" : "!text-[#0f172a]"} text-[15px] font-medium tracking-[-0.2px] leading-relaxed`}>
                     29 Green Lane Road<br />
                     Leicester<br />
                     LE5 3TN

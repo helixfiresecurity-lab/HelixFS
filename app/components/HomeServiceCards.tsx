@@ -17,8 +17,8 @@ const serviceCards: ServiceCardItem[] = [
   {
     title: "Fire Systems",
     bodyLines: [
-      "Fire alarms, sprinklers, emergency lighting,",
-      "extinguishers and compliance support.",
+      "Fire alarms, fire extinguishers, AOV smoke ventilation systems",
+      "and fire safety signage delivered to the highest safety standards.",
     ],
     imageClassName: "fire-card-image",
     bodyClassName: "service-card-body-fire",
@@ -29,8 +29,8 @@ const serviceCards: ServiceCardItem[] = [
   {
     title: "Security Systems",
     bodyLines: [
-      "CCTV, intruder alarms, access control and monitoring,",
-      "for practical protection across modern facilities.",
+      "CCTV, intruder alarms, access control, intercom systems",
+      "and gate automation for practical protection across all facilities.",
     ],
     imageClassName: "security-card-image",
     bodyClassName: "service-card-body-security",
@@ -41,8 +41,8 @@ const serviceCards: ServiceCardItem[] = [
   {
     title: "Compliance",
     bodyLines: [
-      "Certification, reporting, maintenance records,",
-      "and compliance oversight across your portfolio.",
+      "Certification, compliance, safety inspections",
+      "and regulatory compliance services across your portfolio.",
     ],
     imageClassName: "compliance-card-image",
     bodyClassName: "service-card-body-compliance",
@@ -53,8 +53,8 @@ const serviceCards: ServiceCardItem[] = [
   {
     title: "Emergency Systems",
     bodyLines: [
-      "We provide emergency lighting, EVC systems, nurse call support,",
-      "and escape route solutions that help people respond and evacuate safely.",
+      "Emergency lighting, voice communication, nurse call systems",
+      "and escape route signage to help people respond and evacuate safely.",
     ],
     imageClassName: "emergency-card-image",
     bodyClassName: "service-card-body-emergency",
@@ -64,8 +64,8 @@ const serviceCards: ServiceCardItem[] = [
   {
     title: "Smart Systems",
     bodyLines: [
-      "We support smart automation, Wi-Fi and network infrastructure,",
-      "minor electrical works, and practical building-ready connected systems.",
+      "Smart home automation, Wi-fi, network & IP solutions",
+      "and minor electrical works for practical building ready connected systems.",
     ],
     imageClassName: "smart-card-image",
     bodyClassName: "service-card-body-smart",

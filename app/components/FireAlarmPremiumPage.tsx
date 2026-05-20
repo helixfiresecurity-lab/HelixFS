@@ -221,13 +221,13 @@ export function PremiumServicePage({
   const checks = page.suitableFor.slice(0, 4);
 
   return (
-    <div className="fire-alarm-premium min-h-screen bg-white text-[#0B172A]" style={accentStyle}>
+    <div className="fire-alarm-premium min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-white text-[#0B172A]" style={accentStyle}>
       <SiteHeader />
 
       <main>
         <section className="relative overflow-hidden bg-[#071A33] text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.16),transparent_32%)]" />
-          <div className="mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-16">
+          <div className="mx-auto grid min-h-[min(560px,90vh)] w-full min-w-0 max-w-7xl items-center gap-10 px-[var(--page-gutter)] py-14 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-16">
             <div className="relative z-10">
               <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/72">
                 <Link href="/" className="hover:text-white">Home</Link>
@@ -239,10 +239,10 @@ export function PremiumServicePage({
 
               <div className="mt-8 flex items-center gap-4">
                 <span className="h-0.5 w-12" style={{ backgroundColor: theme.accent }} />
-                <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-white">{page.eyebrow}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white">{page.eyebrow}</p>
               </div>
 
-              <h1 className="mt-7 max-w-xl text-4xl font-extrabold leading-[1.06] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-7 max-w-xl text-[clamp(1.85rem,8vw,3.75rem)] font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
                 {page.title}
               </h1>
               <p className="mt-6 max-w-xl text-base leading-8 text-white/78">
@@ -250,11 +250,11 @@ export function PremiumServicePage({
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-extrabold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
+                <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
                   Request a Survey
                   <Icon name="arrow" className="h-4 w-4" />
                 </Link>
-                <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-extrabold text-white transition hover:border-white hover:bg-white/10">
+                <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
                   Book a Call
                   <Icon name="phone" className="h-4 w-4" />
                 </a>
@@ -274,8 +274,8 @@ export function PremiumServicePage({
           </div>
         </section>
 
-        <section className="-mt-10 relative z-20 px-5 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+        <section className="relative z-20 -mt-10 px-[var(--page-gutter)] sm:-mt-10 lg:px-10">
+          <div className="mx-auto grid w-full min-w-0 max-w-7xl gap-4 md:grid-cols-3">
             {page.featureCards.map((feature) => (
               <article key={feature.title} className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_18px_50px_rgba(7,26,51,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(7,26,51,0.14)]">
                 <div className="flex items-start justify-between gap-5">
@@ -284,18 +284,18 @@ export function PremiumServicePage({
                   </div>
                   <Icon name="arrow" className="mt-1 h-5 w-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: theme.accent }} />
                 </div>
-                <h2 className="mt-5 text-lg font-extrabold">{feature.title}</h2>
+                <h2 className="mt-5 text-lg font-semibold">{feature.title}</h2>
                 <p className="mt-3 text-sm leading-6 text-[#5B667A]">{feature.text}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-3xl bg-[#F6F8FB] p-5 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
-            <article className="rounded-2xl bg-white p-7 shadow-sm sm:p-9">
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>Service Focus</p>
-              <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{page.sectionTitle}</h2>
+        <section className="px-[var(--page-gutter)] py-16 lg:px-10 lg:py-20">
+          <div className="mx-auto grid w-full min-w-0 max-w-7xl gap-8 rounded-3xl bg-[#F6F8FB] p-5 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+            <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>Service Focus</p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">{page.sectionTitle}</h2>
               <div className="mt-6 space-y-5 text-sm leading-7 text-[#5B667A] sm:text-base">
                 {page.sectionBody.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -314,7 +314,7 @@ export function PremiumServicePage({
               </ul>
 
               <div className="mt-8 flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg bg-white text-xl font-extrabold text-[#071A33] ring-1 ring-slate-200">
+                <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg bg-white text-xl font-semibold text-[#071A33] ring-1 ring-slate-200">
                   <span><span style={{ color: theme.accent }}>HE</span>LIX</span>
                 </div>
                 <p className="text-sm leading-6 text-[#5B667A]">
@@ -323,8 +323,8 @@ export function PremiumServicePage({
               </div>
             </article>
 
-            <article className="rounded-2xl bg-white p-7 shadow-sm sm:p-9">
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>{page.servicesTitle}</p>
+            <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>{page.servicesTitle}</p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {page.services.map((item) => (
                   <div key={item} className="flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(7,26,51,0.04)]">
@@ -337,35 +337,34 @@ export function PremiumServicePage({
           </div>
         </section>
 
-        <section className="px-5 pb-16 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-8 flex items-center justify-center gap-5">
+        <section className="px-[var(--page-gutter)] pb-16 lg:px-10">
+          <div className="mx-auto w-full min-w-0 max-w-7xl">
+            <div className="mb-8 flex items-center justify-start gap-5">
               <span className="h-px w-16 opacity-50" style={{ backgroundColor: theme.accent }} />
-              <p className="text-center text-xs font-extrabold uppercase tracking-[0.14em]" style={{ color: theme.accent }}>Why Choose Helix</p>
-              <span className="h-px w-16 opacity-50" style={{ backgroundColor: theme.accent }} />
+              <p className="text-left text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: theme.accent }}>Why Choose Helix</p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200">
               {trustPoints.map((point) => (
-                <article key={point.title} className="rounded-2xl border border-slate-200 bg-white p-7 text-center shadow-sm lg:border-0 lg:shadow-none">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-[#F6F8FB]" style={{ color: theme.accent }}>
+                <article key={point.title} className="rounded-2xl border border-slate-200 bg-white p-7 text-left shadow-sm lg:border-0 lg:shadow-none">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#F6F8FB]" style={{ color: theme.accent }}>
                     <Icon name={point.icon} className="h-8 w-8" />
                   </div>
-                  <h3 className="mt-5 text-lg font-extrabold">{point.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5B667A]">{point.text}</p>
+                  <h3 className="mt-5 text-left text-lg font-semibold">{point.title}</h3>
+                  <p className="mt-3 text-left text-sm leading-6 text-[#5B667A]">{point.text}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="px-5 pb-16 sm:px-8 lg:px-10">
-          <div className="mx-auto grid max-w-7xl items-center gap-8 overflow-hidden rounded-3xl bg-[#071A33] p-7 text-white shadow-[0_24px_70px_rgba(7,26,51,0.18)] sm:p-9 lg:grid-cols-[auto_1fr_auto] lg:p-12">
+        <section className="px-[var(--page-gutter)] pb-16 lg:px-10">
+          <div className="mx-auto grid w-full min-w-0 max-w-7xl items-center gap-8 overflow-hidden rounded-3xl bg-[#071A33] p-5 text-white shadow-[0_24px_70px_rgba(7,26,51,0.18)] sm:p-7 lg:grid-cols-[auto_1fr_auto] lg:p-12">
             <div className="flex h-24 w-24 items-center justify-center rounded-full text-white ring-8" style={{ backgroundColor: theme.accent, boxShadow: `0 0 0 14px ${theme.accent}24` }}>
               <Icon name="phone" className="h-9 w-9" />
             </div>
             <div>
-              <h2 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl">
+              <h2 className="max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
                 {page.ctaTitle}
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-white/75 sm:text-base">
@@ -373,11 +372,11 @@ export function PremiumServicePage({
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-extrabold text-white transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
+              <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
                 {page.ctaButton}
                 <Icon name="arrow" className="h-4 w-4" />
               </Link>
-              <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-extrabold text-white transition hover:bg-white/10">
+              <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
                 <Icon name="phone" className="h-4 w-4" />
                 Call 07359 589933
               </a>

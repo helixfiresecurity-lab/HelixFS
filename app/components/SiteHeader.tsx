@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { navItems } from "../site-data";
+import { NavChevron } from "./NavChevron";
 
 export function SiteHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -15,14 +16,14 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full flex flex-wrap items-center justify-between px-4 lg:px-[var(--page-gutter)] py-3 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-8">
+    <header className="sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-8">
       <Link className="brand-mark" href="/" aria-label="Helix home" onClick={closeAllMenus}>
         <Image className="w-[140px] lg:w-[198px] h-auto" src="/helix-logo-header.png" alt="Helix logo" width={272} height={153} priority />
       </Link>
 
       <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
         <a
-          className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#1ca34a] text-white transition-transform hover:-translate-y-0.5"
+          className="header-whatsapp flex items-center justify-center w-11 h-11 rounded-lg transition-transform hover:-translate-y-0.5"
           href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
           target="_blank"
           rel="noreferrer"
@@ -57,7 +58,7 @@ export function SiteHeader() {
 
       <div className={`w-full lg:w-auto lg:contents ${isMobileMenuOpen ? "block" : "hidden lg:block"}`}>
         <div className="flex flex-col lg:contents mt-4 lg:mt-0 pt-2 lg:pt-0 border-t border-slate-100 lg:border-t-0">
-          <nav className="flex flex-col lg:flex-row items-start lg:items-center justify-center gap-0 lg:gap-6 text-[1.05rem] lg:text-[0.9rem] font-bold text-navy w-full lg:w-auto" aria-label="Primary">
+          <nav className="flex flex-col lg:flex-row items-start lg:items-center justify-center gap-0 lg:gap-6 text-[1.05rem] lg:text-[0.9rem] font-medium text-navy w-full lg:w-auto" aria-label="Primary">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -78,11 +79,13 @@ export function SiteHeader() {
                   }}
                 >
                   {item.label}
-                  {item.menu ? <span aria-hidden="true" className={`ml-1.5 text-[1.2em] relative -top-[1px] ${isMobileMenuOpen ? "transform rotate-0" : ""}`}>⌄</span> : null}
+                  {item.menu ? (
+                    <NavChevron open={activeMenu === item.label || (isMobileMenuOpen && activeMenu === item.label)} />
+                  ) : null}
                 </Link>
 
                 {item.menu ? (
-                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "block static shadow-none border-none bg-transparent w-full p-0 pb-4 opacity-100 visible" : "hidden lg:block"}`}>
+                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden lg:!block"}`}>
                     {item.menu.type === "fire" ? (
                       <>
                         <div className="nav-fire-cards">
@@ -137,7 +140,7 @@ export function SiteHeader() {
 
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-[10px] w-full lg:w-auto mt-6 lg:mt-0 pb-4 lg:pb-0">
             <a
-              className="hidden lg:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg bg-[#1ca34a] text-white whitespace-nowrap font-heading text-[0.82rem] font-bold transition-transform hover:-translate-y-0.5"
+              className="header-whatsapp hidden lg:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
               target="_blank"
               rel="noreferrer"
@@ -152,8 +155,8 @@ export function SiteHeader() {
               <span>WhatsApp</span>
             </a>
 
-            <Link className="flex items-center justify-center min-h-[48px] lg:min-h-[44px] px-5 bg-[#ff1015] text-white whitespace-nowrap font-heading text-[1rem] lg:text-[0.84rem] font-bold rounded-lg transition-transform hover:-translate-y-0.5 w-full lg:w-auto" href="/book-now" onClick={closeAllMenus}>
-              Book Now
+            <Link className="header-cta header-cta-primary flex items-center justify-center min-h-[48px] lg:min-h-[44px] px-5 whitespace-nowrap font-heading text-[1rem] lg:text-[0.84rem] font-semibold rounded-lg transition-transform hover:-translate-y-0.5 w-full lg:w-auto" href="/book-now" onClick={closeAllMenus}>
+              Request a Quote
             </Link>
           </div>
         </div>
