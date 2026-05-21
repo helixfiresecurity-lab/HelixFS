@@ -16,8 +16,8 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-8">
-      <Link className="brand-mark" href="/" aria-label="Helix home" onClick={closeAllMenus}>
+    <header className="site-header sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3">
+      <Link className="brand-mark lg:col-start-1 lg:justify-self-start" href="/" aria-label="Helix home" onClick={closeAllMenus}>
         <Image className="w-[140px] lg:w-[198px] h-auto" src="/helix-logo-header.png" alt="Helix logo" width={272} height={153} priority />
       </Link>
 
@@ -56,9 +56,9 @@ export function SiteHeader() {
         </button>
       </div>
 
-      <div className={`w-full lg:w-auto lg:contents ${isMobileMenuOpen ? "block" : "hidden lg:block"}`}>
+      <div className={`w-full ${isMobileMenuOpen ? "block" : "hidden"} lg:contents`}>
         <div className="flex flex-col lg:contents mt-4 lg:mt-0 pt-2 lg:pt-0 border-t border-slate-100 lg:border-t-0">
-          <nav className="flex flex-col lg:flex-row items-start lg:items-center justify-center gap-0 lg:gap-6 text-[1.05rem] lg:text-[0.9rem] font-medium text-navy w-full lg:w-auto" aria-label="Primary">
+          <nav className="site-nav flex flex-col lg:flex-row items-start lg:items-center justify-center gap-0 text-[1.05rem] font-medium text-navy w-full lg:col-start-2 lg:justify-self-center lg:w-max lg:max-w-none" aria-label="Primary">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -67,7 +67,7 @@ export function SiteHeader() {
               >
                 <Link
                   href={item.href}
-                  className="flex justify-between items-center w-full py-4 lg:py-3 transition-colors text-slate-600 hover:text-red"
+                  className="flex justify-between items-center w-full gap-1.5 py-4 lg:py-2 lg:px-0.5 transition-colors text-slate-600 hover:text-red lg:whitespace-nowrap lg:text-[0.8125rem]"
                   aria-expanded={item.menu ? activeMenu === item.label : undefined}
                   onClick={(event) => {
                     if (!item.menu) {
@@ -138,7 +138,7 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-[10px] w-full lg:w-auto mt-6 lg:mt-0 pb-4 lg:pb-0">
+          <div className="header-actions flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-[10px] w-full lg:col-start-3 lg:justify-self-end lg:w-auto mt-6 lg:mt-0 pb-4 lg:pb-0">
             <a
               className="header-whatsapp hidden lg:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
