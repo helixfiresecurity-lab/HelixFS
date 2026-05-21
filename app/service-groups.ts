@@ -30,15 +30,15 @@ const firePages = [
     title: "Fire Alarm Systems",
     eyebrow: "Early warning & dependable detection",
     intro: [
-      "Helix designs, installs and maintains fire alarm systems that provide early warning, dependable performance and compliance support for a wide range of buildings.",
-      "From conventional systems to addressable installations, our team plans each system around the layout, usage and risk profile of your premises.",
+      "Helix delivers the design, installation, and maintenance of fire alarm systems for a wide range of buildings, helping ensure early warning, reliable protection, and ongoing compliance.",
     ],
-    heroImage: "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Fire Alarm Panel 1 - Shown internally only - fixed to wall - mid height.webp",
-    heroAlt: "Helix fire alarm panel with alarm sounder, beacon, smoke detector and manual call point",
+    heroImage: "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Tech HQ and glass corridor 2.png",
+    heroAlt: "Modern technology headquarters with glass corridor interior",
     sectionTitle: "Professional fire alarm installation",
     sectionBody: [
-      "Every fire alarm system should be designed around the building, not forced into a one-size-fits-all package.",
-      "We support survey, design, installation, commissioning, maintenance and clear documentation for long-term safety management.",
+      "Every fire alarm system should be designed around the specific needs of the building — not forced into a one-size-fits-all solution.",
+      "Helix provides complete support from initial survey and system design through to installation, commissioning, maintenance, and clear documentation for ongoing compliance and long-term safety management.",
+      "Well suited to commercial buildings, residential developments, managed properties, and multi-occupancy environments.",
     ],
     servicesTitle: "Our fire alarm services include",
     services: [
@@ -56,12 +56,17 @@ const firePages = [
     featureCards: [
       { title: "Conventional Systems", text: "Ideal for smaller buildings divided into detection zones.", icon: "target" },
       { title: "Addressable Systems", text: "Better device identification for larger or more complex sites.", icon: "network" },
-      { title: "Maintenance", text: "Keep alarms tested, reliable and documented.", icon: "shield" },
+      { title: "Maintenance", text: "Keeping alarm systems serviced, reliable and compliant.", icon: "shield" },
     ],
-    suitableFor: commonSuitableFor,
+    suitableFor: [
+      "Commercial buildings",
+      "Residential developments",
+      "Managed properties",
+      "Offices and retail units",
+    ],
     ctaTitle: "Protect your property with a professionally installed fire alarm system.",
     ctaText: "Talk to Helix today and arrange a survey or quote.",
-    ctaButton: "Request a Fire Alarm Survey",
+    ctaButton: "Contact us now",
   }),
   makePage({
     slug: "fire-extinguishers-supply-servicing",

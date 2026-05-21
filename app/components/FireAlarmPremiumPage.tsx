@@ -229,7 +229,7 @@ export function PremiumServicePage({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.16),transparent_32%)]" />
           <div className="mx-auto grid min-h-[min(560px,90vh)] w-full min-w-0 max-w-7xl items-center gap-10 px-[var(--page-gutter)] py-14 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-16">
             <div className="relative z-10">
-              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/72">
+              <nav aria-label="Breadcrumb" className="premium-hero-breadcrumb flex flex-wrap items-center gap-2 text-xs font-semibold">
                 <Link href="/" className="hover:text-white">Home</Link>
                 <span>/</span>
                 <Link href={theme.categoryHref} className="hover:text-white">{theme.category}</Link>
@@ -245,16 +245,15 @@ export function PremiumServicePage({
               <h1 className="mt-7 max-w-xl text-[clamp(1.85rem,8vw,3.75rem)] font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
                 {page.title}
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-8 text-white/78">
+              <p className="premium-hero-intro mt-6 max-w-xl text-base leading-8">
                 {page.intro[0]}
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link href="/book-now" className="inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
                   Request a Survey
-                  <Icon name="arrow" className="h-4 w-4" />
                 </Link>
-                <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
+                <a href="tel:07359589933" className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
                   Book a Call
                   <Icon name="phone" className="h-4 w-4" />
                 </a>
@@ -267,7 +266,8 @@ export function PremiumServicePage({
                 alt={page.heroAlt}
                 fill
                 priority
-                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#071A33]/5 to-[#071A33]/34" />
             </div>
@@ -277,15 +277,12 @@ export function PremiumServicePage({
         <section className="relative z-20 -mt-10 px-[var(--page-gutter)] sm:-mt-10 lg:px-10">
           <div className="mx-auto grid w-full min-w-0 max-w-7xl gap-4 md:grid-cols-3">
             {page.featureCards.map((feature) => (
-              <article key={feature.title} className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_18px_50px_rgba(7,26,51,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(7,26,51,0.14)]">
-                <div className="flex items-start justify-between gap-5">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full text-white" style={{ backgroundColor: theme.accent }}>
-                    <Icon name={feature.icon} className="h-7 w-7" />
-                  </div>
-                  <Icon name="arrow" className="mt-1 h-5 w-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: theme.accent }} />
+              <article key={feature.title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_18px_50px_rgba(7,26,51,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(7,26,51,0.14)]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full text-white" style={{ backgroundColor: theme.accent }}>
+                  <Icon name={feature.icon} className="h-7 w-7" />
                 </div>
                 <h2 className="mt-5 text-lg font-semibold">{feature.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#5B667A]">{feature.text}</p>
+                <p className="premium-muted mt-3 text-sm leading-6">{feature.text}</p>
               </article>
             ))}
           </div>
@@ -296,7 +293,7 @@ export function PremiumServicePage({
             <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
               <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>Service Focus</p>
               <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">{page.sectionTitle}</h2>
-              <div className="mt-6 space-y-5 text-sm leading-7 text-[#5B667A] sm:text-base">
+              <div className="premium-muted mt-6 space-y-5 text-sm leading-7 sm:text-base">
                 {page.sectionBody.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -317,7 +314,7 @@ export function PremiumServicePage({
                 <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-lg bg-white text-xl font-semibold text-[#071A33] ring-1 ring-slate-200">
                   <span><span style={{ color: theme.accent }}>HE</span>LIX</span>
                 </div>
-                <p className="text-sm leading-6 text-[#5B667A]">
+                <p className="premium-muted text-sm leading-6">
                   Our work is carried out with clear documentation, practical recommendations and UK building safety responsibilities in mind.
                 </p>
               </div>
@@ -325,11 +322,11 @@ export function PremiumServicePage({
 
             <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
               <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>{page.servicesTitle}</p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 sm:items-stretch">
                 {page.services.map((item) => (
-                  <div key={item} className="flex min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(7,26,51,0.04)]">
+                  <div key={item} className="flex min-h-[3.75rem] items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(7,26,51,0.04)]">
                     <span className="h-5 w-1 shrink-0 rounded-full" style={{ backgroundColor: theme.accent }} />
-                    <span className="text-sm font-semibold leading-5 text-[#0B172A]">{item}</span>
+                    <span className="text-sm font-semibold leading-snug text-[#0B172A]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -351,7 +348,7 @@ export function PremiumServicePage({
                     <Icon name={point.icon} className="h-8 w-8" />
                   </div>
                   <h3 className="mt-5 text-left text-lg font-semibold">{point.title}</h3>
-                  <p className="mt-3 text-left text-sm leading-6 text-[#5B667A]">{point.text}</p>
+                  <p className="premium-muted mt-3 text-left text-sm leading-6">{point.text}</p>
                 </article>
               ))}
             </div>
@@ -364,19 +361,18 @@ export function PremiumServicePage({
               <Icon name="phone" className="h-9 w-9" />
             </div>
             <div>
-              <h2 className="max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl [word-spacing:normal]">
                 {page.ctaTitle}
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/75 sm:text-base">
+              <p className="premium-cta-copy mt-4 max-w-2xl text-sm leading-6 sm:text-base">
                 {page.ctaText}
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              <Link href="/book-now" className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
+              <Link href="/book-now" className="inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
                 {page.ctaButton}
-                <Icon name="arrow" className="h-4 w-4" />
               </Link>
-              <a href="tel:07359589933" className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/35 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a href="tel:07359589933" className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
                 <Icon name="phone" className="h-4 w-4" />
                 Call 07359 589933
               </a>

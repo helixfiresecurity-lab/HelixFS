@@ -6,7 +6,7 @@
   --muted: rgba(255, 255, 255, 0.9);
   --red: #ff1015;
   --navy: #0a192f;
-  --slate: #475569;
+  --slate: #3d4f63;
   --bg-soft: #f8fafc;
   --surface: #f6f7f7;
   --card: #232323;
@@ -28,8 +28,10 @@
   --leading-normal: 1.55;
   --leading-relaxed: 1.65;
   --text-primary: #1e2528;
-  --text-body: #3d464c;
-  --text-muted: #5f6b73;
+  --text-body: #334155;
+  --text-muted: #3d4f63;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.9);
+  --text-on-dark-subtle: rgba(255, 255, 255, 0.82);
   --eyebrow-tracking: 0.12em;
 }
 
@@ -211,6 +213,46 @@ a {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  --premium-muted: #334155;
+  --premium-heading: #0b172a;
+}
+
+.fire-alarm-premium .premium-muted {
+  color: var(--premium-muted);
+}
+
+.fire-alarm-premium .premium-hero-breadcrumb {
+  color: var(--text-on-dark-subtle);
+}
+
+.fire-alarm-premium .premium-hero-breadcrumb a {
+  color: inherit;
+}
+
+.fire-alarm-premium .premium-hero-breadcrumb a:hover {
+  color: #ffffff;
+}
+
+.fire-alarm-premium .premium-hero-intro {
+  color: var(--text-on-dark-muted);
+}
+
+.fire-alarm-premium .premium-cta-copy {
+  color: var(--text-on-dark-muted);
+}
+
+.fire-alarm-premium .premium-cta-phone {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.info-page-shell {
+  color: var(--text-body);
+}
+
+.info-page-shell .info-text-content p,
+.info-page-shell .info-service-card .card-content p,
+.info-page-shell .clear-header-intro p {
+  color: var(--text-body);
 }
 
 .fire-alarm-premium main,
@@ -377,7 +419,7 @@ a {
   padding: 16px 18px 15px;
   border: 1px solid rgba(30, 37, 40, 0.12);
   border-radius: 12px;
-  color: #9aa0a4;
+  color: #4b5563;
   background: #ffffff;
 }
 
@@ -2480,11 +2522,11 @@ a {
 }
 
 .site-footer.theme-dark .footer-nav-col h3 {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .site-footer.theme-dark .footer-nav-links a {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .site-footer.theme-dark .footer-nav-links a:hover {
@@ -2493,11 +2535,19 @@ a {
 
 .site-footer.theme-dark .footer-bottom-bar {
   border-top-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .site-footer.theme-dark .footer-legal-links a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.site-footer.theme-dark .footer-copyright p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.site-footer.theme-dark .footer-copyright a {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .site-footer.theme-dark .footer-legal-links a:hover {
@@ -2571,7 +2621,7 @@ a {
 .footer-address-block p {
   margin: 0 0 8px;
   font-size: 0.95rem;
-  color: var(--slate);
+  color: var(--text-body);
   line-height: 1.5;
   font-weight: 500;
 }
@@ -2621,9 +2671,8 @@ a {
 .footer-nav-col h3 {
   font-size: 1.1rem;
   margin-bottom: 32px;
-  color: var(--navy);
+  color: #475569;
   font-weight: 600;
-  opacity: 0.4;
 }
 
 .footer-nav-links {
@@ -2653,7 +2702,8 @@ a {
 .footer-legal-links {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   margin-bottom: 32px;
 }
 
@@ -2661,11 +2711,16 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--navy);
+  white-space: nowrap;
+}
+
+.site-footer.theme-dark .footer-legal-links a {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .footer-copyright p {
   font-size: 0.9rem;
-  color: var(--slate);
+  color: var(--text-body);
   font-weight: 500;
 }
 
@@ -3168,10 +3223,10 @@ a {
 
 .info-service-card .card-content p {
   margin: 0;
-  color: var(--slate);
+  color: var(--text-body);
   font-size: 1rem;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .info-service-card .card-arrow {
@@ -3246,7 +3301,7 @@ a {
 .info-text-content p {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: var(--slate);
+  color: var(--text-body);
   margin-bottom: 24px;
 }
 
@@ -3290,7 +3345,7 @@ a {
 
 .info-cta-main p {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-on-dark-muted);
   margin-bottom: 48px;
 }
 
