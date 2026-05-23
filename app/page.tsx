@@ -189,7 +189,7 @@ const primaryServices: PrimaryService[] = [
     title: "Portable Appliance Testing (PAT)",
     tone: "red",
     iconSrc: "/service-icons/certification-compliance.svg",
-    href: "/smart-systems/portable-appliance-testing-pat",
+    href: "/compliance/portable-appliance-testing-pat",
   },
 ] as const;
 

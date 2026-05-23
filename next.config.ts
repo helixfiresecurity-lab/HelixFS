@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: projectRoot,
   },
+  async redirects() {
+    return [
+      {
+        source: "/smart-systems/portable-appliance-testing-pat",
+        destination: "/compliance/portable-appliance-testing-pat",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

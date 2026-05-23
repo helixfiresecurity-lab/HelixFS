@@ -141,7 +141,7 @@ export const navItems: NavItem[] = [
         { label: "Certification & Compliance", href: "/compliance/certification-compliance" },
         { label: "Safety Inspections & Testing", href: "/compliance/safety-inspections-testing" },
         { label: "Regulatory Compliance Services", href: "/compliance/regulatory-compliance-services" },
-        { label: "Portable Appliance Testing (PAT)", href: "/smart-systems/portable-appliance-testing-pat" },
+        { label: "Portable Appliance Testing (PAT)", href: "/compliance/portable-appliance-testing-pat" },
       ],
     },
   },

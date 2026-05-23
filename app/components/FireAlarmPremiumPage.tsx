@@ -30,6 +30,8 @@ export type PremiumServicePageData = {
   ctaTitle: string;
   ctaText: string;
   ctaButton: string;
+  heroSecondaryCta?: string;
+  heroSecondaryHref?: string;
 };
 
 const footerColumns = [
@@ -205,7 +207,7 @@ function Icon({ name, className = "", style }: { name: string; className?: strin
 function getHeroImage(page: PremiumServicePageData, theme: PremiumServiceTheme) {
   if (page.heroImage) return page.heroImage;
   if (theme.category === "Security Systems") return "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png";
-  if (theme.category === "Compliance") return "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png";
+  if (theme.category === "Compliance") return "/images/005 - COMPLIANCE/Image for main compliance page - office scene.png";
   return "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Fire Alarm Panel 1 - Shown internally only - fixed to wall - mid height.webp";
 }
 
@@ -253,10 +255,22 @@ export function PremiumServicePage({
                 <Link href="/book-now" className="inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
                   Request a Survey
                 </Link>
-                <a href="tel:07359589933" className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
-                  Book a Call
-                  <Icon name="phone" className="h-4 w-4" />
-                </a>
+                {page.heroSecondaryHref?.startsWith("/") ? (
+                  <Link
+                    href={page.heroSecondaryHref}
+                    className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+                  >
+                    {page.heroSecondaryCta ?? "Book a Call"}
+                  </Link>
+                ) : (
+                  <a
+                    href={page.heroSecondaryHref ?? "tel:07359589933"}
+                    className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+                  >
+                    {page.heroSecondaryCta ?? "Book a Call"}
+                    {!page.heroSecondaryCta && <Icon name="phone" className="h-4 w-4" />}
+                  </a>
+                )}
               </div>
             </div>
 

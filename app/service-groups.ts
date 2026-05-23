@@ -15,6 +15,11 @@ function makePage(page: PremiumServicePageData): PremiumServicePageData {
   return page;
 }
 
+const heroContactUs = {
+  heroSecondaryCta: "Contact us now",
+  heroSecondaryHref: "/book-now",
+};
+
 const commonSuitableFor = [
   "Commercial buildings",
   "Residential developments",
@@ -80,8 +85,9 @@ const firePages = [
     heroAlt: "Wall mounted water foam and CO2 fire extinguishers with safety signage in a commercial building",
     sectionTitle: "Extinguisher supply, placement and servicing",
     sectionBody: [
-      "Different risks need different extinguisher types, so placement and selection matters.",
-      "Our service covers supply, installation, commissioning, annual servicing, replacements, signage and maintenance records.",
+      "Different fire risks require different types of extinguishers, making correct selection and positioning essential for effective fire protection.",
+      "Helix provides a complete extinguisher service including supply, installation, commissioning, annual servicing, replacements, signage, and maintenance record management.",
+      "Helping ensure extinguishers remain accessible, compliant, and appropriate for the environment they protect.",
     ],
     servicesTitle: "Our extinguisher services include",
     services: [
@@ -102,7 +108,9 @@ const firePages = [
     suitableFor: commonSuitableFor,
     ctaTitle: "Need extinguishers supplied or serviced?",
     ctaText: "Book professional fire extinguisher support with Helix.",
-    ctaButton: "Book Extinguisher Support",
+    ctaButton: "Book a Survey",
+    heroSecondaryCta: "Contact us now",
+    heroSecondaryHref: "/book-now",
   }),
   makePage({
     slug: "aov-smoke-ventilation-systems",
@@ -116,8 +124,9 @@ const firePages = [
     heroAlt: "Automatic opening ventilation windows controlling smoke movement in a stairwell",
     sectionTitle: "Smoke ventilation that works with your fire strategy",
     sectionBody: [
-      "AOV systems can support stairwells, corridors, communal areas and smoke shafts by helping smoke escape from key routes.",
-      "We integrate AOV controls with fire alarm systems where required and maintain systems so they remain ready to operate.",
+      "AOV (Automatic Opening Ventilation) systems help protect stairwells, corridors, communal areas, and smoke shafts by allowing smoke to escape from key escape routes during a fire.",
+      "Helix designs, installs, and maintains AOV systems, including integration with fire alarm systems where required, helping ensure systems remain compliant, reliable, and ready to operate when needed.",
+      "Supporting safer evacuation routes and more effective smoke control during an emergency.",
     ],
     servicesTitle: "Our AOV services include",
     services: [
@@ -139,6 +148,8 @@ const firePages = [
     ctaTitle: "Need reliable AOV or smoke ventilation support?",
     ctaText: "Talk to Helix about your building and escape route requirements.",
     ctaButton: "Discuss AOV Requirements",
+    heroSecondaryCta: "Contact us now",
+    heroSecondaryHref: "/book-now",
   }),
   makePage({
     slug: "fire-safety-signage",
@@ -148,12 +159,13 @@ const firePages = [
       "Fire safety signage helps occupants understand escape routes, extinguisher locations and key safety instructions quickly.",
       "Helix supplies and positions practical signage as part of wider fire safety and compliance support.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Fire safety inspection checklist with fire alarm emergency lighting and extinguisher equipment",
+    heroImage: "/images/001 - FIRE SYSTEMS/004 - Fire Safety Signage/Fire safety signage in University Library.png",
+    heroAlt: "Fire safety signage including exit and direction signs in a university library",
     sectionTitle: "Signage that supports safe evacuation and compliance",
     sectionBody: [
-      "Effective signage should be visible, consistent and placed where it helps people make quick decisions.",
-      "We review escape routes, equipment locations and building usage to recommend suitable fire safety signs.",
+      "Effective fire safety signage should be clear, consistent, and positioned where it helps people make quick and informed decisions during an emergency.",
+      "Helix reviews escape routes, equipment locations, and building layout to recommend and install appropriate fire safety signage tailored to the environment.",
+      "Helping improve visibility, wayfinding, and overall emergency preparedness throughout the building.",
     ],
     servicesTitle: "Fire signage support includes",
     services: [
@@ -167,14 +179,16 @@ const firePages = [
       "Documentation for managed sites",
     ],
     featureCards: [
-      { title: "Visible", text: "Signs placed where people need them.", icon: "target" },
-      { title: "Consistent", text: "A clear approach across the building.", icon: "clipboard" },
-      { title: "Compliant", text: "Support for safety records and reviews.", icon: "shield" },
+      { title: "Visible", text: "Signs positioned where people can see them", icon: "target" },
+      { title: "Consistent", text: "A clear and understandable approach across the building", icon: "clipboard" },
+      { title: "Compliant", text: "Placed according to current standards", icon: "shield" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need fire safety signage reviewed or installed?",
     ctaText: "Helix can help make escape routes and equipment locations clearer.",
     ctaButton: "Review Fire Signage",
+    heroSecondaryCta: "Contact us now",
+    heroSecondaryHref: "/book-now",
   }),
 ];
 
@@ -187,12 +201,13 @@ const securityPages = [
       "CCTV surveillance helps clients monitor entrances, shared spaces, circulation routes and high-risk areas with better visibility.",
       "Helix designs, installs and maintains CCTV systems that are practical to manage and configured around your site.",
     ],
-    heroImage: "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/Hikvision Turret Camera - Wall at high level or Ceiling mounted.webp",
-    heroAlt: "CCTV camera and monitoring screens covering a commercial site",
+    heroImage: "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 2.png",
+    heroAlt: "External CCTV camera monitoring a commercial site",
     sectionTitle: "CCTV designed around the building",
     sectionBody: [
-      "Good CCTV depends on camera placement, recording strategy, access to footage and long-term maintenance.",
-      "We plan systems around real operating needs so clients can review incidents and maintain better site visibility.",
+      "Effective CCTV systems rely on more than just cameras — correct placement, recording strategy, footage access, and long-term reliability are all essential.",
+      "Helix designs CCTV systems around real operational requirements, helping clients improve site visibility, monitor activity, and review incidents with confidence.",
+      "Supporting clearer oversight, incident review, and day-to-day site security management.",
     ],
     servicesTitle: "Our CCTV services include",
     services: [
@@ -204,7 +219,7 @@ const securityPages = [
       "Maintenance and fault support",
     ],
     featureCards: [
-      { title: "Coverage", text: "Camera placement around real risk points.", icon: "target" },
+      { title: "Coverage", text: "Camera placement around high risk areas", icon: "target" },
       { title: "Review", text: "Recording configured for incident playback.", icon: "clipboard" },
       { title: "Support", text: "Maintenance and upgrade support over time.", icon: "shield" },
     ],
@@ -212,21 +227,23 @@ const securityPages = [
     ctaTitle: "Need CCTV coverage designed around your site?",
     ctaText: "Book a CCTV review with Helix.",
     ctaButton: "Book a CCTV Review",
+    ...heroContactUs,
   }),
   makePage({
     slug: "intruder-alarms",
     title: "Intruder Alarms",
     eyebrow: "Detection built around the site",
     intro: [
-      "Intruder alarm systems protect buildings during unoccupied periods and trigger clear alerts when access events occur.",
+      "Intruder alarm systems protect buildings during unoccupied periods and trigger clear alerts when unauthorised access events occur.",
       "Helix installs and maintains alarm systems configured around entry points, risk areas and occupancy patterns.",
     ],
-    heroImage: "/images/002 - SECURITY SYSTEMS/002 - Intruder Alarm Systems/PIR Sensor - Mounted internally on wall in corner just below ceiling.avif",
-    heroAlt: "Intruder alarm keypad motion detector and mobile app showing an armed system",
+    heroImage: "/images/002 - SECURITY SYSTEMS/002 - Intruder Alarm Systems/Internal alarm keypad and PIR sensor.png",
+    heroAlt: "Internal intruder alarm keypad and PIR sensor in a commercial building",
     sectionTitle: "Alarm systems configured for daily use",
     sectionBody: [
-      "Every site has different access patterns, after-hours risks and internal zones.",
-      "We design intruder alarms that are practical to arm, disarm, maintain and manage.",
+      "Every site has different access patterns, occupancy schedules, and after-hours security risks. An effective intruder alarm system should be designed around how the building is actually used day to day.",
+      "Helix designs and installs practical, reliable intruder alarm systems that are easy to arm, disarm, manage, and maintain, helping clients improve security, reduce risk, and protect their premises with confidence.",
+      "Supporting faster response to unauthorised access and improved protection outside operating hours.",
     ],
     servicesTitle: "Intruder alarm support includes",
     services: [
@@ -238,7 +255,7 @@ const securityPages = [
       "Fault finding and maintenance",
     ],
     featureCards: [
-      { title: "Detection", text: "Movement and access events covered.", icon: "target" },
+      { title: "Detection", text: "Movement monitored and entry routes covered", icon: "target" },
       { title: "Zoning", text: "Configured around how the building works.", icon: "network" },
       { title: "Support", text: "Servicing and fault response available.", icon: "shield" },
     ],
@@ -246,6 +263,7 @@ const securityPages = [
     ctaTitle: "Need a more dependable intruder alarm setup?",
     ctaText: "Arrange an alarm review with Helix.",
     ctaButton: "Arrange an Alarm Review",
+    ...heroContactUs,
   }),
   makePage({
     slug: "access-control",
@@ -255,12 +273,13 @@ const securityPages = [
       "Access control helps clients manage entry across staff doors, communal areas, restricted spaces and managed buildings.",
       "Helix installs and maintains access systems that improve day-to-day control while keeping entry simple for authorised users.",
     ],
-    heroImage: "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png",
-    heroAlt: "Access control and card reader equipment",
+    heroImage: "/images/002 - SECURITY SYSTEMS/003 - Access Control Systems/Internal smart storage centre keypad.png",
+    heroAlt: "Internal smart storage centre access control keypad",
     sectionTitle: "Access control that supports safer operations",
     sectionBody: [
-      "From staff-only zones to communal residential doors, access systems help reduce unauthorised entry.",
-      "We focus on practical placement, permissions and administration so systems stay easy to manage.",
+      "From staff-only areas to communal residential entrances, access control systems help reduce unauthorised entry and improve day-to-day security management.",
+      "Helix designs and installs practical access control systems with careful consideration given to device placement, user permissions, and system administration, helping ensure systems remain secure, reliable, and easy to manage.",
+      "Supporting safer access, clearer control, and more secure day-to-day operation.",
     ],
     servicesTitle: "Access control services include",
     services: [
@@ -280,6 +299,7 @@ const securityPages = [
     ctaTitle: "Need better control over building access?",
     ctaText: "Talk to Helix about access control options.",
     ctaButton: "Discuss Access Control",
+    ...heroContactUs,
   }),
   makePage({
     slug: "intercom-systems",
@@ -289,12 +309,13 @@ const securityPages = [
       "Intercom systems help staff, residents and visitors communicate clearly before access is granted.",
       "Helix supplies, installs and maintains intercom solutions for commercial, residential and managed properties.",
     ],
-    heroImage: "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png",
-    heroAlt: "Security control devices and intercom access equipment",
+    heroImage: "/images/002 - SECURITY SYSTEMS/004 - Intercom Systems/External Voice only intercom to residence.png",
+    heroAlt: "External voice-only intercom at a residential entrance",
     sectionTitle: "Intercoms for safer, smoother entry",
     sectionBody: [
-      "A good intercom system should be simple to use, reliable and positioned around how people enter the building.",
-      "We support audio, video and access-linked intercom setups for a range of property types.",
+      "A good intercom system should be reliable, easy to use, and designed around how people access and move through the building.",
+      "Helix supports audio, video, and access-linked intercom systems for a wide range of property types.",
+      "Helping improve communication, visitor management, and controlled access throughout the property.",
     ],
     servicesTitle: "Intercom support includes",
     services: [
@@ -314,6 +335,7 @@ const securityPages = [
     ctaTitle: "Need an intercom system installed or upgraded?",
     ctaText: "Helix can review your entrance and access needs.",
     ctaButton: "Discuss Intercoms",
+    ...heroContactUs,
   }),
   makePage({
     slug: "gate-automation",
@@ -323,12 +345,13 @@ const securityPages = [
       "Gate automation supports safer, more convenient access control for car parks, private entrances and managed sites.",
       "Helix helps clients plan, install and maintain gate access solutions that integrate with wider security systems where required.",
     ],
-    heroImage: "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/Hikvision Turret Camera - Wall at high level or Ceiling mounted.webp",
-    heroAlt: "Commercial site entrance with security monitoring and access control",
+    heroImage: "/images/002 - SECURITY SYSTEMS/005 - Gate Automation/Gate automation on a business park.png",
+    heroAlt: "Automated gate access at a business park entrance",
     sectionTitle: "Automated access that supports secure movement",
     sectionBody: [
-      "Automated gates need to be safe, reliable and appropriate for the way vehicles and pedestrians use the site.",
-      "We help plan access methods, safety controls and maintenance routines around the property.",
+      "Automated gate systems should be safe, reliable, and suited to how vehicles and pedestrians use the site.",
+      "Helix supports the installation, maintenance, repairs, and fault finding of gate automation systems, helping clients manage safe and practical access control.",
+      "Supporting smoother site access while maintaining safety and perimeter security.",
     ],
     servicesTitle: "Gate automation support includes",
     services: [
@@ -348,6 +371,7 @@ const securityPages = [
     ctaTitle: "Need gate automation support?",
     ctaText: "Talk to Helix about your entrance, site and access requirements.",
     ctaButton: "Discuss Gate Automation",
+    ...heroContactUs,
   }),
 ];
 
@@ -360,12 +384,13 @@ const emergencyPages = [
       "Emergency lighting keeps escape routes, exits and key safety areas visible when normal lighting fails.",
       "Helix designs, installs, tests and maintains emergency lighting systems for residential, commercial and managed properties.",
     ],
-    heroImage: "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png",
-    heroAlt: "Emergency lighting illuminating a safe evacuation route in a stairwell",
+    heroImage: "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - Hospital corridor.png",
+    heroAlt: "Emergency escape lighting in a hospital corridor",
     sectionTitle: "Emergency lighting for safe evacuation",
     sectionBody: [
-      "Clear visibility can make a critical difference in an emergency.",
-      "We assess escape routes, open areas, stairwells and high-risk task areas to position lighting where it supports safe movement.",
+      "Clear visibility can make a critical difference during an emergency evacuation.",
+      "Helix assesses escape routes, stairwells, open areas, and higher-risk locations to position emergency lighting where it best supports safe movement and compliance.",
+      "Helping occupants navigate escape routes more safely during power loss and emergency situations.",
     ],
     servicesTitle: "Emergency lighting services include",
     services: [
@@ -377,14 +402,15 @@ const emergencyPages = [
       "Certification and documentation",
     ],
     featureCards: [
-      { title: "Visible", text: "Routes remain clearer during power loss.", icon: "target" },
+      { title: "Visible", text: "Routes remain lit during power outages", icon: "target" },
       { title: "Tested", text: "Regular testing and records.", icon: "clipboard" },
       { title: "Supported", text: "Maintenance and repair support.", icon: "shield" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Keep evacuation routes safe and compliant.",
     ctaText: "Arrange emergency lighting support with Helix.",
-    ctaButton: "Arrange Emergency Lighting Support",
+    ctaButton: "Discuss Emergency Lighting",
+    ...heroContactUs,
   }),
   makePage({
     slug: "emergency-voice-communication-evc",
@@ -394,12 +420,13 @@ const emergencyPages = [
       "Emergency Voice Communication systems help building users and response teams communicate during incidents.",
       "Helix installs and maintains EVC systems for refuge areas, managed buildings and safety-critical environments.",
     ],
-    heroImage: "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png",
-    heroAlt: "Emergency communication control panel with wall speaker in a commercial building",
+    heroImage: "/images/003 - EMERGENCY SYSTEMS/002 - Emergency Voice Communication - EVC/EVC Main Panel -  University lobby.png",
+    heroAlt: "EVC main panel in a university lobby",
     sectionTitle: "EVC systems for safer response",
     sectionBody: [
-      "Emergency communication systems must be simple, reliable and positioned around the response process.",
-      "We support design, installation, commissioning and maintenance for EVC and disabled refuge communication systems.",
+      "Emergency communication systems should be simple to use, reliable, and designed around the building’s emergency response process.",
+      "Helix supports the design, installation, commissioning, and maintenance of EVC and disabled refuge communication systems for a wide range of properties.",
+      "Helping maintain clear communication and assisted evacuation procedures during emergency situations.",
     ],
     servicesTitle: "EVC support includes",
     services: [
@@ -419,6 +446,7 @@ const emergencyPages = [
     ctaTitle: "Need emergency communication support?",
     ctaText: "Talk to Helix about EVC installation or maintenance.",
     ctaButton: "Discuss EVC Systems",
+    ...heroContactUs,
   }),
   makePage({
     slug: "nurse-call-systems",
@@ -428,12 +456,13 @@ const emergencyPages = [
       "Nurse call systems help residents, patients and building users request assistance quickly.",
       "Helix designs, installs and maintains nurse call systems for care, assisted living and safety-critical environments.",
     ],
-    heroImage: "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png",
-    heroAlt: "Emergency communication control panel with wall speaker in a commercial building",
+    heroImage: "/images/003 - EMERGENCY SYSTEMS/003 - Nurse Call Systems/Nurse call point beside hospital bed.png",
+    heroAlt: "Nurse call point beside a hospital bed",
     sectionTitle: "Nurse call systems designed around response",
     sectionBody: [
-      "A nurse call system must be simple for users and efficient for staff to manage.",
-      "We plan call points, staff alerts and control panels around the building, users and response process.",
+      "A nurse call system should be simple for users, reliable in operation, and efficient for staff to manage and respond to.",
+      "Helix plans call points, staff alerts, and control panels around the building layout, user needs, and response procedures to support effective day-to-day operation.",
+      "Suitable for healthcare, supported living, and managed care environments.",
     ],
     servicesTitle: "Nurse call support includes",
     services: [
@@ -453,6 +482,7 @@ const emergencyPages = [
     ctaTitle: "Need a nurse call system installed or maintained?",
     ctaText: "Helix can help plan a dependable communication setup.",
     ctaButton: "Discuss Nurse Call",
+    ...heroContactUs,
   }),
   makePage({
     slug: "emergency-escape-route-signage",
@@ -462,12 +492,13 @@ const emergencyPages = [
       "Emergency and escape route signage helps occupants understand where to go quickly during an incident.",
       "Helix reviews, supplies and positions signage for evacuation routes, exits and safety-critical areas.",
     ],
-    heroImage: "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png",
-    heroAlt: "Emergency exit route signage and lighting in a stairwell",
-    sectionTitle: "Signage that supports safe movement",
+    heroImage: "/images/003 - EMERGENCY SYSTEMS/004 - Emergency & Escape Route Signage/Emergency signage in apartment corridor.png",
+    heroAlt: "Emergency signage in an apartment corridor",
+    sectionTitle: "Signage that supports safe evacuation",
     sectionBody: [
-      "Escape route signage should be consistent, visible and easy to understand under pressure.",
-      "We help make routes clearer for occupants while supporting the building’s wider safety management.",
+      "Escape route signage should be clear, consistent, and easy to understand during an emergency.",
+      "Helix helps improve route visibility and wayfinding for occupants while supporting the building’s wider fire safety and evacuation strategy.",
+      "Suitable for commercial, residential, and managed property environments.",
     ],
     servicesTitle: "Signage support includes",
     services: [
@@ -481,12 +512,13 @@ const emergencyPages = [
     featureCards: [
       { title: "Clear", text: "Simple guidance for safer evacuation.", icon: "target" },
       { title: "Consistent", text: "A joined-up approach across sites.", icon: "clipboard" },
-      { title: "Supported", text: "Installed alongside safety reviews.", icon: "shield" },
+      { title: "Supported", text: "Installed alongside safety surveys", icon: "shield" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need emergency route signage support?",
     ctaText: "Helix can review and improve route clarity across your building.",
     ctaButton: "Review Escape Signage",
+    ...heroContactUs,
   }),
 ];
 
@@ -499,12 +531,13 @@ const smartPages = [
       "Smart automation helps homes and managed spaces control lighting, access, security and everyday systems more easily.",
       "Helix plans and installs practical smart systems that are reliable, maintainable and appropriate for the property.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/002 - Wi-Fi  Network & IP Solutions/Wifi network in a modern setting 1.png",
-    heroAlt: "Helix engineer supporting modern smart building systems",
+    heroImage: "/images/004 - SMART SYSTEMS/001 - Smart Home Automation/Smart Home Automation in a modern home 1.png",
+    heroAlt: "Smart home automation in a modern home",
     sectionTitle: "Smart systems designed around daily use",
     sectionBody: [
-      "Automation should make a property easier to manage, not harder.",
-      "We focus on dependable setup, clear controls and integration with security or access systems where useful.",
+      "Automation should make a property easier to manage, not more complicated.",
+      "Helix focuses on dependable setup, clear user controls, and practical integration with security, access control, and connected building systems where beneficial.",
+      "Suitable for modern homes, apartments, and connected living environments.",
     ],
     servicesTitle: "Automation support includes",
     services: [
@@ -524,6 +557,7 @@ const smartPages = [
     ctaTitle: "Need smart automation for your property?",
     ctaText: "Talk to Helix about a practical connected setup.",
     ctaButton: "Discuss Smart Automation",
+    ...heroContactUs,
   }),
   makePage({
     slug: "wi-fi-network-ip-solutions",
@@ -537,8 +571,9 @@ const smartPages = [
     heroAlt: "Security and network control equipment in a modern building",
     sectionTitle: "Connectivity that supports your systems",
     sectionBody: [
-      "From CCTV remote viewing to smart controls and IP-based access systems, connectivity matters.",
-      "We help plan practical network support for the systems that keep your property operating smoothly.",
+      "From CCTV remote viewing to smart controls and IP-based access systems, reliable connectivity plays an important role in modern buildings.",
+      "Helix helps plan practical network and connectivity solutions that support the systems keeping your property secure, connected, and operating smoothly.",
+      "Suitable for homes, offices, managed properties, and connected building environments.",
     ],
     servicesTitle: "Network support includes",
     services: [
@@ -558,6 +593,7 @@ const smartPages = [
     ctaTitle: "Need Wi-Fi or IP system support?",
     ctaText: "Helix can help connect and configure your building systems.",
     ctaButton: "Discuss Network Support",
+    ...heroContactUs,
   }),
   makePage({
     slug: "minor-electrical-works",
@@ -567,12 +603,13 @@ const smartPages = [
       "Minor electrical works often support fire, security, emergency and smart system installations.",
       "Helix provides practical electrical support where required as part of joined-up building system delivery.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Compliance and building system support materials",
+    heroImage: "/images/004 - SMART SYSTEMS/003 - Minor Electrical Works/Minor Electrical works 1.png",
+    heroAlt: "Minor electrical works supporting building system installation",
     sectionTitle: "Electrical support for safer installations",
     sectionBody: [
-      "Small electrical works can be essential for neat, safe and reliable system installation.",
-      "We coordinate minor works alongside the wider system delivery so projects stay simpler for clients.",
+      "Small electrical works can play an important role in achieving neat, safe, and reliable system installations.",
+      "Helix coordinates minor electrical works alongside wider fire, security, and connected system projects to help keep delivery simpler and more efficient for clients.",
+      "Ideal for upgrade works, alterations, repairs, and system additions.",
     ],
     servicesTitle: "Minor works support includes",
     services: [
@@ -584,48 +621,15 @@ const smartPages = [
       "Fault support",
     ],
     featureCards: [
-      { title: "Neat", text: "Support for clean installation.", icon: "building" },
+      { title: "Integrated", text: "Clean and professional installation", icon: "building" },
       { title: "Safe", text: "Work completed with safety in mind.", icon: "shield" },
-      { title: "Joined-up", text: "Coordinated with system delivery.", icon: "network" },
+      { title: "Joined-up", text: "Coordinated with connected systems.", icon: "network" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need minor electrical support with your systems?",
     ctaText: "Talk to Helix about your installation requirements.",
     ctaButton: "Discuss Minor Works",
-  }),
-  makePage({
-    slug: "portable-appliance-testing-pat",
-    title: "Portable Appliance Testing (PAT)",
-    eyebrow: "Practical testing and clear records",
-    intro: [
-      "Portable Appliance Testing helps organisations keep electrical equipment checks organised and documented.",
-      "Helix supports PAT testing for offices, managed buildings, commercial environments and property portfolios.",
-    ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Safety inspection checklist and compliance equipment",
-    sectionTitle: "PAT testing that supports organised records",
-    sectionBody: [
-      "PAT testing should be clear, practical and easy to evidence.",
-      "We help clients keep testing records up to date as part of wider compliance and maintenance support.",
-    ],
-    servicesTitle: "PAT support includes",
-    services: [
-      "Portable appliance testing",
-      "Equipment labelling",
-      "Test records",
-      "Asset list support",
-      "Failed item reporting",
-      "Planned retesting schedules",
-    ],
-    featureCards: [
-      { title: "Tested", text: "Equipment checks completed clearly.", icon: "check" },
-      { title: "Documented", text: "Records ready for management review.", icon: "clipboard" },
-      { title: "Planned", text: "Support for recurring schedules.", icon: "shield" },
-    ],
-    suitableFor: commonSuitableFor,
-    ctaTitle: "Need PAT testing for your property or portfolio?",
-    ctaText: "Helix can help keep appliance testing organised.",
-    ctaButton: "Book PAT Testing",
+    ...heroContactUs,
   }),
 ];
 
@@ -638,12 +642,13 @@ const compliancePages = [
       "Keeping fire, electrical and safety systems properly tested, certified and documented is essential for responsible property management.",
       "Helix provides practical certification and compliance support for landlords, businesses, facilities managers and property owners.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Fire safety inspection checklist with fire alarm emergency lighting and extinguisher equipment",
+    heroImage: "/images/005 - COMPLIANCE/001 - Certification & Compliance/Certification & Compliance 1.png",
+    heroAlt: "Certification and compliance documentation support",
     sectionTitle: "Clear documentation for safer buildings",
     sectionBody: [
-      "Compliance is not only about having systems installed. It is about ensuring they are tested, maintained and documented correctly.",
-      "Our certification support provides clear records for safety, accountability and ongoing property management.",
+      "Compliance is not only about having systems installed — it is about ensuring they are properly tested, maintained, and documented throughout their lifecycle.",
+      "Helix provides certification and compliance support with clear reporting and records to assist with safety management, accountability, and ongoing property maintenance.",
+      "Supporting landlords, managing agents, businesses, and duty holders with practical compliance management.",
     ],
     servicesTitle: "Certification support includes",
     services: [
@@ -656,13 +661,14 @@ const compliancePages = [
     ],
     featureCards: [
       { title: "Clear", text: "Documentation that is easier to manage.", icon: "clipboard" },
-      { title: "Planned", text: "Support for recurring testing cycles.", icon: "network" },
-      { title: "Accountable", text: "One team across system records.", icon: "shield" },
+      { title: "Planned", text: "Support for recurring testing and servicing.", icon: "network" },
+      { title: "Accountable", text: "One team managing system records.", icon: "shield" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need your systems tested, certified or documented?",
     ctaText: "Arrange certification and compliance support with Helix.",
     ctaButton: "Book Compliance Support",
+    ...heroContactUs,
   }),
   makePage({
     slug: "safety-inspections-testing",
@@ -672,12 +678,13 @@ const compliancePages = [
       "Regular inspections and testing help identify faults, gaps and maintenance needs before they become bigger issues.",
       "Helix supports planned safety inspections across fire, emergency, security and electrical support services.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Engineer completing a fire safety inspection checklist",
+    heroImage: "/images/005 - COMPLIANCE/002 - Safety Inspections & Testing/Safety inspections & testing in a modern factory.png",
+    heroAlt: "Safety inspections and testing in a modern factory",
     sectionTitle: "Testing and inspection support for managed properties",
     sectionBody: [
-      "A well-managed building needs inspection routines that are practical and clearly recorded.",
-      "We help clients keep evidence, findings and next steps organised.",
+      "A well-managed building depends on inspection routines that are practical, consistent, and clearly documented.",
+      "Helix helps clients keep inspection records, findings, and recommended actions organised to support ongoing maintenance, safety, and compliance management.",
+      "Supporting planned maintenance programmes and ongoing property oversight.",
     ],
     servicesTitle: "Inspection support includes",
     services: [
@@ -689,29 +696,30 @@ const compliancePages = [
       "Report and record support",
     ],
     featureCards: [
-      { title: "Visible", text: "Find issues before they escalate.", icon: "target" },
-      { title: "Recorded", text: "Clear reports and actions.", icon: "clipboard" },
-      { title: "Reliable", text: "Support for planned maintenance.", icon: "shield" },
+      { title: "Proactive", text: "Issues identified before they escalate.", icon: "target" },
+      { title: "Documented", text: "Clear reporting and recommended actions.", icon: "clipboard" },
+      { title: "Reliable", text: "Support for planned maintenance programmes.", icon: "shield" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need safety inspections or system testing?",
     ctaText: "Helix can support planned checks and reporting.",
     ctaButton: "Book Safety Testing",
+    ...heroContactUs,
   }),
   makePage({
     slug: "regulatory-compliance-services",
     title: "Regulatory Compliance Services",
     eyebrow: "Practical support for building responsibilities",
     intro: [
-      "Regulatory compliance can feel fragmented when fire, security, emergency systems and records are managed separately.",
-      "Helix helps bring responsibilities, maintenance and documentation into a clearer service model.",
+      "Keeping buildings compliant requires more than isolated systems — it requires coordinated safety, clear documentation, and dependable ongoing support.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
-    heroAlt: "Compliance records and certification support materials",
+    heroImage: "/images/005 - COMPLIANCE/003 - Regulatory Compliance Service/Regulatory Compliance Service 1.png",
+    heroAlt: "Regulatory compliance service support",
     sectionTitle: "Compliance support with one accountable team",
     sectionBody: [
-      "Our role is to help clients understand what needs attention, what has been completed and how records should be maintained.",
-      "We support landlords, facilities teams and managed portfolios with practical, ongoing compliance-led service.",
+      "Our role is to help clients understand what needs attention, what has been completed, and how records should be maintained.",
+      "We support landlords, facilities teams, and managed portfolios with practical, ongoing compliance-led service.",
+      "We assist clients to maintain clearer oversight across safety systems, testing, and documentation.",
     ],
     servicesTitle: "Regulatory support includes",
     services: [
@@ -723,7 +731,7 @@ const compliancePages = [
       "Fire and security record support",
     ],
     featureCards: [
-      { title: "Joined-up", text: "Fire, security and compliance aligned.", icon: "network" },
+      { title: "Integrated", text: "Fire, security and compliance aligned.", icon: "network" },
       { title: "Practical", text: "Clear recommendations and actions.", icon: "target" },
       { title: "Documented", text: "Records that support accountability.", icon: "clipboard" },
     ],
@@ -731,6 +739,43 @@ const compliancePages = [
     ctaTitle: "Need clearer regulatory compliance support?",
     ctaText: "Talk to Helix about your responsibilities and record keeping.",
     ctaButton: "Book a Compliance Review",
+    ...heroContactUs,
+  }),
+  makePage({
+    slug: "portable-appliance-testing-pat",
+    title: "Portable Appliance Testing (PAT)",
+    eyebrow: "Practical testing and clear records",
+    intro: [
+      "Portable Appliance Testing helps organisations keep electrical equipment checks organised and documented.",
+      "Helix supports PAT testing for offices, managed buildings, commercial environments and property portfolios.",
+    ],
+    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
+    heroAlt: "Portable appliance testing in a commercial environment",
+    sectionTitle: "PAT testing that supports organised records",
+    sectionBody: [
+      "PAT testing should be straightforward, practical, and easy to evidence through clear reporting and record management.",
+      "Helix helps clients keep portable appliance testing records up to date as part of wider maintenance, safety, and compliance support.",
+      "Suitable for offices, schools, retail premises, warehouses, and other working environments using portable electrical equipment.",
+    ],
+    servicesTitle: "PAT support includes",
+    services: [
+      "Portable appliance testing",
+      "Equipment labelling",
+      "Test records",
+      "Asset list support",
+      "Failed item reporting",
+      "Planned retesting schedules",
+    ],
+    featureCards: [
+      { title: "Tested", text: "Equipment checks completed professionally.", icon: "check" },
+      { title: "Documented", text: "Records prepared for review and compliance.", icon: "clipboard" },
+      { title: "Planned", text: "Support for recurring testing schedules.", icon: "shield" },
+    ],
+    suitableFor: commonSuitableFor,
+    ctaTitle: "Need PAT testing for your property or portfolio?",
+    ctaText: "Helix can help keep appliance testing organised.",
+    ctaButton: "Book PAT Testing",
+    ...heroContactUs,
   }),
 ];
 
@@ -742,8 +787,9 @@ function makeLanding(
   intro: string[],
   heroImage: string,
   pages: PremiumServicePageData[],
+  overrides?: Partial<PremiumServicePageData>,
 ): PremiumServicePageData {
-  return {
+  return makePage({
     slug,
     title,
     eyebrow,
@@ -766,7 +812,8 @@ function makeLanding(
     ctaTitle: `Need ${group.toLowerCase()} support for your building?`,
     ctaText: "Talk to Helix today and we will help shape the right next step.",
     ctaButton: "Book a Survey",
-  };
+    ...overrides,
+  });
 }
 
 export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
@@ -775,10 +822,32 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
     route: "/fire-systems",
     label: "Fire Systems",
     theme: { category: "Fire Systems", categoryHref: "/fire-systems", accent: "#EF2B2D", accentDark: "#B91C1C", label: "Fire" },
-    landing: makeLanding("Fire Systems", "fire-systems", "Fire Systems", "Complete fire protection support", [
-      "Helix provides fire systems that protect people, property and day-to-day operations.",
-      "From alarms and extinguishers to smoke ventilation and signage, our team delivers practical fire safety support.",
-    ], "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Modern corporate office lobby.png", firePages),
+    landing: makeLanding(
+      "Fire Systems",
+      "fire-systems",
+      "Fire Systems",
+      "Complete fire protection support",
+      [
+        "Helix provides fire systems that protect people, property and day-to-day operations.",
+        "From alarms and extinguishers to smoke ventilation and signage, our team delivers practical fire safety support.",
+      ],
+      "/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png",
+      firePages,
+      {
+        sectionBody: [
+          "Every building operates differently, with its own risks, occupancy patterns and compliance responsibilities. Helix carefully assesses each property and recommends practical fire, security and compliance solutions suited to how the site is used and managed.",
+          "From initial survey and system design through to installation, maintenance and documentation, our team keeps the process clear, organised and professionally managed at every stage.",
+          "Clear communication, dependable workmanship and consistent support remain central to every project we deliver.",
+        ],
+        services: [
+          ...firePages.map((page) => page.title),
+          "Fire Alarm Servicing and Maintenance",
+          "Assessments tailored to the building layout",
+        ],
+        ctaButton: "Discuss Fire Systems",
+        ...heroContactUs,
+      },
+    ),
     pages: firePages,
   },
   security: {
@@ -786,10 +855,32 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
     route: "/security",
     label: "Security Systems",
     theme: { category: "Security Systems", categoryHref: "/security", accent: "#2855C7", accentDark: "#1D3F99", label: "Security" },
-    landing: makeLanding("Security Systems", "security", "Security Systems", "Protection, access and monitoring", [
-      "Helix designs, installs and maintains security systems that improve visibility, controlled access and response planning.",
-      "Our solutions are configured around the way your property is used, occupied and managed.",
-    ], "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png", securityPages),
+    landing: makeLanding(
+      "Security Systems",
+      "security",
+      "Security Systems",
+      "Protection, access and monitoring",
+      [
+        "Helix designs, installs and maintains security systems that improve visibility, controlled access and response planning.",
+        "Our solutions are configured around the way your property is used, occupied and managed.",
+      ],
+      "/images/002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png",
+      securityPages,
+      {
+        sectionBody: [
+          "Every building has different risks, usage patterns and compliance responsibilities. Helix carefully reviews each property and recommends practical systems and support tailored to the way the site operates.",
+          "From initial survey and system design through to installation, maintenance and documentation, our team keeps the process clear, organised and professionally managed throughout.",
+          "Practical advice, reliable workmanship and long-term support remain at the centre of our approach.",
+        ],
+        featureCards: [
+          { title: securityPages[0].title, text: "Visual coverage that supports real time oversight", icon: "target" },
+          { title: securityPages[1].title, text: securityPages[1].eyebrow, icon: "network" },
+          { title: securityPages[2].title, text: securityPages[2].eyebrow, icon: "shield" },
+        ],
+        ctaButton: "Discuss Security Systems",
+        ...heroContactUs,
+      },
+    ),
     pages: securityPages,
   },
   emergency: {
@@ -797,10 +888,26 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
     route: "/emergency-systems",
     label: "Emergency Systems",
     theme: { category: "Emergency Systems", categoryHref: "/emergency-systems", accent: "#EF2B2D", accentDark: "#B91C1C", label: "Emergency" },
-    landing: makeLanding("Emergency Systems", "emergency-systems", "Emergency Systems", "Safe response when it matters", [
-      "Helix supports emergency systems that help people evacuate, communicate and request support quickly.",
-      "From emergency lighting and EVC to nurse call and escape route signage, we keep safety-critical systems clear and reliable.",
-    ], "/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png", emergencyPages),
+    landing: makeLanding(
+      "Emergency Systems",
+      "emergency-systems",
+      "Emergency Systems",
+      "Safe response when it matters",
+      [
+        "Helix supports emergency systems that help people evacuate, communicate and request support quickly.",
+        "From emergency lighting and EVC to nurse call and escape route signage, we keep safety-critical systems clear and reliable.",
+      ],
+      "/images/003 - EMERGENCY SYSTEMS/Image for main emergency systems page - hospital scene.png",
+      emergencyPages,
+      {
+        sectionBody: [
+          "Every building has different risks, usage patterns and responsibilities. Helix reviews your property carefully and recommends practical systems and support that fit the way the site operates.",
+          "Our team keeps the process clear from survey and design through installation, maintenance and documentation.",
+        ],
+        ctaButton: "Discuss Emergency Systems",
+        ...heroContactUs,
+      },
+    ),
     pages: emergencyPages,
   },
   smart: {
@@ -808,10 +915,27 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
     route: "/smart-systems",
     label: "Smart Systems",
     theme: { category: "Smart Systems", categoryHref: "/smart-systems", accent: "#2855C7", accentDark: "#1D3F99", label: "Smart" },
-    landing: makeLanding("Smart Systems", "smart-systems", "Smart Systems", "Connected building support", [
-      "Helix supports smart, networked and electrical services that help modern properties operate more smoothly.",
-      "We focus on practical systems that are reliable, maintainable and easy for clients to manage.",
-    ], "/images/004 - SMART SYSTEMS/002 - Wi-Fi  Network & IP Solutions/Wifi network in a modern setting 1.png", smartPages),
+    landing: makeLanding(
+      "Smart Systems",
+      "smart-systems",
+      "Smart Systems",
+      "Connected building support",
+      [
+        "Helix supports smart, networked and electrical services that help modern properties operate more smoothly.",
+        "We focus on practical systems that are reliable, maintainable and easy for clients to manage.",
+      ],
+      "/images/004 - SMART SYSTEMS/Image for main smart systems page - modern home scene.png",
+      smartPages,
+      {
+        sectionBody: [
+          "Every building has different risks, usage patterns and compliance responsibilities. Helix carefully reviews each property and recommends practical systems and support that fit the way the site operates.",
+          "Our team keeps the process clear from initial survey and design through to installation, maintenance and documentation.",
+          "The result is a more organised, compliant and confidently managed environment for building owners and occupants alike.",
+        ],
+        ctaButton: "Discuss Smart Systems",
+        ...heroContactUs,
+      },
+    ),
     pages: smartPages,
   },
   compliance: {
@@ -819,10 +943,31 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
     route: "/compliance",
     label: "Compliance",
     theme: { category: "Compliance", categoryHref: "/compliance", accent: "#198754", accentDark: "#11683F", label: "Compliance" },
-    landing: makeLanding("Compliance", "compliance", "Compliance", "Certification, inspections and records", [
-      "Helix helps clients keep fire, security, emergency and electrical safety responsibilities clearer and better documented.",
-      "Our compliance support is designed for property owners, landlords, facilities teams and managed portfolios.",
-    ], "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png", compliancePages),
+    landing: makeLanding(
+      "Compliance",
+      "compliance",
+      "Compliance",
+      "Certification, inspections and records",
+      [
+        "Helix helps clients manage fire, security and compliance responsibilities with clearer systems, organised reporting and dependable ongoing support.",
+      ],
+      "/images/005 - COMPLIANCE/Image for main compliance page - office scene.png",
+      compliancePages,
+      {
+        sectionBody: [
+          "Every building has different risks, usage patterns and compliance responsibilities. Helix carefully reviews each property and recommends practical systems and support that fit the way the site operates.",
+          "Our team keeps the process clear from survey and design through to installation, maintenance and documentation.",
+          "A well planned system is easier to manage, easier to maintain and better suited to the people who rely on it every day.",
+        ],
+        featureCards: [
+          { title: compliancePages[0].title, text: compliancePages[0].eyebrow, icon: "target" },
+          { title: compliancePages[1].title, text: "Ongoing support to meet building regulations", icon: "network" },
+          { title: compliancePages[2].title, text: compliancePages[2].eyebrow, icon: "shield" },
+        ],
+        ctaButton: "Discuss Compliance",
+        ...heroContactUs,
+      },
+    ),
     pages: compliancePages,
   },
 };
