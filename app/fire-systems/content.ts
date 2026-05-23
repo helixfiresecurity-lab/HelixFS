@@ -25,7 +25,7 @@ export const fireSystemsPage = {
     "From fire alarm installation and emergency lighting to extinguishers, smoke ventilation, nurse call systems and compliance certification, our team delivers professional fire safety services from initial survey through installation, testing, maintenance and documentation.",
     "We work with residential properties, commercial buildings, offices, retail premises, care environments, apartment blocks, schools, warehouses and managed sites.",
   ],
-  image: "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Modern corporate office lobby.png",
+  image: "/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png",
   sectionTitle: "Complete fire safety solutions for your property",
   sectionBody: [
     "Every building has different risks, layouts and compliance requirements. That is why we do not use a one size fits all approach. We assess your premises carefully, recommend the most suitable system and ensure every installation is completed to a high professional standard.",
@@ -438,7 +438,7 @@ export const fireDetailPages: FireDetailPage[] = [
       "Keeping your fire, electrical and safety systems properly tested, certified and documented is essential for responsible property management. Helix provides professional certification and compliance support for residential, commercial and managed properties.",
       "We help landlords, businesses, facilities managers and property owners maintain clear records and confidence in their safety systems.",
     ],
-    leadImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
+    leadImage: "/images/005 - COMPLIANCE/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
     leadAlt: "Fire safety inspection checklist with fire alarm emergency lighting and extinguisher equipment",
     sectionTitle: "Clear documentation for safer buildings",
     sectionBody: [

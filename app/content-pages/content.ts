@@ -43,7 +43,7 @@ export const compliancePage: InfoPageData = makePage({
     "Helix supports property owners, landlords, facilities teams and managed portfolios with practical compliance support across fire safety, security systems and ongoing service records.",
     "Our role is to help clients keep systems tested, documented and easier to manage, with clear reporting, planned maintenance and one accountable team behind the work.",
   ],
-  image: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
+  image: "/images/005 - COMPLIANCE/Image for main compliance page - office scene.png",
   imageAlt: "Helix engineer and vehicle supporting compliance-led building services",
   metrics: [
     { value: "Clear", label: "Documentation and reporting" },

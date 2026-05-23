@@ -749,7 +749,7 @@ const compliancePages = [
       "Portable Appliance Testing helps organisations keep electrical equipment checks organised and documented.",
       "Helix supports PAT testing for offices, managed buildings, commercial environments and property portfolios.",
     ],
-    heroImage: "/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
+    heroImage: "/images/005 - COMPLIANCE/004 - Portable Appliance Testing PAT/PAT testing in a factory.png",
     heroAlt: "Portable appliance testing in a commercial environment",
     sectionTitle: "PAT testing that supports organised records",
     sectionBody: [

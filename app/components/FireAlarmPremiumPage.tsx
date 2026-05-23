@@ -206,7 +206,7 @@ function Icon({ name, className = "", style }: { name: string; className?: strin
 
 function getHeroImage(page: PremiumServicePageData, theme: PremiumServiceTheme) {
   if (page.heroImage) return page.heroImage;
-  if (theme.category === "Security Systems") return "/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png";
+  if (theme.category === "Security Systems") return "/images/002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png";
   if (theme.category === "Compliance") return "/images/005 - COMPLIANCE/Image for main compliance page - office scene.png";
   return "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Fire Alarm Panel 1 - Shown internally only - fixed to wall - mid height.webp";
 }

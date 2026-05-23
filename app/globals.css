@@ -670,15 +670,15 @@ a {
 }
 
 .hero-slide-fire {
-  background-image: url("/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Modern corporate office lobby.png");
+  background-image: url("/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png");
 }
 
 .hero-slide-security {
-  background-image: url("/images/002 - SECURITY SYSTEMS/001 - CCTV Systems/CCTV External 1.png");
+  background-image: url("/images/002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png");
 }
 
 .hero-slide-compliance {
-  background-image: url("/images/001 - FIRE SYSTEMS/004 - Fire Safety Signage/Fire safety signage in University Library.png");
+  background-image: url("/images/005 - COMPLIANCE/Image for main compliance page - office scene.png");
 }
 
 .hero-slide-overlay {
@@ -1075,31 +1075,31 @@ a {
 .fire-card-image {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-    url("/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Tech HQ and glass corridor 2.png");
+    url("/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png");
 }
 
 .security-card-image {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02)),
-    url("/images/002 - SECURITY SYSTEMS/002 - Intruder Alarm Systems/Home with external bellbox at twilight.png");
+    url("/images/002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png");
 }
 
 .compliance-card-image {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    url("/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png");
+    url("/images/005 - COMPLIANCE/Image for main compliance page - office scene.png");
 }
 
 .emergency-card-image {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    url("/images/003 - EMERGENCY SYSTEMS/001 - Emergency Lighting/Emergency escape lighting - High tech office corridor.png");
+    url("/images/003 - EMERGENCY SYSTEMS/Image for main emergency systems page - hospital scene.png");
 }
 
 .smart-card-image {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
-    url("/images/004 - SMART SYSTEMS/002 - Wi-Fi  Network & IP Solutions/Wifi network in a modern setting 1.png");
+    url("/images/004 - SMART SYSTEMS/Image for main smart systems page - modern home scene.png");
 }
 
 .service-card-body {
@@ -1934,7 +1934,7 @@ a {
   color: #ffffff;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.48)),
-    url("/images/004 - SMART SYSTEMS/004 - Portable Appliance Testing PAT/PAT testing in a factory.png")
+    url("/images/005 - COMPLIANCE/004 - Portable Appliance Testing PAT/PAT testing in a factory.png")
       center center / cover no-repeat;
 }
 
