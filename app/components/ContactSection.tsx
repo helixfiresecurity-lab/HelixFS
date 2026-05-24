@@ -5,12 +5,13 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
     <section className={`contact-section${standalone ? " standalone pt-12 lg:pt-20" : ""}`} id="contact">
       <div className="contact-shell">
         <div className="contact-copy">
-          <p className="service-page-eyebrow">Book now</p>
-          <h2>Book a survey or request a callback</h2>
+          <h2>Contact Us Now</h2>
           <p>
-            Tell us about your property, service requirements and timeline. Our team will review your
-            enquiry and come back with the right next step, whether that is a survey, quote or quick
-            callback.
+            Tell us about your site and requirements. We&apos;ll review your enquiry and follow up with
+            the right next step — survey, quote, or quick callback.
+          </p>
+          <p>
+            Our typical response time is within 2 hours during business hours.
           </p>
 
           <div className="contact-quick-links">

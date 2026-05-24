@@ -6,6 +6,14 @@ import { useState } from "react";
 import { navItems } from "../site-data";
 import { NavChevron } from "./NavChevron";
 
+const exploreAllLabels: Record<string, string> = {
+  "Fire Systems": "Explore All Fire Systems",
+  "Security Systems": "Explore All Security Systems",
+  "Emergency Systems": "Explore All Emergency Systems",
+  "Smart Systems": "Explore All Smart Systems",
+  Compliance: "Explore All Compliance",
+};
+
 export function SiteHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,7 +29,7 @@ export function SiteHeader() {
         <Image className="w-[140px] lg:w-[198px] h-auto" src="/helix-logo-header.png" alt="Helix logo" width={272} height={153} priority />
       </Link>
 
-      <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+      <div className="flex items-center gap-2 sm:gap-3 xl:hidden">
         <a
           className="header-whatsapp flex items-center justify-center w-11 h-11 rounded-lg transition-transform hover:-translate-y-0.5"
           href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
@@ -56,18 +64,18 @@ export function SiteHeader() {
         </button>
       </div>
 
-      <div className={`w-full ${isMobileMenuOpen ? "block" : "hidden"} lg:contents`}>
-        <div className="flex flex-col lg:contents mt-4 lg:mt-0 pt-2 lg:pt-0 border-t border-slate-100 lg:border-t-0">
-          <nav className="site-nav flex flex-col lg:flex-row items-start lg:items-center justify-center gap-0 text-[1.05rem] font-medium text-navy w-full lg:col-start-2 lg:justify-self-center lg:w-max lg:max-w-none" aria-label="Primary">
+      <div className={`w-full ${isMobileMenuOpen ? "block" : "hidden"} xl:contents`}>
+        <div className="flex flex-col xl:contents mt-4 xl:mt-0 pt-2 xl:pt-0 border-t border-slate-100 xl:border-t-0">
+          <nav className="site-nav flex flex-col xl:flex-row items-start xl:items-center justify-center gap-0 text-[1.05rem] font-medium text-navy w-full xl:col-start-2 xl:justify-self-center xl:w-max xl:max-w-none" aria-label="Primary">
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className={`nav-item w-full lg:w-auto border-b border-slate-100 lg:border-b-0 ${item.menu ? " has-menu" : ""} ${activeMenu === item.label ? " menu-open" : ""}`}
+                className={`nav-item w-full xl:w-auto border-b border-slate-100 xl:border-b-0 ${item.menu ? " has-menu" : ""} ${activeMenu === item.label ? " menu-open" : ""}`}
                 onMouseLeave={() => setActiveMenu(null)}
               >
                 <Link
                   href={item.href}
-                  className="flex justify-between items-center w-full gap-1.5 py-4 lg:py-2 lg:px-0.5 transition-colors text-slate-600 hover:text-red lg:whitespace-nowrap lg:text-[0.8125rem]"
+                  className="flex justify-between items-center w-full gap-1.5 py-4 xl:py-2 xl:px-0.5 transition-colors text-slate-600 hover:text-red xl:whitespace-nowrap xl:text-[0.8125rem]"
                   aria-expanded={item.menu ? activeMenu === item.label : undefined}
                   onClick={(event) => {
                     if (!item.menu) {
@@ -85,7 +93,7 @@ export function SiteHeader() {
                 </Link>
 
                 {item.menu ? (
-                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden lg:!block"}`}>
+                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden xl:!block"}`}>
                     {item.menu.type === "fire" ? (
                       <>
                         <div className="nav-fire-cards">
@@ -105,8 +113,7 @@ export function SiteHeader() {
                           ))}
 
                           <Link className="nav-explore-all" href={item.href} onClick={closeAllMenus}>
-                            Explore all
-                            <span aria-hidden="true">↗</span>
+                            {exploreAllLabels[item.label] ?? `Explore All ${item.label}`}
                           </Link>
                         </div>
 
@@ -127,8 +134,7 @@ export function SiteHeader() {
                         ))}
 
                         <Link className="nav-explore-all inline" href={item.href} onClick={closeAllMenus}>
-                          Explore all
-                          <span aria-hidden="true">↗</span>
+                          {exploreAllLabels[item.label] ?? `Explore All ${item.label}`}
                         </Link>
                       </div>
                     )}
@@ -138,9 +144,9 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="header-actions flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-[10px] w-full lg:col-start-3 lg:justify-self-end lg:w-auto mt-6 lg:mt-0 pb-4 lg:pb-0">
+          <div className="header-actions flex flex-col xl:flex-row items-stretch xl:items-center gap-3 xl:gap-[10px] w-full xl:col-start-3 xl:justify-self-end xl:w-auto mt-6 xl:mt-0 pb-4 xl:pb-0">
             <a
-              className="header-whatsapp hidden lg:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
+              className="header-whatsapp hidden xl:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
               target="_blank"
               rel="noreferrer"
@@ -155,7 +161,7 @@ export function SiteHeader() {
               <span>WhatsApp</span>
             </a>
 
-            <Link className="header-cta header-cta-primary flex items-center justify-center min-h-[48px] lg:min-h-[44px] px-5 whitespace-nowrap font-heading text-[1rem] lg:text-[0.84rem] font-semibold rounded-lg transition-transform hover:-translate-y-0.5 w-full lg:w-auto" href="/book-now" onClick={closeAllMenus}>
+            <Link className="header-cta header-cta-primary flex items-center justify-center min-h-[48px] xl:min-h-[44px] px-5 whitespace-nowrap font-heading text-[1rem] xl:text-[0.84rem] font-semibold rounded-lg transition-transform hover:-translate-y-0.5 w-full xl:w-auto" href="/book-now" onClick={closeAllMenus}>
               Request a Quote
             </Link>
           </div>

@@ -185,12 +185,6 @@ const primaryServices: PrimaryService[] = [
     iconSrc: "/service-icons/safety-inspections-testing.svg",
     href: "/compliance/safety-inspections-testing",
   },
-  {
-    title: "Portable Appliance Testing (PAT)",
-    tone: "red",
-    iconSrc: "/service-icons/certification-compliance.svg",
-    href: "/compliance/portable-appliance-testing-pat",
-  },
 ] as const;
 
 type ValueIconKind = "reliable" | "trusted" | "knowledgeable" | "speed" | "innovative" | "safety";
@@ -382,11 +376,11 @@ export default function Home() {
 
       <section className="services-overview" id="services">
         <div className="services-intro section-intro section-intro--center">
-          <h2>From Consultation to Completion — All In-House</h2>
+          <h2>Integrated Delivery from Consultation to Completion</h2>
           <p>
-            We deliver fully integrated fire protection, security and compliance services from one
-            accountable in-house team — from survey and design through installation, maintenance,
-            servicing and reporting.
+            We deliver fully integrated fire protection, security, and compliance solutions through one
+            accountable team — from initial survey and design through to installation, maintenance,
+            certification, and ongoing support.
           </p>
         </div>
 
@@ -398,7 +392,7 @@ export default function Home() {
           <h2>Our Primary Services</h2>
           <p>
             Providing complete fire safety, security and compliance services — from fire alarm installation,
-            servicing and monitoring to CCTV, access control, intruder alarms, emergency systems, PAT testing
+            servicing and monitoring to CCTV, access control, intruder alarms, emergency systems
             and certification — all delivered by our in-house team.
           </p>
         </div>
@@ -445,18 +439,11 @@ export default function Home() {
               </a>
             </div>
             <div className="compliance-feature-media">
-              <video
-                className="compliance-video"
-                controls
-                playsInline
-                preload="metadata"
-                poster="/images/001 - FIRE SYSTEMS/004 - Fire Safety Signage/Fire safety signage in University Library.png"
-              >
-                <source
-                  src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-                  type="video/mp4"
-                />
-              </video>
+              <img
+                className="compliance-risk-image"
+                src="/images/000 - HOME PAGE/Undertaking fire risk assessment.png"
+                alt="Undertaking a fire risk assessment on site"
+              />
             </div>
           </article>
         </div>
@@ -481,7 +468,7 @@ export default function Home() {
 
       <section className="closing-cta-section">
         <div className="closing-cta-shell">
-          <div className="closing-cta-visual bg-[url('/helix-engineer-van.jpg')] bg-center bg-cover bg-no-repeat">
+          <div className="closing-cta-visual closing-cta-visual--contact">
             {/* Background image visual - content removed as requested */}
           </div>
 

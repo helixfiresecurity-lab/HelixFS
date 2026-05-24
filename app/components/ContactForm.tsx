@@ -97,11 +97,14 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
             required
           >
             <option value="">Select property type</option>
-            <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
-            <option value="care">Care / Assisted Living</option>
-            <option value="education">Education</option>
-            <option value="industrial">Industrial / Warehouse</option>
+            <option value="residential">Residential</option>
+            <option value="retail">Retail</option>
+            <option value="industrial-warehouse">Industrial / Warehouse</option>
+            <option value="education-healthcare">Education / Healthcare</option>
+            <option value="hospitality-leisure">Hospitality / Leisure</option>
+            <option value="mixed-use">Mixed Use Development</option>
+            <option value="public-sector">Public Sector</option>
           </select>
         </label>
       </div>
@@ -131,6 +134,13 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <button className="button button-primary contact-submit" type="submit" disabled={status === "loading"}>
           {status === "loading" ? "Sending..." : "Submit Enquiry"}
         </button>
+        <p className="contact-privacy-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+            <rect x="5" y="11" width="14" height="10" rx="2" />
+            <path d="M8 11V8a4 4 0 1 1 8 0v3" strokeLinecap="round" />
+          </svg>
+          Your data is never shared
+        </p>
         {message ? <p className={`contact-form-status ${status}`}>{message}</p> : null}
       </div>
     </form>

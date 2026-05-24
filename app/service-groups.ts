@@ -23,10 +23,11 @@ const heroContactUs = {
 const commonSuitableFor = [
   "Commercial buildings",
   "Residential developments",
-  "Managed properties",
-  "Offices and retail units",
-  "Education and care environments",
-  "Facilities management portfolios",
+  "HMOs and apartment blocks",
+  "Offices and retail spaces",
+  "Industrial and warehouse facilities",
+  "Education and healthcare facilities",
+  "Hospitality and leisure venues",
 ];
 
 const firePages = [
@@ -63,15 +64,11 @@ const firePages = [
       { title: "Addressable Systems", text: "Better device identification for larger or more complex sites.", icon: "network" },
       { title: "Maintenance", text: "Keeping alarm systems serviced, reliable and compliant.", icon: "shield" },
     ],
-    suitableFor: [
-      "Commercial buildings",
-      "Residential developments",
-      "Managed properties",
-      "Offices and retail units",
-    ],
+    suitableFor: commonSuitableFor,
     ctaTitle: "Protect your property with a professionally installed fire alarm system.",
     ctaText: "Talk to Helix today and arrange a survey or quote.",
-    ctaButton: "Contact us now",
+    ctaButton: "Request a Fire Alarm Survey",
+    ...heroContactUs,
   }),
   makePage({
     slug: "fire-extinguishers-supply-servicing",
@@ -623,7 +620,7 @@ const smartPages = [
     featureCards: [
       { title: "Integrated", text: "Clean and professional installation", icon: "building" },
       { title: "Safe", text: "Work completed with safety in mind.", icon: "shield" },
-      { title: "Joined-up", text: "Coordinated with connected systems.", icon: "network" },
+      { title: "Coordinated", text: "Integrated with connected systems.", icon: "network" },
     ],
     suitableFor: commonSuitableFor,
     ctaTitle: "Need minor electrical support with your systems?",
@@ -839,11 +836,7 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
           "From initial survey and system design through to installation, maintenance and documentation, our team keeps the process clear, organised and professionally managed at every stage.",
           "Clear communication, dependable workmanship and consistent support remain central to every project we deliver.",
         ],
-        services: [
-          ...firePages.map((page) => page.title),
-          "Fire Alarm Servicing and Maintenance",
-          "Assessments tailored to the building layout",
-        ],
+        services: firePages.map((page) => page.title),
         ctaButton: "Discuss Fire Systems",
         ...heroContactUs,
       },
@@ -901,8 +894,9 @@ export const serviceGroups: Record<ServiceGroupKey, ServiceGroup> = {
       emergencyPages,
       {
         sectionBody: [
-          "Every building has different risks, usage patterns and responsibilities. Helix reviews your property carefully and recommends practical systems and support that fit the way the site operates.",
-          "Our team keeps the process clear from survey and design through installation, maintenance and documentation.",
+          "Every building has different risks, usage patterns and compliance responsibilities. Helix carefully reviews each property and recommends practical systems and support that fit the way the site operates.",
+          "Our team keeps the process clear from survey and design through to installation, maintenance and documentation.",
+          "Whether supporting a single building or a wider property portfolio, our approach is designed to provide dependable systems, clearer oversight and confidence in day-to-day operation.",
         ],
         ctaButton: "Discuss Emergency Systems",
         ...heroContactUs,

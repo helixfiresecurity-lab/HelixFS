@@ -5,6 +5,30 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { serviceGroups, type ServiceGroupKey } from "../service-groups";
+
+const categoryLandingSlugs = new Set([
+  "fire-systems",
+  "security",
+  "emergency-systems",
+  "smart-systems",
+  "compliance",
+]);
+
+const groupKeyByCategory: Record<string, ServiceGroupKey> = {
+  "Fire Systems": "fire",
+  "Security Systems": "security",
+  "Emergency Systems": "emergency",
+  "Smart Systems": "smart",
+  Compliance: "compliance",
+};
+
+function resolveServiceHref(category: string, serviceTitle: string) {
+  const key = groupKeyByCategory[category];
+  if (!key) return null;
+  const match = serviceGroups[key].pages.find((entry) => entry.title === serviceTitle);
+  return match ? `${serviceGroups[key].route}/${match.slug}` : null;
+}
 
 export type PremiumServiceTheme = {
   category: string;
@@ -220,23 +244,25 @@ export function PremiumServicePage({
 }) {
   const accentStyle = { "--service-accent": theme.accent, "--service-accent-dark": theme.accentDark } as CSSProperties;
   const heroImage = getHeroImage(page, theme);
-  const checks = page.suitableFor.slice(0, 4);
+  const checks = page.suitableFor.slice(0, 7);
+  const isCategoryLanding = categoryLandingSlugs.has(page.slug);
+  const showContactPhone = page.heroSecondaryCta?.toLowerCase() === "contact us now";
 
   return (
     <div className="fire-alarm-premium min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-white text-[#0B172A]" style={accentStyle}>
       <SiteHeader />
 
       <main>
-        <section className="relative overflow-hidden bg-[#071A33] text-white">
+        <section className="premium-hero-band relative overflow-hidden bg-[#071A33] text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.16),transparent_32%)]" />
-          <div className="mx-auto grid min-h-[min(560px,90vh)] w-full min-w-0 max-w-7xl items-center gap-10 px-[var(--page-gutter)] py-14 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-16">
+          <div className="premium-hero-band-inner mx-auto grid min-h-[min(560px,90vh)] w-full min-w-0 max-w-7xl items-center gap-10 px-[var(--page-gutter)] py-14 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:px-10 lg:py-16">
             <div className="relative z-10">
               <nav aria-label="Breadcrumb" className="premium-hero-breadcrumb flex flex-wrap items-center gap-2 text-xs font-semibold">
                 <Link href="/" className="hover:text-white">Home</Link>
                 <span>/</span>
                 <Link href={theme.categoryHref} className="hover:text-white">{theme.category}</Link>
                 <span>/</span>
-                <span style={{ color: theme.accent }}>{page.title}</span>
+                <span>{page.title}</span>
               </nav>
 
               <div className="mt-8 flex items-center gap-4">
@@ -253,22 +279,23 @@ export function PremiumServicePage({
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link href="/book-now" className="inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
-                  Request a Survey
+                  {page.ctaButton}
                 </Link>
                 {page.heroSecondaryHref?.startsWith("/") ? (
                   <Link
                     href={page.heroSecondaryHref}
                     className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
                   >
-                    {page.heroSecondaryCta ?? "Book a Call"}
+                    {showContactPhone ? <Icon name="phone" className="h-4 w-4" /> : null}
+                    {page.heroSecondaryCta ?? "Contact us now"}
                   </Link>
                 ) : (
                   <a
                     href={page.heroSecondaryHref ?? "tel:07359589933"}
                     className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
                   >
-                    {page.heroSecondaryCta ?? "Book a Call"}
-                    {!page.heroSecondaryCta && <Icon name="phone" className="h-4 w-4" />}
+                    {page.heroSecondaryCta ?? "Contact us now"}
+                    <Icon name="phone" className="h-4 w-4" />
                   </a>
                 )}
               </div>
@@ -305,8 +332,8 @@ export function PremiumServicePage({
         <section className="px-[var(--page-gutter)] py-16 lg:px-10 lg:py-20">
           <div className="mx-auto grid w-full min-w-0 max-w-7xl gap-8 rounded-3xl bg-[#F6F8FB] p-5 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
             <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>Service Focus</p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">{page.sectionTitle}</h2>
+              <p className="premium-kicker-accent text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>Service Focus</p>
+              <h2 className="premium-section-title mt-4 text-3xl leading-tight sm:text-4xl">{page.sectionTitle}</h2>
               <div className="premium-muted mt-6 space-y-5 text-sm leading-7 sm:text-base">
                 {page.sectionBody.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -335,14 +362,31 @@ export function PremiumServicePage({
             </article>
 
             <article className="min-w-0 max-w-full rounded-2xl bg-white p-5 shadow-sm sm:p-7 lg:p-9">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>{page.servicesTitle}</p>
+              <p className="premium-kicker-accent text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: theme.accent }}>{page.servicesTitle}</p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2 sm:items-stretch">
-                {page.services.map((item) => (
-                  <div key={item} className="flex min-h-[3.75rem] items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(7,26,51,0.04)]">
-                    <span className="h-5 w-1 shrink-0 rounded-full" style={{ backgroundColor: theme.accent }} />
-                    <span className="text-sm font-semibold leading-snug text-[#0B172A]">{item}</span>
-                  </div>
-                ))}
+                {page.services.map((item) => {
+                  const serviceHref = isCategoryLanding ? resolveServiceHref(theme.category, item) : null;
+                  const tile = (
+                    <>
+                      <span className="premium-service-tile-bar" aria-hidden="true" />
+                      <span className="premium-service-tile-label">{item}</span>
+                    </>
+                  );
+
+                  if (serviceHref) {
+                    return (
+                      <Link key={item} href={serviceHref} className="premium-service-tile">
+                        {tile}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <div key={item} className="premium-service-tile">
+                      {tile}
+                    </div>
+                  );
+                })}
               </div>
             </article>
           </div>
@@ -350,9 +394,10 @@ export function PremiumServicePage({
 
         <section className="px-[var(--page-gutter)] pb-16 lg:px-10">
           <div className="mx-auto w-full min-w-0 max-w-7xl">
-            <div className="mb-8 flex items-center justify-start gap-5">
-              <span className="h-px w-16 opacity-50" style={{ backgroundColor: theme.accent }} />
-              <p className="text-left text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: theme.accent }}>Why Choose Helix</p>
+            <div className="premium-why-heading">
+              <p className="text-xs uppercase tracking-[0.14em]" style={{ color: theme.accent }}>
+                Why Choose Helix
+              </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200">
@@ -383,12 +428,20 @@ export function PremiumServicePage({
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              <Link href="/book-now" className="inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5" style={{ backgroundColor: theme.accent }}>
+              <Link
+                href="/book-now"
+                className="premium-cta-primary inline-flex items-center justify-center rounded-lg px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+                style={{ backgroundColor: theme.accent }}
+              >
                 {page.ctaButton}
+                <span className="premium-cta-arrow" aria-hidden="true" />
               </Link>
-              <a href="tel:07359589933" className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a
+                href="tel:07359589933"
+                className="premium-cta-phone inline-flex items-center justify-center gap-3 rounded-lg border px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
                 <Icon name="phone" className="h-4 w-4" />
-                Call 07359 589933
+                Contact us now
               </a>
             </div>
           </div>

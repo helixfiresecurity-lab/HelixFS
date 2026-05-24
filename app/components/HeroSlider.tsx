@@ -9,6 +9,7 @@ type HeroSlide = {
   cta: string;
   href: string;
   imageClassName: string;
+  buttonClassName?: string;
 };
 
 const slides: HeroSlide[] = [
@@ -31,6 +32,7 @@ const slides: HeroSlide[] = [
     cta: "Explore Security Systems",
     href: "/security",
     imageClassName: "hero-slide-security",
+    buttonClassName: "button-hero-security",
   },
   {
     title: ["Compliance Support", "That Keeps You Protected"],
@@ -41,6 +43,7 @@ const slides: HeroSlide[] = [
     cta: "Explore Compliance",
     href: "/compliance",
     imageClassName: "hero-slide-compliance",
+    buttonClassName: "button-hero-compliance",
   },
 ];
 
@@ -129,7 +132,7 @@ export function HeroSlider() {
                   <span>{slide.copy[1]}</span>
                 </p>
                 <div className="hero-slide-actions">
-                  <Link className="button button-primary" href={slide.href}>
+                  <Link className={`button button-primary${slide.buttonClassName ? ` ${slide.buttonClassName}` : ""}`} href={slide.href}>
                     {slide.cta}
                   </Link>
                 </div>

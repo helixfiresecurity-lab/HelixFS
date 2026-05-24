@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SESSION_KEY = "helix-home-chat-dismissed";
 
@@ -59,32 +59,7 @@ function BookNowIcon() {
 export function HomeChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isBuzzing, setIsBuzzing] = useState(false);
-  const [autoOpened, setAutoOpened] = useState(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(SESSION_KEY) === "true") return;
-
-    const openTimer = window.setTimeout(() => {
-      setIsOpen(true);
-      setIsBuzzing(true);
-      setAutoOpened(true);
-    }, 2000);
-
-    return () => window.clearTimeout(openTimer);
-  }, []);
-
-  useEffect(() => {
-    if (!isOpen || !autoOpened) return;
-
-    const closeTimer = window.setTimeout(() => {
-      setIsOpen(false);
-      setIsBuzzing(false);
-      sessionStorage.setItem(SESSION_KEY, "true");
-    }, 5000);
-
-    return () => window.clearTimeout(closeTimer);
-  }, [isOpen, autoOpened]);
 
   function handleToggle() {
     setIsOpen((current) => !current);
@@ -127,7 +102,7 @@ export function HomeChatWidget() {
                 <BookNowIcon />
               </span>
               <div>
-                <strong>Book Now</strong>
+                <strong>Contact Us Now</strong>
                 <span>Open the dedicated enquiry form</span>
               </div>
             </Link>

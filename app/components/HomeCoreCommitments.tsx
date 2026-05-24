@@ -64,8 +64,8 @@ export function HomeCoreCommitments() {
           </div>
           <div className="commitments-feature-media">
             <Image
-              src="/images/005 - COMPLIANCE/004 - Portable Appliance Testing PAT/PAT testing in a factory.png"
-              alt="Helix engineer carrying out on-site inspection work"
+              src="/images/000 - HOME PAGE/Engineer in the field.png"
+              alt="Helix engineer working on site"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

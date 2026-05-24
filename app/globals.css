@@ -245,6 +245,163 @@ a {
   border-color: rgba(255, 255, 255, 0.55);
 }
 
+.fire-alarm-premium .premium-hero-band-inner {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+.fire-alarm-premium h1,
+.fire-alarm-premium .premium-section-title {
+  font-weight: 700;
+}
+
+.fire-alarm-premium h2,
+.fire-alarm-premium h3 {
+  font-weight: 700;
+}
+
+.fire-alarm-premium .premium-kicker-accent {
+  font-weight: 700;
+}
+
+.fire-alarm-premium .premium-why-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.fire-alarm-premium .premium-why-heading::before,
+.fire-alarm-premium .premium-why-heading::after {
+  content: "";
+  flex: 1 1 4rem;
+  max-width: 4rem;
+  height: 1px;
+  opacity: 0.5;
+  background: var(--service-accent, #ef2b2d);
+}
+
+.fire-alarm-premium .premium-why-heading p {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.fire-alarm-premium .premium-cta-primary {
+  gap: 0.5rem;
+}
+
+.fire-alarm-premium .premium-cta-arrow {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+}
+
+.fire-alarm-premium .premium-cta-arrow::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: url("/right-arrow-home.svg") center / contain no-repeat;
+  mask: url("/right-arrow-home.svg") center / contain no-repeat;
+}
+
+.fire-alarm-premium .premium-service-tile {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 8px 24px rgba(7, 26, 51, 0.04);
+  color: #0b172a;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.fire-alarm-premium .premium-service-tile:hover {
+  color: #fff;
+  border-color: transparent;
+  background: var(--service-accent, #ef2b2d);
+  transform: translateY(-2px);
+}
+
+.fire-alarm-premium .premium-service-tile-bar {
+  height: 1.25rem;
+  width: 0.25rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--service-accent, #ef2b2d);
+  transition: background-color 180ms ease;
+}
+
+.fire-alarm-premium .premium-service-tile:hover .premium-service-tile-bar {
+  background: #fff;
+}
+
+.fire-alarm-premium .premium-service-tile-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.fire-alarm-premium .premium-hero-breadcrumb,
+.fire-alarm-premium .premium-hero-breadcrumb a,
+.fire-alarm-premium .premium-hero-breadcrumb span {
+  color: #fff;
+}
+
+.fire-alarm-premium .premium-hero-breadcrumb span:last-child {
+  color: var(--service-accent, #ef2b2d);
+}
+
+.primary-service-card:hover .card-launch {
+  color: var(--service-accent, var(--red));
+}
+
+.primary-service-card.tone-red:hover .card-launch {
+  color: #ef2b2d;
+}
+
+.primary-service-card.tone-blue:hover .card-launch {
+  color: #2855c7;
+}
+
+.contact-privacy-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.contact-privacy-note svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.compliance-risk-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.closing-cta-visual--contact {
+  background-image: url("/images/000 - HOME PAGE/Contact Helix.png");
+}
+
 .info-page-shell {
   color: var(--text-body);
 }
@@ -280,7 +437,7 @@ a {
   transition: all 0.3s ease;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     column-gap: 1.5rem;
@@ -344,7 +501,7 @@ a {
 }
 
 .nav-item > a {
-  font-weight: var(--weight-medium);
+  font-weight: 700;
   transition: color 180ms ease;
 }
 
@@ -468,17 +625,30 @@ a {
 .nav-explore-all {
   display: inline-flex !important;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  min-height: 52px;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 48px;
   margin-top: 2px;
-  padding: 0 16px !important;
+  padding: 0 14px !important;
   border-radius: 8px;
   background: #edf1ef;
-  color: #1e2528;
+  color: #0b172a;
   font-family: var(--font-heading-stack);
-  font-size: 1.1rem !important;
-  font-weight: 600;
+  font-size: 0.88rem !important;
+  font-weight: 700;
+  text-align: left;
+}
+
+.nav-explore-all::after {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  background-color: currentColor;
+  -webkit-mask: url("/right-arrow-home.svg") center / contain no-repeat;
+  mask: url("/right-arrow-home.svg") center / contain no-repeat;
+  transform: rotate(-45deg);
 }
 
 .nav-explore-all.inline {
@@ -488,8 +658,7 @@ a {
 }
 
 .nav-explore-all span {
-  font-size: 1.1rem;
-  line-height: 1;
+  display: none;
 }
 
 .nav-fire-links,
@@ -518,7 +687,7 @@ a {
 
 .nav-fire-links a {
   padding: 7px 4px;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   line-height: 1.12;
 }
 
@@ -532,7 +701,7 @@ a {
 }
 
 .nav-list-links a {
-  font-size: 1.1rem;
+  font-size: 0.82rem;
   line-height: 1.4;
   text-align: left;
   padding: 6px 12px;
@@ -670,15 +839,35 @@ a {
 }
 
 .hero-slide-fire {
-  background-image: url("/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png");
+  background-image: url("/images/000 - HOME PAGE/Modern corporate office lobby - hero slide.png");
 }
 
 .hero-slide-security {
-  background-image: url("/images/002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png");
+  background-image: url("/images/000 - HOME PAGE/CCTV External 1 - hero slide.png");
 }
 
 .hero-slide-compliance {
-  background-image: url("/images/005 - COMPLIANCE/Image for main compliance page - office scene.png");
+  background-image: url("/images/000 - HOME PAGE/Compliance - hero slide.png");
+}
+
+.hero-slide-actions .button-hero-security {
+  background: #2855c7;
+  box-shadow: 0 10px 25px -5px rgba(40, 85, 199, 0.25);
+}
+
+.hero-slide-actions .button-hero-security:hover {
+  background: #1d3f99;
+  box-shadow: 0 15px 30px -5px rgba(40, 85, 199, 0.35);
+}
+
+.hero-slide-actions .button-hero-compliance {
+  background: #198754;
+  box-shadow: 0 10px 25px -5px rgba(25, 135, 84, 0.25);
+}
+
+.hero-slide-actions .button-hero-compliance:hover {
+  background: #11683f;
+  box-shadow: 0 15px 30px -5px rgba(25, 135, 84, 0.35);
 }
 
 .hero-slide-overlay {
@@ -961,7 +1150,7 @@ a {
   font-size: clamp(1.65rem, 4.5vw, 2.7rem);
   line-height: 1.12;
   letter-spacing: var(--heading-tracking);
-  font-weight: 600;
+  font-weight: 700;
   color: #262b2d;
 }
 
@@ -1125,13 +1314,13 @@ a {
 }
 
 .service-card-body-emergency {
-  background: linear-gradient(180deg, #dfe4ea 0%, #c8d0d8 100%);
-  color: #0b172a;
+  background: linear-gradient(180deg, #215ed9 0%, #173f9e 100%);
+  color: #fff;
 }
 
 .service-card-body-smart {
-  background: linear-gradient(180deg, #dfe4ea 0%, #c8d0d8 100%);
-  color: #0b172a;
+  background: linear-gradient(180deg, #28a44c 0%, #1d883d 100%);
+  color: #fff;
 }
 
 .service-card-copy {
@@ -1144,7 +1333,7 @@ a {
   font-size: 1.2rem;
   line-height: 1.1;
   letter-spacing: var(--heading-tracking);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .service-card-body p {
@@ -1157,16 +1346,14 @@ a {
   line-height: 1.55;
 }
 
-.service-card-body-emergency p {
-  color: rgba(11, 23, 42, 0.78);
-}
-
-.service-card-body-smart h3 {
-  color: #0b172a;
-}
-
+.service-card-body-emergency p,
 .service-card-body-smart p {
-  color: rgba(11, 23, 42, 0.78);
+  color: var(--card-copy);
+}
+
+.service-card-body-emergency h3,
+.service-card-body-smart h3 {
+  color: #fff;
 }
 
 .service-card-body p span {
@@ -1212,16 +1399,20 @@ a {
   mask: url("/right-arrow-home.svg") center / contain no-repeat;
 }
 
-.service-card-body-emergency .service-arrow {
-  background: rgba(11, 23, 42, 0.08);
-  border-color: rgba(11, 23, 42, 0.12);
-  color: #0b172a;
+.service-card-body-emergency .service-arrow,
+.service-card-body-smart .service-arrow {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
 }
 
-.service-card-body-smart .service-arrow {
-  background: rgba(11, 23, 42, 0.08);
-  border-color: rgba(11, 23, 42, 0.12);
-  color: #0b172a;
+.service-card-link:hover .service-card-body-emergency .service-arrow,
+.service-card-link:hover .service-card-body-smart .service-arrow,
+.service-card-link:hover .service-card-body-fire .service-arrow,
+.service-card-link:hover .service-card-body-security .service-arrow,
+.service-card-link:hover .service-card-body-compliance .service-arrow {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
 }
 
 @media (min-width: 1181px) {
@@ -1369,7 +1560,7 @@ a {
   margin: 0;
   color: #31363a;
   font-size: clamp(1.9rem, 2.8vw, 2.4rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.06;
   letter-spacing: var(--heading-tracking);
   text-align: left;
@@ -1469,7 +1660,7 @@ a {
   font-size: clamp(0.78rem, 0.95vw, 0.92rem);
   line-height: 1.25;
   letter-spacing: -0.03em;
-  font-weight: 600;
+  font-weight: 700;
   color: #34383c;
   transition: color 180ms ease;
 }
@@ -1809,11 +2000,11 @@ a {
 
 .value-chevron {
   flex: 0 0 auto;
-  width: 22px;
-  height: 22px;
+  width: 14px;
+  height: 14px;
   margin-left: 16px;
-  border-right: 2.5px solid #23282c;
-  border-bottom: 2.5px solid #23282c;
+  border-right: 2px solid #23282c;
+  border-bottom: 2px solid #23282c;
   transform: rotate(225deg);
   transition: transform 180ms ease, border-color 180ms ease;
 }
@@ -1934,7 +2125,7 @@ a {
   color: #ffffff;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.48)),
-    url("/images/005 - COMPLIANCE/004 - Portable Appliance Testing PAT/PAT testing in a factory.png")
+    url("/images/000 - HOME PAGE/Engineer in the field.png")
       center center / cover no-repeat;
 }
 
@@ -2330,7 +2521,7 @@ a {
   position: relative;
   min-height: 430px;
   padding: 44px;
-  background: url("/helix-engineer-van.jpg") center center / cover no-repeat;
+  background: url("/images/000 - HOME PAGE/Contact Helix.png") center center / cover no-repeat;
 }
 
 .closing-cta-quote-card {
@@ -2672,7 +2863,7 @@ a {
   font-size: 1.1rem;
   margin-bottom: 32px;
   color: #475569;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer-nav-links {
@@ -5328,8 +5519,8 @@ a {
   position: absolute;
   left: 0;
   top: 0.55em;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--red);
 }

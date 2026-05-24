@@ -3,15 +3,30 @@
 Source folder: `Images for Website` (client pack).  
 Deployed to: `public/images/` (same folder structure).
 
+Last synced from client pack: full `rsync --delete` into `public/images/`.
+
 ## How placement works
 
 | Folder path | Website use |
 |-------------|-------------|
-| `{Category}/Image for main …` | Category landing page hero (`/fire-systems`, `/security`, etc.) |
-| `{Category}/{Service subfolder}/` | That service page hero image |
-| `001 - Fire Alarm Systems/*` (other files) | Home testimonials, portfolio-style shots |
+| `000 - HOME PAGE/` | Home-only marketing shots (hero slider, fire-risk block, contact CTA, core commitments) |
+| `{Category}/Image for main …` | Category landing hero + matching home service card background |
+| `{Category}/{Service subfolder}/` | That service page hero (`service-groups.ts`) |
 
-PDF review files name the exact hero filename for each service page; those match the subfolder above.
+PDF review files name exact filenames for home page swaps; service heroes follow subfolder convention below.
+
+---
+
+## 000 – HOME PAGE (client PDFs)
+
+| Image file | Website use |
+|------------|-------------|
+| `Modern corporate office lobby - hero slide.png` | Home hero slide 1 (Fire) — not duplicated on service cards |
+| `CCTV External 1 - hero slide.png` | Home hero slide 2 (Security) |
+| `Compliance - hero slide.png` | Home hero slide 3 (Compliance) |
+| `Undertaking fire risk assessment.png` | Home “Your Responsibility to Fire Safety” section (replaces video) |
+| `Engineer in the field.png` | Home core commitments feature image |
+| `Contact Helix.png` | Home closing CTA visual + About landing |
 
 ---
 
@@ -19,11 +34,11 @@ PDF review files name the exact hero filename for each service page; those match
 
 | Image file | Page URL |
 |------------|----------|
-| `001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png` | `/fire-systems` + home hero slide (Fire) + home Fire Systems card |
-| `002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png` | `/security` + home hero slide (Security) + home Security card |
-| `003 - EMERGENCY SYSTEMS/Image for main emergency systems page - hospital scene.png` | `/emergency-systems` + home Emergency Systems card |
-| `004 - SMART SYSTEMS/Image for main smart systems page - modern home scene.png` | `/smart-systems` + home Smart Systems card |
-| `005 - COMPLIANCE/Image for main compliance page - office scene.png` | `/compliance` + home hero slide (Compliance) + home Compliance card |
+| `001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png` | `/fire-systems` + home Fire Systems card |
+| `002 - SECURITY SYSTEMS/Image for main security systems page - warehouse scene.png` | `/security` + home Security card |
+| `003 - EMERGENCY SYSTEMS/Image for main emergency systems page - hospital scene.png` | `/emergency-systems` + home Emergency card |
+| `004 - SMART SYSTEMS/Image for main smart systems page - modern home scene.png` | `/smart-systems` + home Smart card |
+| `005 - COMPLIANCE/Image for main compliance page - office scene.png` | `/compliance` + home Compliance card |
 
 ---
 
@@ -65,6 +80,8 @@ PDF review files name the exact hero filename for each service page; those match
 | `002 - Wi-Fi  Network & IP Solutions` | `Wifi network in a modern setting 1.png` | `/smart-systems/wi-fi-network-ip-solutions` |
 | `003 - Minor Electrical Works` | `Minor Electrical works 1.png` | `/smart-systems/minor-electrical-works` |
 
+Note: PAT assets live under `005 - COMPLIANCE/004 - Portable Appliance Testing PAT/` only (removed from Smart folder).
+
 ### Compliance (`005 - COMPLIANCE`)
 
 | Subfolder | Image (hero) | URL |
@@ -74,17 +91,17 @@ PDF review files name the exact hero filename for each service page; those match
 | `003 - Regulatory Compliance Service` | `Regulatory Compliance Service 1.png` | `/compliance/regulatory-compliance-services` |
 | `004 - Portable Appliance Testing PAT` | `PAT testing in a factory.png` | `/compliance/portable-appliance-testing-pat` |
 
+Alternate in pack (not used as hero): `Safety inspections & testing in office corridor.png`.
+
 ---
 
 ## Other site references
 
 | Location | Image |
 |----------|-------|
-| Home video poster | `Fire safety signage in University Library.png` |
-| Home testimonials | `Restaurant.png`, `Tech HQ…`, `High End Cafe.png`, `Hotel.png` (Fire Alarm Systems folder) |
-| About mosaic photo card | `PAT testing in a factory.png` (Compliance PAT folder) |
-| Core commitments block | `PAT testing in a factory.png` |
-| Compliance content page | `Image for main compliance page - office scene.png` |
+| Home testimonials (if enabled) | `Restaurant.png`, `Tech HQ…`, `High End Cafe.png`, `Hotel.png` (Fire Alarm Systems folder) |
+| About / Resources / Our Company info pages | Mapped to relevant pack folders in `content-pages/content.ts` |
+| Legacy `fire-systems/content.ts` | Unused by routes; kept for reference only |
 
 ---
 
@@ -92,5 +109,12 @@ PDF review files name the exact hero filename for each service page; those match
 
 ```bash
 chmod -R u+w public/images
-rsync -av "/path/to/Images for Website/" "public/images/"
+rsync -av --delete "/path/to/Images for Website/" "public/images/"
+```
+
+Then verify references:
+
+```bash
+# From helix-launch-site root — checks every /images/... path in app/ exists on disk
+python3 -c "import re; from pathlib import Path; ..."
 ```
