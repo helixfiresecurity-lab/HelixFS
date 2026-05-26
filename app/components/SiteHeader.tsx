@@ -25,11 +25,11 @@ export function SiteHeader() {
 
   return (
     <header className="site-header sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3">
-      <Link className="brand-mark lg:col-start-1 lg:justify-self-start" href="/" aria-label="Helix home" onClick={closeAllMenus}>
-        <Image className="w-[140px] lg:w-[198px] h-auto" src="/helix-logo-header.png" alt="Helix logo" width={272} height={153} priority />
+      <Link className="brand-mark sm:col-start-1 sm:justify-self-start" href="/" aria-label="Helix home" onClick={closeAllMenus}>
+        <Image className="w-[124px] sm:w-[132px] h-auto" src="/helix-logo-header.png" alt="Helix logo" width={272} height={153} priority />
       </Link>
 
-      <div className="flex items-center gap-2 sm:gap-3 xl:hidden">
+      <div className="flex items-center gap-2 sm:hidden">
         <a
           className="header-whatsapp flex items-center justify-center w-11 h-11 rounded-lg transition-transform hover:-translate-y-0.5"
           href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
@@ -64,18 +64,18 @@ export function SiteHeader() {
         </button>
       </div>
 
-      <div className={`w-full ${isMobileMenuOpen ? "block" : "hidden"} xl:contents`}>
-        <div className="flex flex-col xl:contents mt-4 xl:mt-0 pt-2 xl:pt-0 border-t border-slate-100 xl:border-t-0">
-          <nav className="site-nav flex flex-col xl:flex-row items-start xl:items-center justify-center gap-0 text-[1.05rem] font-medium text-navy w-full xl:col-start-2 xl:justify-self-center xl:w-max xl:max-w-none" aria-label="Primary">
+      <div className={`w-full ${isMobileMenuOpen ? "block" : "hidden"} sm:contents`}>
+        <div className="flex flex-col sm:contents mt-4 sm:mt-0 pt-2 sm:pt-0 border-t border-slate-100 sm:border-t-0">
+          <nav className="site-nav flex flex-col sm:flex-row items-start sm:items-center justify-center gap-0 text-[1.05rem] font-medium text-navy w-full sm:col-start-2 sm:justify-self-center sm:w-max sm:max-w-none" aria-label="Primary">
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className={`nav-item w-full xl:w-auto border-b border-slate-100 xl:border-b-0 ${item.menu ? " has-menu" : ""} ${activeMenu === item.label ? " menu-open" : ""}`}
+                className={`nav-item w-full sm:w-auto border-b border-slate-100 sm:border-b-0 ${item.menu ? " has-menu" : ""} ${activeMenu === item.label ? " menu-open" : ""}`}
                 onMouseLeave={() => setActiveMenu(null)}
               >
                 <Link
                   href={item.href}
-                  className="flex justify-between items-center w-full gap-1.5 py-4 xl:py-2 xl:px-0.5 transition-colors text-slate-600 hover:text-red xl:whitespace-nowrap xl:text-[0.8125rem]"
+                  className="flex justify-between items-center w-full gap-1.5 py-4 sm:py-2 sm:px-0.5 transition-colors text-slate-600 hover:text-red sm:whitespace-nowrap sm:text-[0.8125rem]"
                   aria-expanded={item.menu ? activeMenu === item.label : undefined}
                   onClick={(event) => {
                     if (!item.menu) {
@@ -93,7 +93,7 @@ export function SiteHeader() {
                 </Link>
 
                 {item.menu ? (
-                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden xl:!block"}`}>
+                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden sm:!block"}`}>
                     {item.menu.type === "fire" ? (
                       <>
                         <div className="nav-fire-cards">
@@ -144,9 +144,9 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="header-actions flex flex-col xl:flex-row items-stretch xl:items-center gap-3 xl:gap-[10px] w-full xl:col-start-3 xl:justify-self-end xl:w-auto mt-6 xl:mt-0 pb-4 xl:pb-0">
+          <div className="header-actions flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-[10px] w-full sm:col-start-3 sm:justify-self-end sm:w-auto mt-6 sm:mt-0 pb-4 sm:pb-0">
             <a
-              className="header-whatsapp hidden xl:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
+              className="header-whatsapp hidden items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
               target="_blank"
               rel="noreferrer"
@@ -161,7 +161,7 @@ export function SiteHeader() {
               <span>WhatsApp</span>
             </a>
 
-            <Link className="header-cta header-cta-primary flex items-center justify-center min-h-[48px] xl:min-h-[44px] px-5 whitespace-nowrap font-heading text-[1rem] xl:text-[0.84rem] font-semibold rounded-lg transition-transform hover:-translate-y-0.5 w-full xl:w-auto" href="/book-now" onClick={closeAllMenus}>
+            <Link className="header-cta header-cta-primary flex items-center justify-center min-h-[48px] sm:min-h-[44px] px-5 whitespace-nowrap font-heading text-[1rem] sm:text-[0.84rem] font-semibold rounded-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto" href="/book-now" onClick={closeAllMenus}>
               Request a Quote
             </Link>
           </div>

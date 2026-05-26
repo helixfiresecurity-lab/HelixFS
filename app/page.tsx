@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { HeroSlider } from "./components/HeroSlider";
 import { HomeCoreCommitments } from "./components/HomeCoreCommitments";
 import { HomeServiceCards } from "./components/HomeServiceCards";
@@ -119,69 +120,80 @@ type ServiceIconKind =
 
 type PrimaryService = {
   title: string;
+  description: string;
   iconSrc: string;
-  tone: "red" | "blue";
+  tone: "red" | "blue" | "green";
   href: string;
 };
 
 const primaryServices: PrimaryService[] = [
   {
     title: "Fire Alarm Systems",
+    description: "Design, installation and maintenance",
     tone: "red",
     iconSrc: "/service-icons/fire-alarm-systems.svg",
     href: "/fire-systems/fire-alarm-systems",
   },
   {
     title: "AOV Smoke Ventilation",
-    tone: "blue",
+    description: "Smoke control for safer escape routes",
+    tone: "red",
     iconSrc: "/service-icons/aov-smoke-ventilation-systems.svg",
     href: "/fire-systems/aov-smoke-ventilation-systems",
   },
   {
     title: "CCTV Surveillance",
-    tone: "red",
+    description: "Camera coverage across your site",
+    tone: "blue",
     iconSrc: "/service-icons/cctv-surveillance.svg",
     href: "/security/cctv-surveillance",
   },
   {
     title: "Intruder Alarms",
+    description: "Detection built around the site",
     tone: "blue",
     iconSrc: "/service-icons/intruder-alarms-new.svg",
     href: "/security/intruder-alarms",
   },
   {
     title: "Access Control",
-    tone: "red",
+    description: "Manage who can enter and when",
+    tone: "blue",
     iconSrc: "/service-icons/access-control.svg",
     href: "/security/access-control",
   },
   {
     title: "Intercom Systems",
+    description: "Audio, video and access-linked",
     tone: "blue",
     iconSrc: "/service-icons/intercom-systems.svg",
     href: "/security/intercom-systems",
   },
   {
     title: "Emergency Lighting",
+    description: "Safe evacuation when it matters most",
     tone: "red",
     iconSrc: "/service-icons/emergency-lighting-new.svg",
     href: "/emergency-systems/emergency-lighting",
   },
   {
     title: "Wi-Fi, Network & IP",
+    description: "Reliable connected infrastructure",
     tone: "blue",
     iconSrc: "/service-icons/wi-fi-network-ip-solutions.svg",
     href: "/smart-systems/wi-fi-network-ip-solutions",
   },
   {
     title: "Certification & Compliance",
-    tone: "red",
+    description: "Documentation and records",
+    tone: "green",
     iconSrc: "/service-icons/certification-compliance.svg",
     href: "/compliance/certification-compliance",
   },
   {
     title: "Safety Inspections & Testing",
-    tone: "blue",
+    description: "Proactive fault identification",
+    tone: "green",
     iconSrc: "/service-icons/safety-inspections-testing.svg",
     href: "/compliance/safety-inspections-testing",
   },
@@ -409,9 +421,10 @@ export default function Home() {
               <span
                 className="service-icon"
                 aria-hidden="true"
-                style={{ ["--icon-mask" as any]: `url('${service.iconSrc}')` }}
+                style={{ "--icon-mask": `url('${service.iconSrc}')` } as CSSProperties}
               />
               <h3>{service.title}</h3>
+              <p>{service.description}</p>
             </Link>
           ))}
         </div>
@@ -428,15 +441,13 @@ export default function Home() {
               <span className="compliance-kicker">For compliance</span>
               <h2 id="compliance-feature-heading">Your Responsibility to Fire Safety</h2>
               <p>
-                A fire risk assessment is a structured review of your premises, identifying fire risks,
-                safety measures and the steps needed to protect people and property. As the Responsible
-                Person, you must maintain suitable fire safety arrangements and evidence of compliance
-                with the Regulatory Reform (Fire Safety) Order 2005.
+                Fire risk assessments help you understand the hazards, actions and evidence needed
+                to keep your premises compliant.
               </p>
-              <a className="compliance-button" href="/resources/your-responsibilities">
+              <Link className="compliance-button" href="/resources/your-responsibilities">
                 Your Responsibilities
                 <span className="homepage-inline-arrow" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
             <div className="compliance-feature-media">
               <img
@@ -444,6 +455,30 @@ export default function Home() {
                 src="/images/000 - HOME PAGE/Undertaking fire risk assessment.png"
                 alt="Undertaking a fire risk assessment on site"
               />
+              <div className="compliance-media-card" aria-hidden="true">
+                <span>Live checklist</span>
+                <strong>Fire risk actions</strong>
+                <ul>
+                  <li>Hazards reviewed</li>
+                  <li>Evidence captured</li>
+                  <li>Next service logged</li>
+                </ul>
+              </div>
+            </div>
+            <div className="compliance-feature-status" aria-label="Compliance status">
+              <span aria-hidden="true" />
+              <strong>Audit-ready</strong>
+              <em>Records, actions and evidence in one place</em>
+            </div>
+            <div className="compliance-feature-note compliance-feature-note--assessment">
+              <span>01</span>
+              <strong>100%</strong>
+              <p>Clear hazard actions and responsibility records.</p>
+            </div>
+            <div className="compliance-feature-note compliance-feature-note--records">
+              <span>02</span>
+              <strong>Order 2005</strong>
+              <p>Evidence organised for compliance reviews.</p>
             </div>
           </article>
         </div>
@@ -468,28 +503,27 @@ export default function Home() {
 
       <section className="closing-cta-section">
         <div className="closing-cta-shell">
-          <div className="closing-cta-visual closing-cta-visual--contact">
-            {/* Background image visual - content removed as requested */}
-          </div>
-
-          <div className="closing-cta-copy closing-cta-copy--centered">
+          <article className="closing-cta-metric-card">
+            <span className="closing-cta-metric">24/7</span>
             <h2>Contact Our Team Today</h2>
             <p>
               Helix Fire &amp; Security lead the way in the industry by offering your business a
-              compliant, reliable and consistent one-stop-shop for fire and security solutions in
-              the UK. Contact our team today to discover how we can help.
+              compliant, reliable and consistent one-stop-shop for fire and security solutions in the UK.
             </p>
+            <span className="closing-cta-brand">Helix</span>
+          </article>
 
-            <div className="closing-cta-actions">
-              <a className="closing-cta-primary" href="/book-now">
-                Contact us now
-              </a>
-              <span>or</span>
-              <a className="closing-cta-secondary" href="/book-now">
-                Request a Callback
-              </a>
-            </div>
-          </div>
+          <div className="closing-cta-visual closing-cta-visual--contact" aria-hidden="true" />
+
+          <article className="closing-cta-contact-card">
+            <span className="closing-cta-mini-brand">Helix</span>
+            <h2>Get in touch</h2>
+            <p>Contact our team today to discover how we can help protect your property and keep your systems compliant.</p>
+            <a className="closing-cta-primary" href="/book-now">
+              Contact us
+              <span className="homepage-inline-arrow" aria-hidden="true" />
+            </a>
+          </article>
         </div>
       </section>
 

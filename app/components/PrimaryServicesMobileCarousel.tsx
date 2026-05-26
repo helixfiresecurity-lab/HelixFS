@@ -5,8 +5,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type PrimaryService = {
   title: string;
+  description: string;
   iconSrc: string;
-  tone: "red" | "blue";
+  tone: "red" | "blue" | "green";
   href: string;
 };
 
@@ -79,6 +80,7 @@ export function PrimaryServicesMobileCarousel({ services }: { services: PrimaryS
               style={{ ["--icon-mask" as string]: `url('${service.iconSrc}')` }}
             />
             <h3>{service.title}</h3>
+            <p>{service.description}</p>
           </Link>
         ))}
       </div>
