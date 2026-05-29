@@ -1,15 +1,5 @@
-import {
-  Award,
-  Clock,
-  FolderKanban,
-  Handshake,
-  Headphones,
-  Scale,
-  Shield,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
-import type { AboutPillar, AboutStat, AboutValue } from "../lib/about-data";
+import { Award, Handshake, Scale, Shield, Users } from "lucide-react";
+import type { AboutPillar, AboutValue } from "../lib/about-data";
 import { helixIconProps } from "./ui/helix-icon";
 
 export function AboutPillarIcon({ icon }: { icon: AboutPillar["icon"] }) {
@@ -21,22 +11,6 @@ export function AboutPillarIcon({ icon }: { icon: AboutPillar["icon"] }) {
       return <Users {...props} />;
     case "certified":
       return <Award {...props} />;
-    default:
-      return null;
-  }
-}
-
-export function AboutStatIcon({ icon }: { icon: AboutStat["icon"] }) {
-  const props = helixIconProps({ strokeWidth: 1.5 });
-  switch (icon) {
-    case "years":
-      return <Clock {...props} />;
-    case "projects":
-      return <FolderKanban {...props} />;
-    case "compliant":
-      return <ShieldCheck {...props} />;
-    case "support":
-      return <Headphones {...props} />;
     default:
       return null;
   }

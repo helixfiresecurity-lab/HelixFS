@@ -2,6 +2,10 @@
 
 import { FormEvent, useState } from "react";
 
+const WEB3FORMS_SUBMIT_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "5c6a7b21-0e14-42cc-924b-1d552ddd764d";
+
 type FormState = {
   name: string;
   email: string;
@@ -31,26 +35,31 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
     setMessage("");
 
     const formData = new FormData(event.currentTarget);
-    const botcheck = String(formData.get("botcheck") ?? "");
+
+    const propertyType = String(formData.get("property_type") ?? "");
+    formData.set(
+      "subject",
+      propertyType
+        ? `Helix website enquiry — ${propertyType}`
+        : "Helix website enquiry"
+    );
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_SUBMIT_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...form, botcheck }),
+        body: formData,
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as { success?: boolean; message?: string };
 
-      if (!response.ok) {
-        throw new Error(data?.message || "Unable to submit your enquiry right now.");
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to submit your enquiry right now.");
       }
 
       setStatus("success");
-      setMessage(data.message);
+      setMessage("Thanks, your enquiry has been received. Our team will be in touch shortly.");
       setForm(initialState);
+      event.currentTarget.reset();
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
@@ -59,19 +68,15 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form className={`contact-form${compact ? " compact" : ""}`} onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="botcheck"
-        className="contact-form-honeypot"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-      />
+      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+      {/* Web3Forms honeypot: must stay unchecked — do not use a visible/hidden text field (autofill triggers spam) */}
+      <input type="checkbox" name="botcheck" defaultChecked={false} tabIndex={-1} autoComplete="off" className="hidden" style={{ display: "none" }} aria-hidden="true" />
       <div className="contact-form-grid">
         <label>
           <span>Name</span>
           <input
             type="text"
+            name="name"
             value={form.name}
             onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
             placeholder="Your name"
@@ -83,6 +88,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
           <span>Email</span>
           <input
             type="email"
+            name="email"
             value={form.email}
             onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
             placeholder="you@example.com"
@@ -94,6 +100,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
           <span>Phone</span>
           <input
             type="tel"
+            name="phone"
             value={form.phone}
             onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
             placeholder="Your phone number"
@@ -103,6 +110,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <label>
           <span>Property Type</span>
           <select
+            name="property_type"
             value={form.propertyType}
             onChange={(event) => setForm((current) => ({ ...current, propertyType: event.target.value }))}
             required
@@ -124,6 +132,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <span>Service Required</span>
         <input
           type="text"
+          name="service_required"
           value={form.service}
           onChange={(event) => setForm((current) => ({ ...current, service: event.target.value }))}
           placeholder="Fire alarms, emergency lighting, CCTV..."
@@ -133,6 +142,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       <label>
         <span>Message</span>
         <textarea
+          name="message"
           value={form.message}
           onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
           placeholder="Tell us about your property and what support you need."

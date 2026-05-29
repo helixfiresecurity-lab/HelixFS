@@ -5,12 +5,6 @@ export type AboutPillar = {
   icon: "shield" | "customer" | "certified";
 };
 
-export type AboutStat = {
-  value: string;
-  label: string;
-  icon: "years" | "projects" | "compliant" | "support";
-};
-
 export type AboutValue = {
   title: string;
   text: string;
@@ -22,11 +16,6 @@ export type AboutServiceCard = {
   title: string;
   text: string;
   tone: "red" | "blue" | "green";
-};
-
-export type AboutCertification = {
-  name: string;
-  logo: string;
 };
 
 export const aboutPillars: AboutPillar[] = [
@@ -48,13 +37,6 @@ export const aboutPillars: AboutPillar[] = [
     tone: "green",
     icon: "certified",
   },
-];
-
-export const aboutStats: AboutStat[] = [
-  { value: "10+", label: "Years of Experience", icon: "years" },
-  { value: "500+", label: "Projects Completed", icon: "projects" },
-  { value: "100%", label: "UK Compliant Solutions", icon: "compliant" },
-  { value: "24/7", label: "Support & Maintenance", icon: "support" },
 ];
 
 export const aboutServiceCards: AboutServiceCard[] = [
@@ -106,15 +88,6 @@ export const aboutValues: AboutValue[] = [
     tone: "orange",
     icon: "responsibility",
   },
-];
-
-export const aboutCertifications: AboutCertification[] = [
-  { name: "BAFE", logo: "/accreditation-logos/bafe.svg" },
-  { name: "NSI Gold", logo: "/accreditation-logos/nsi-gold.svg" },
-  { name: "FIA", logo: "/accreditation-logos/fia.svg" },
-  { name: "FPA", logo: "/accreditation-logos/fpa.svg" },
-  { name: "LPCB", logo: "/accreditation-logos/lpcb.svg" },
-  { name: "BAFSA", logo: "/accreditation-logos/bafsa.svg" },
 ];
 
 export const aboutClientTypes: string[] = [

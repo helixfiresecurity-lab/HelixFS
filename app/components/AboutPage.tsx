@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  aboutCertifications,
   aboutClientTypes,
   aboutPillars,
   aboutServiceCards,
-  aboutStats,
   aboutValues,
 } from "../lib/about-data";
-import { AboutPillarIcon, AboutStatIcon, AboutValueIcon } from "./AboutIcons";
+import { AboutPillarIcon, AboutValueIcon } from "./AboutIcons";
 
 const heroImage =
   "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Fire Alarm Panel 1 - Shown internally only - fixed to wall - mid height.webp";
@@ -106,19 +104,6 @@ export function AboutPage() {
                 className="about-story-image"
               />
             </div>
-            <div className="about-stats-bar">
-              {aboutStats.map((stat) => (
-                <div key={stat.label} className="about-stat">
-                  <span className="about-stat-icon">
-                    <AboutStatIcon icon={stat.icon} />
-                  </span>
-                  <div>
-                    <strong>{stat.value}</strong>
-                    <span>{stat.label}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -180,27 +165,6 @@ export function AboutPage() {
               <p>{value.text}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="about-certifications">
-        <div className="about-certifications-inner">
-          <p className="about-section-eyebrow about-section-eyebrow--center">
-            Certified. Accredited. Trusted.
-          </p>
-          <h2>Our Certifications &amp; Accreditations</h2>
-          <div className="about-cert-grid">
-            {aboutCertifications.map((cert) => (
-              <article key={cert.name} className="about-cert-card">
-                <Image src={cert.logo} alt={cert.name} width={120} height={48} className="about-cert-logo" />
-                <span className="about-cert-name">{cert.name}</span>
-              </article>
-            ))}
-          </div>
-          <Link className="about-cert-link" href="/our-company/accreditations-memberships">
-            View all certifications
-            <span aria-hidden="true">→</span>
-          </Link>
         </div>
       </section>
 
