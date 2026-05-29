@@ -30,13 +30,16 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
     setStatus("loading");
     setMessage("");
 
+    const formData = new FormData(event.currentTarget);
+    const botcheck = String(formData.get("botcheck") ?? "");
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, botcheck }),
       });
 
       const data = await response.json();
@@ -56,6 +59,14 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form className={`contact-form${compact ? " compact" : ""}`} onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="botcheck"
+        className="contact-form-honeypot"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className="contact-form-grid">
         <label>
           <span>Name</span>

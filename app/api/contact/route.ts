@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
+import { submitToWeb3Forms } from "../../lib/web3forms";
 
 const requiredFields = ["name", "email", "propertyType", "message"] as const;
 
-const fieldLimits: Record<(typeof requiredFields)[number] | "phone" | "service", number> = {
+const fieldLimits: Record<(typeof requiredFields)[number] | "phone" | "service" | "botcheck", number> = {
   name: 120,
   email: 254,
   propertyType: 80,
   message: 5000,
   phone: 40,
   service: 120,
+  botcheck: 200,
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -75,6 +77,7 @@ export async function POST(request: Request) {
     propertyType: sanitize(body.propertyType, fieldLimits.propertyType),
     service: sanitize(body.service, fieldLimits.service),
     message: sanitize(body.message, fieldLimits.message),
+    botcheck: sanitize(body.botcheck, fieldLimits.botcheck),
   };
 
   const missing = requiredFields.filter((field) => !payload[field]);
@@ -92,43 +95,20 @@ export async function POST(request: Request) {
     );
   }
 
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL?.trim();
-  if (!webhookUrl) {
-    if (process.env.NODE_ENV === "development") {
-      console.info("[contact] dev mode — enquiry logged (set CONTACT_WEBHOOK_URL to forward)", payload);
-      return NextResponse.json({
-        ok: true,
-        message: "Thanks, your enquiry has been received. Our team will be in touch shortly.",
-      });
-    }
-
-    console.error("[contact] CONTACT_WEBHOOK_URL is not configured");
-    return NextResponse.json(
-      {
-        ok: false,
-        message:
-          "Online enquiries are temporarily unavailable. Please contact us by phone or WhatsApp.",
-      },
-      { status: 503 }
-    );
-  }
-
   try {
-    const webhookResponse = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        source: "helix-contact-form",
-        submittedAt: new Date().toISOString(),
-        ...payload,
-      }),
-    });
+    const result = await submitToWeb3Forms(payload);
 
-    if (!webhookResponse.ok) {
-      throw new Error(`Webhook responded with ${webhookResponse.status}`);
+    if (!result.success) {
+      return NextResponse.json(
+        {
+          ok: false,
+          message: result.message ?? "We could not send your enquiry right now. Please try again shortly.",
+        },
+        { status: result.message === "Spam detected." ? 400 : 502 }
+      );
     }
   } catch (error) {
-    console.error("[contact] Failed to forward enquiry", error);
+    console.error("[contact] Web3Forms submission failed", error);
     return NextResponse.json(
       {
         ok: false,
