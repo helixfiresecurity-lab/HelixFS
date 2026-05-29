@@ -1,10 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-const WEB3FORMS_SUBMIT_URL = "https://api.web3forms.com/submit";
-const WEB3FORMS_ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "5c6a7b21-0e14-42cc-924b-1d552ddd764d";
+import { resolveWeb3FormsAccessKey, WEB3FORMS_SUBMIT_URL } from "../lib/web3forms-config";
 
 type FormState = {
   name: string;
@@ -24,6 +21,23 @@ const initialState: FormState = {
   message: "",
 };
 
+type Web3FormsResponse = {
+  success?: boolean;
+  message?: string;
+};
+
+async function parseWeb3FormsResponse(response: Response): Promise<Web3FormsResponse> {
+  const text = await response.text();
+
+  try {
+    return JSON.parse(text) as Web3FormsResponse;
+  } catch {
+    throw new Error(
+      "We could not reach the enquiry service. Please try again, or contact us by phone or WhatsApp."
+    );
+  }
+}
+
 export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -35,13 +49,12 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
     setMessage("");
 
     const formData = new FormData(event.currentTarget);
+    formData.set("access_key", resolveWeb3FormsAccessKey());
 
     const propertyType = String(formData.get("property_type") ?? "");
     formData.set(
       "subject",
-      propertyType
-        ? `Helix website enquiry — ${propertyType}`
-        : "Helix website enquiry"
+      propertyType ? `Helix website enquiry — ${propertyType}` : "Helix website enquiry"
     );
 
     try {
@@ -50,7 +63,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         body: formData,
       });
 
-      const data = (await response.json()) as { success?: boolean; message?: string };
+      const data = await parseWeb3FormsResponse(response);
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || "Unable to submit your enquiry right now.");
@@ -68,9 +81,16 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form className={`contact-form${compact ? " compact" : ""}`} onSubmit={handleSubmit}>
-      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-      {/* Web3Forms honeypot: must stay unchecked — do not use a visible/hidden text field (autofill triggers spam) */}
-      <input type="checkbox" name="botcheck" defaultChecked={false} tabIndex={-1} autoComplete="off" className="hidden" style={{ display: "none" }} aria-hidden="true" />
+      <input
+        type="checkbox"
+        name="botcheck"
+        defaultChecked={false}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        style={{ display: "none" }}
+        aria-hidden="true"
+      />
       <div className="contact-form-grid">
         <label>
           <span>Name</span>

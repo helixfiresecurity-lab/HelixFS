@@ -9156,14 +9156,19 @@ a {
   box-shadow: 0 12px 30px rgba(21, 99, 60, 0.35);
 }
 
+.env-mission-card p {
+  color: #fff;
+}
+
 .env-mission-label {
   margin: 0 0 0.5rem;
+  color: #fff;
   font-family: var(--font-heading-stack);
   font-size: 0.72rem;
   font-weight: var(--weight-bold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .env-mission-card p:last-child {

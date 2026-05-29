@@ -157,8 +157,8 @@ export function CareersPage() {
                 <p className="careers-job-meta">
                   {job.location} • {job.type}
                 </p>
-                <a className="careers-job-link" href={job.href}>
-                  View details
+                <a className="careers-job-link" href="/book-now">
+                  Contact us
                   <span aria-hidden="true">→</span>
                 </a>
               </article>
