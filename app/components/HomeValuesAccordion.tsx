@@ -9,7 +9,7 @@ type ValueItem = {
 };
 
 export function HomeValuesAccordion({ items }: { items: ValueItem[] }) {
-  const [openTitle, setOpenTitle] = useState<string | null>(null);
+  const [openTitle, setOpenTitle] = useState<string | null>(items[0]?.title ?? null);
 
   return (
     <div className="values-list">

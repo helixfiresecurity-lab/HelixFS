@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type HeroSlide = {
-  theme: "fire" | "security" | "compliance";
-  eyebrow: string;
   title: [string, string];
   copy: [string, string];
   cta: string;
@@ -16,8 +14,6 @@ type HeroSlide = {
 
 const slides: HeroSlide[] = [
   {
-    theme: "fire",
-    eyebrow: "Fire protection",
     title: ["Fire Protection Systems", "Built for Safer Buildings"],
     copy: [
       "Professional fire alarms, fire extinguishers and",
@@ -28,8 +24,6 @@ const slides: HeroSlide[] = [
     imageClassName: "hero-slide-fire",
   },
   {
-    theme: "security",
-    eyebrow: "Security systems",
     title: ["Smarter Security", "for Complete Peace of Mind"],
     copy: [
       "CCTV, intruder alarms, access control and monitoring solutions",
@@ -41,8 +35,6 @@ const slides: HeroSlide[] = [
     buttonClassName: "button-hero-security",
   },
   {
-    theme: "compliance",
-    eyebrow: "Compliance support",
     title: ["Compliance Support", "That Keeps You Protected"],
     copy: [
       "Clear fire safety reporting, risk assessments and maintenance",
@@ -124,16 +116,15 @@ export function HeroSlider() {
           return (
             <article
               key={slide.cta}
-              className={`hero-slide hero-slide--${slide.theme}${isActive ? " is-active" : ""}`}
+              className={`hero-slide${isActive ? " is-active" : ""}`}
               aria-hidden={!isActive}
             >
               <div className={`hero-slide-bg ${slide.imageClassName}`} />
               <div className="hero-slide-overlay" />
 
               <div className="hero-slide-content">
-                <span className="hero-slide-eyebrow">{slide.eyebrow}</span>
                 <h1>
-                  <span className="hero-title-accent">{slide.title[0]}</span>
+                  <span>{slide.title[0]}</span>
                   <span>{slide.title[1]}</span>
                 </h1>
                 <p>
@@ -143,9 +134,6 @@ export function HeroSlider() {
                 <div className="hero-slide-actions">
                   <Link className={`button button-primary${slide.buttonClassName ? ` ${slide.buttonClassName}` : ""}`} href={slide.href}>
                     {slide.cta}
-                  </Link>
-                  <Link className="button button-hero-secondary" href="/book-now">
-                    Request a Quote
                   </Link>
                 </div>
               </div>
@@ -158,7 +146,7 @@ export function HeroSlider() {
             <button
               key={slide.cta}
               type="button"
-              className={`hero-slider-dot hero-slider-dot--${slide.theme}${index === activeIndex ? " is-active" : ""}`}
+              className={`hero-slider-dot${index === activeIndex ? " is-active" : ""}`}
               onClick={() => goToSlide(index)}
               tabIndex={-1}
             />
