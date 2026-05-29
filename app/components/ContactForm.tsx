@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { resolveWeb3FormsAccessKey, WEB3FORMS_SUBMIT_URL } from "../lib/web3forms-config";
 
 type FormState = {
@@ -39,16 +39,20 @@ async function parseWeb3FormsResponse(response: Response): Promise<Web3FormsResp
 }
 
 export function ContactForm({ compact = false }: { compact?: boolean }) {
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = formRef.current;
+    if (!formElement) return;
+
     setStatus("loading");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(formElement);
     formData.set("access_key", resolveWeb3FormsAccessKey());
 
     const propertyType = String(formData.get("property_type") ?? "");
@@ -72,7 +76,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       setStatus("success");
       setMessage("Thanks, your enquiry has been received. Our team will be in touch shortly.");
       setForm(initialState);
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
@@ -80,7 +84,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form className={`contact-form${compact ? " compact" : ""}`} onSubmit={handleSubmit}>
+    <form ref={formRef} className={`contact-form${compact ? " compact" : ""}`} onSubmit={handleSubmit}>
       <input
         type="checkbox"
         name="botcheck"
