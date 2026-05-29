@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type PrimaryService = {
   title: string;
+  subtext: string;
   iconSrc: string;
   tone: "red" | "blue";
   href: string;
@@ -34,6 +35,9 @@ export function PrimaryServicesMobileCarousel({ services }: { services: PrimaryS
   }, []);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (media.matches) return;
+
     if (isPaused) return;
 
     const track = trackRef.current;
@@ -79,6 +83,7 @@ export function PrimaryServicesMobileCarousel({ services }: { services: PrimaryS
               style={{ ["--icon-mask" as string]: `url('${service.iconSrc}')` }}
             />
             <h3>{service.title}</h3>
+            <p className="primary-service-subtext">{service.subtext}</p>
           </Link>
         ))}
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -8,7 +9,7 @@ type HeroSlide = {
   copy: [string, string];
   cta: string;
   href: string;
-  imageClassName: string;
+  imageSrc: string;
   buttonClassName?: string;
 };
 
@@ -21,7 +22,7 @@ const slides: HeroSlide[] = [
     ],
     cta: "Explore Fire Systems",
     href: "/fire-systems",
-    imageClassName: "hero-slide-fire",
+    imageSrc: "/images/000 - HOME PAGE/Modern corporate office lobby - hero slide.png",
   },
   {
     title: ["Smarter Security", "for Complete Peace of Mind"],
@@ -31,7 +32,7 @@ const slides: HeroSlide[] = [
     ],
     cta: "Explore Security Systems",
     href: "/security",
-    imageClassName: "hero-slide-security",
+    imageSrc: "/images/000 - HOME PAGE/CCTV External 1 - hero slide.png",
     buttonClassName: "button-hero-security",
   },
   {
@@ -42,7 +43,7 @@ const slides: HeroSlide[] = [
     ],
     cta: "Explore Compliance",
     href: "/compliance",
-    imageClassName: "hero-slide-compliance",
+    imageSrc: "/images/000 - HOME PAGE/Compliance - hero slide.png",
     buttonClassName: "button-hero-compliance",
   },
 ];
@@ -53,6 +54,7 @@ const MOBILE_PAUSE_MS = 8000;
 export function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
   const pausedUntilRef = useRef(0);
   const touchStartRef = useRef<number | null>(null);
 
@@ -61,13 +63,23 @@ export function HeroSlider() {
   }, []);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setAutoplayEnabled(!media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!autoplayEnabled) return;
+
     const timer = window.setInterval(() => {
       if (isHovered || Date.now() < pausedUntilRef.current) return;
       setActiveIndex((current) => (current + 1) % slides.length);
     }, AUTOPLAY_MS);
 
     return () => window.clearInterval(timer);
-  }, [isHovered]);
+  }, [autoplayEnabled, isHovered]);
 
   const goToSlide = (index: number) => {
     setActiveIndex(index);
@@ -119,7 +131,16 @@ export function HeroSlider() {
               className={`hero-slide${isActive ? " is-active" : ""}`}
               aria-hidden={!isActive}
             >
-              <div className={`hero-slide-bg ${slide.imageClassName}`} />
+              <div className="hero-slide-bg">
+                <Image
+                  src={slide.imageSrc}
+                  alt=""
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="hero-slide-image"
+                />
+              </div>
               <div className="hero-slide-overlay" />
 
               <div className="hero-slide-content">

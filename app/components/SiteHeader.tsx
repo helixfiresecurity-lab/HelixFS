@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "../site-data";
 import { NavChevron } from "./NavChevron";
 
@@ -23,6 +23,18 @@ export function SiteHeader() {
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.style.removeProperty("overflow");
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.removeProperty("overflow");
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header className="site-header sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3">
       <Link className="brand-mark lg:col-start-1 lg:justify-self-start" href="/" aria-label="Helix home" onClick={closeAllMenus}>
@@ -34,7 +46,7 @@ export function SiteHeader() {
           className="header-whatsapp flex items-center justify-center w-11 h-11 rounded-lg transition-transform hover:-translate-y-0.5"
           href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           aria-label="Contact Helix via WhatsApp"
         >
           <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" aria-hidden="true">
@@ -149,7 +161,7 @@ export function SiteHeader() {
               className="header-whatsapp hidden xl:inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-lg whitespace-nowrap font-heading text-[0.82rem] font-semibold transition-transform hover:-translate-y-0.5"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Contact Helix via WhatsApp"
             >
               <svg viewBox="0 0 24 24" className="w-[17px] h-[17px]" aria-hidden="true">

@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { InfoPageTemplate } from "../components/InfoPageTemplate";
+import { AboutPage } from "../components/AboutPage";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
-import { getSectionLanding } from "../content-pages/content";
 
 export const metadata: Metadata = {
-  title: "About | Helix",
+  title: "About | Helix Fire & Security Ltd",
   description:
-    "Learn how Helix Fire & Security delivers integrated fire, security and compliance support through one accountable team.",
+    "Helix delivers integrated fire protection, security and compliance across the UK — one accountable in-house team from survey to long-term support.",
 };
 
-export default function AboutPage() {
+export default function AboutLandingPage() {
   return (
     <>
       <SiteHeader />
-      <InfoPageTemplate page={getSectionLanding("about")} />
+      <AboutPage />
       <SiteFooter />
     </>
   );

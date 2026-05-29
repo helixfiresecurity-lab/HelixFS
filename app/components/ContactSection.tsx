@@ -15,7 +15,7 @@ export function ContactSection({ standalone = false }: { standalone?: boolean })
           </p>
 
           <div className="contact-quick-links">
-            <a className="contact-quick-card" href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey." target="_blank" rel="noreferrer">
+            <a className="contact-quick-card" href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey." target="_blank" rel="noopener noreferrer">
               <strong>Quick contact via WhatsApp</strong>
               <span>Start a fast conversation with our team</span>
             </a>

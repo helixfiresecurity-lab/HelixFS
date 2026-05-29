@@ -86,7 +86,7 @@ export function HomeChatWidget() {
               className="chat-widget-option"
               href="https://wa.me/447359589933?text=Hi%20Helix%2C%20I%20would%20like%20to%20book%20a%20survey."
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <span className="chat-widget-option-icon" aria-hidden="true">
                 <WhatsAppIcon />

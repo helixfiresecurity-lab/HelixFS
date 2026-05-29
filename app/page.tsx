@@ -1,4 +1,19 @@
+import {
+  Gauge,
+  Handshake,
+  Lightbulb,
+  ShieldCheck,
+  Headphones,
+  Sparkles,
+} from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Helix | Fire, Security & Compliance",
+  description:
+    "Integrated fire protection, security and compliance services — design, installation, certification and ongoing support from one accountable UK team.",
+};
 import { HeroSlider } from "./components/HeroSlider";
 import { HomeCoreCommitments } from "./components/HomeCoreCommitments";
 import { HomeServiceCards } from "./components/HomeServiceCards";
@@ -119,6 +134,7 @@ type ServiceIconKind =
 
 type PrimaryService = {
   title: string;
+  subtext: string;
   iconSrc: string;
   tone: "red" | "blue";
   href: string;
@@ -127,60 +143,70 @@ type PrimaryService = {
 const primaryServices: PrimaryService[] = [
   {
     title: "Fire Alarm Systems",
+    subtext: "Design, installation and maintenance",
     tone: "red",
     iconSrc: "/service-icons/fire-alarm-systems.svg",
     href: "/fire-systems/fire-alarm-systems",
   },
   {
     title: "AOV Smoke Ventilation",
+    subtext: "Smoke control for safer escape routes",
     tone: "blue",
     iconSrc: "/service-icons/aov-smoke-ventilation-systems.svg",
     href: "/fire-systems/aov-smoke-ventilation-systems",
   },
   {
     title: "CCTV Surveillance",
+    subtext: "Camera coverage across your site",
     tone: "red",
     iconSrc: "/service-icons/cctv-surveillance.svg",
     href: "/security/cctv-surveillance",
   },
   {
     title: "Intruder Alarms",
+    subtext: "Detection built around the site",
     tone: "blue",
     iconSrc: "/service-icons/intruder-alarms-new.svg",
     href: "/security/intruder-alarms",
   },
   {
     title: "Access Control",
+    subtext: "Manage who can enter and when",
     tone: "red",
     iconSrc: "/service-icons/access-control.svg",
     href: "/security/access-control",
   },
   {
     title: "Intercom Systems",
+    subtext: "Audio, video and access-linked",
     tone: "blue",
     iconSrc: "/service-icons/intercom-systems.svg",
     href: "/security/intercom-systems",
   },
   {
     title: "Emergency Lighting",
+    subtext: "Safe evacuation when it matters most",
     tone: "red",
     iconSrc: "/service-icons/emergency-lighting-new.svg",
     href: "/emergency-systems/emergency-lighting",
   },
   {
     title: "Wi-Fi, Network & IP",
+    subtext: "Reliable connected infrastructure",
     tone: "blue",
     iconSrc: "/service-icons/wi-fi-network-ip-solutions.svg",
     href: "/smart-systems/wi-fi-network-ip-solutions",
   },
   {
     title: "Certification & Compliance",
+    subtext: "Documentation and records",
     tone: "red",
     iconSrc: "/service-icons/certification-compliance.svg",
     href: "/compliance/certification-compliance",
   },
   {
     title: "Safety Inspections & Testing",
+    subtext: "Proactive fault identification",
     tone: "blue",
     iconSrc: "/service-icons/safety-inspections-testing.svg",
     href: "/compliance/safety-inspections-testing",
@@ -320,50 +346,20 @@ function ServiceIcon({ kind }: { kind: ServiceIconKind }) {
 }
 
 function ValueIcon({ kind }: { kind: ValueIconKind }) {
+  const props = { strokeWidth: 2.25, "aria-hidden": true as const };
   switch (kind) {
     case "reliable":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 8l18 7v15c0 10-7 19-18 26C21 49 14 40 14 30V15z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-          <circle cx="32" cy="29" r="9" fill="none" stroke="currentColor" strokeWidth="4" />
-          <path d="M32 23v7l4 4" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="4" />
-        </svg>
-      );
+      return <Headphones size="100%" {...props} />;
     case "trusted":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M18 33l8-8c2-2 6-2 8 0l12 12c2 2 2 6 0 8l-4 4c-2 2-6 2-8 0l-16-16c-2-2-2-6 0-8z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-          <path d="M28 22l6-6c2-2 6-2 8 0l10 10c2 2 2 6 0 8l-6 6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-        </svg>
-      );
+      return <Handshake size="100%" {...props} />;
     case "knowledgeable":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M24 10l3 5 6 1-4 5 1 6-6-3-6 3 1-6-4-5 6-1zM42 28l4 7 8 1-6 6 2 8-8-4-8 4 2-8-6-6 8-1z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-        </svg>
-      );
+      return <Sparkles size="100%" {...props} />;
     case "speed":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 42a18 18 0 1 1 36 0H14z" fill="none" stroke="currentColor" strokeWidth="4" />
-          <path d="M32 42l11-12" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="4" />
-        </svg>
-      );
+      return <Gauge size="100%" {...props} />;
     case "innovative":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 10a14 14 0 0 1 9 25v7H23v-7a14 14 0 0 1 9-25z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-          <path d="M25 48h14M26 54h12" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="4" />
-          <path d="M32 19v13M25 24l7 8 7-8" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-        </svg>
-      );
+      return <Lightbulb size="100%" {...props} />;
     case "safety":
-      return (
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 6 L12 14 V26 C12 40 20 52 32 58 C44 52 52 40 52 26 V14 L32 6 Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-          <path d="M24 32 L29 37 L41 25" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
+      return <ShieldCheck size="100%" {...props} />;
   }
 }
 
@@ -412,6 +408,7 @@ export default function Home() {
                 style={{ ["--icon-mask" as any]: `url('${service.iconSrc}')` }}
               />
               <h3>{service.title}</h3>
+              <p className="primary-service-subtext">{service.subtext}</p>
             </Link>
           ))}
         </div>
