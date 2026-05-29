@@ -648,7 +648,13 @@ a {
   background-color: currentColor;
   -webkit-mask: url("/right-arrow-home.svg") center / contain no-repeat;
   mask: url("/right-arrow-home.svg") center / contain no-repeat;
-  transform: rotate(-45deg);
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.nav-explore-all:hover::after,
+.nav-explore-all:focus-visible::after {
+  transform: rotate(-90deg);
 }
 
 .nav-explore-all.inline {
@@ -1383,6 +1389,7 @@ a {
   color: #fff;
   font-size: 0;
   line-height: 0;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .service-arrow::before,
@@ -1397,6 +1404,38 @@ a {
   mask: url("/right-arrow-home.svg") center / contain no-repeat;
 }
 
+/* More arrows: horizontal by default, point up on hover/focus */
+span[aria-hidden="true"]:not(:empty):not(.value-chevron):not(.nav-chevron-icon):not(.homepage-inline-arrow):not(.card-launch):not(.service-arrow):not(.faqs-toggle):not(.faqs-help-bubble),
+em[aria-hidden="true"]:not(:empty) {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+a:hover > span[aria-hidden="true"]:not(:empty):not(.value-chevron):not(.nav-chevron-icon):not(.homepage-inline-arrow):not(.card-launch):not(.service-arrow):not(.faqs-toggle):not(.faqs-help-bubble),
+a:focus-visible > span[aria-hidden="true"]:not(:empty):not(.value-chevron):not(.nav-chevron-icon):not(.homepage-inline-arrow):not(.card-launch):not(.service-arrow):not(.faqs-toggle):not(.faqs-help-bubble),
+button:hover > span[aria-hidden="true"]:not(:empty):not(.value-chevron):not(.nav-chevron-icon):not(.homepage-inline-arrow):not(.card-launch):not(.service-arrow):not(.faqs-toggle):not(.faqs-help-bubble),
+button:focus-visible > span[aria-hidden="true"]:not(:empty):not(.value-chevron):not(.nav-chevron-icon):not(.homepage-inline-arrow):not(.card-launch):not(.service-arrow):not(.faqs-toggle):not(.faqs-help-bubble),
+a:hover > em[aria-hidden="true"],
+a:focus-visible > em[aria-hidden="true"],
+button:hover > em[aria-hidden="true"],
+button:focus-visible > em[aria-hidden="true"] {
+  transform: rotate(-90deg);
+}
+
+a:hover .homepage-inline-arrow,
+a:focus-visible .homepage-inline-arrow {
+  transform: rotate(-90deg);
+}
+
+.fire-alarm-premium .premium-cta-arrow {
+  transition: transform 0.2s ease;
+}
+
+.fire-alarm-premium .premium-cta-primary:hover .premium-cta-arrow,
+.fire-alarm-premium .premium-cta-primary:focus-visible .premium-cta-arrow {
+  transform: rotate(-90deg);
+}
+
 .service-card-body-emergency .service-arrow,
 .service-card-body-smart .service-arrow {
   background: rgba(255, 255, 255, 0.2);
@@ -1408,9 +1447,15 @@ a {
 .service-card-link:hover .service-card-body-smart .service-arrow,
 .service-card-link:hover .service-card-body-fire .service-arrow,
 .service-card-link:hover .service-card-body-security .service-arrow,
-.service-card-link:hover .service-card-body-compliance .service-arrow {
+.service-card-link:hover .service-card-body-compliance .service-arrow,
+.service-card-link:focus-visible .service-card-body-emergency .service-arrow,
+.service-card-link:focus-visible .service-card-body-smart .service-arrow,
+.service-card-link:focus-visible .service-card-body-fire .service-arrow,
+.service-card-link:focus-visible .service-card-body-security .service-arrow,
+.service-card-link:focus-visible .service-card-body-compliance .service-arrow {
   background: rgba(255, 255, 255, 0.28);
   color: #fff;
+  transform: rotate(-90deg);
 }
 
 @media (min-width: 1181px) {
@@ -1629,6 +1674,7 @@ a {
   color: currentColor;
   font-size: 0;
   line-height: 0;
+  transition: transform 0.2s ease;
 }
 
 .service-icon {
@@ -1683,7 +1729,7 @@ a {
 
 .primary-service-card:hover .card-launch,
 .primary-service-card:focus-visible .card-launch {
-  transform: translate(3px, -3px);
+  transform: rotate(-90deg);
 }
 
 .primary-service-card:hover h3,
