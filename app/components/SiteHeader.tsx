@@ -17,11 +17,24 @@ const exploreAllLabels: Record<string, string> = {
 export function SiteHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDesktopNav, setIsDesktopNav] = useState(false);
 
   const closeAllMenus = () => {
     setActiveMenu(null);
     setIsMobileMenuOpen(false);
   };
+
+  const toggleNavSection = (label: string) => {
+    setActiveMenu((current) => (current === label ? null : label));
+  };
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1280px)");
+    const syncViewport = () => setIsDesktopNav(media.matches);
+    syncViewport();
+    media.addEventListener("change", syncViewport);
+    return () => media.removeEventListener("change", syncViewport);
+  }, []);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -34,6 +47,11 @@ export function SiteHeader() {
       document.body.style.removeProperty("overflow");
     };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isDesktopNav || !isMobileMenuOpen) return;
+    setActiveMenu(null);
+  }, [isMobileMenuOpen, isDesktopNav]);
 
   return (
     <header className="site-header sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300 w-full max-w-[100vw] flex flex-wrap items-center justify-between gap-2 px-[var(--page-gutter)] py-3">
@@ -56,9 +74,14 @@ export function SiteHeader() {
             />
           </svg>
         </a>
-        <button 
-          className="flex items-center justify-center w-11 h-11 text-slate-800 focus:outline-none" 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        <button
+          className="flex items-center justify-center w-11 h-11 text-slate-800 focus:outline-none"
+          onClick={() => {
+            setIsMobileMenuOpen((open) => {
+              if (open) setActiveMenu(null);
+              return !open;
+            });
+          }}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMobileMenuOpen ? (
@@ -82,8 +105,8 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className={`nav-item w-full xl:w-auto border-b border-slate-100 xl:border-b-0 ${item.menu ? " has-menu" : ""} ${activeMenu === item.label ? " menu-open" : ""}`}
-                onMouseLeave={() => setActiveMenu(null)}
+                className={`nav-item w-full xl:w-auto border-b border-slate-100 xl:border-b-0${item.menu ? " has-menu" : ""}${activeMenu === item.label ? " menu-open" : ""}`}
+                onMouseLeave={isDesktopNav ? () => setActiveMenu(null) : undefined}
               >
                 <Link
                   href={item.href}
@@ -95,17 +118,16 @@ export function SiteHeader() {
                       return;
                     }
                     event.preventDefault();
-                    setActiveMenu((current) => (current === item.label ? null : item.label));
+                    toggleNavSection(item.label);
+                    (event.currentTarget as HTMLAnchorElement).blur();
                   }}
                 >
                   {item.label}
-                  {item.menu ? (
-                    <NavChevron open={activeMenu === item.label || (isMobileMenuOpen && activeMenu === item.label)} />
-                  ) : null}
+                  {item.menu ? <NavChevron open={activeMenu === item.label} /> : null}
                 </Link>
 
                 {item.menu ? (
-                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} ${isMobileMenuOpen && activeMenu === item.label ? "!block !static !shadow-none !border-none !bg-transparent w-full !p-0 !pb-4 !opacity-100 !visible !translate-x-0" : "hidden xl:!block"}`}>
+                  <div className={`nav-dropdown nav-dropdown-${item.menu.type} max-xl:hidden xl:block`}>
                     {item.menu.type === "fire" ? (
                       <>
                         <div className="nav-fire-cards">

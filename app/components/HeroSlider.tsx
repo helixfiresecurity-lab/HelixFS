@@ -56,11 +56,16 @@ export function HeroSlider() {
   const [isHovered, setIsHovered] = useState(false);
   const [autoplayEnabled, setAutoplayEnabled] = useState(true);
   const pausedUntilRef = useRef(0);
-  const touchStartRef = useRef<number | null>(null);
+  const swipeStartXRef = useRef<number | null>(null);
 
   const pauseAutoplay = useCallback((durationMs = MOBILE_PAUSE_MS) => {
     pausedUntilRef.current = Date.now() + durationMs;
   }, []);
+
+  const isInteractiveTarget = (target: EventTarget | null) => {
+    if (!(target instanceof Element)) return false;
+    return Boolean(target.closest("a, button"));
+  };
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -93,25 +98,27 @@ export function HeroSlider() {
       aria-label="Featured services"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => {
-        touchStartRef.current = Date.now();
-        pauseAutoplay();
-      }}
-      onTouchEnd={() => pauseAutoplay()}
     >
       <div
         className="hero-slider-shell"
         onTouchStart={(event) => {
-          touchStartRef.current = event.changedTouches[0]?.clientX ?? null;
           pauseAutoplay();
-        }}
-        onTouchEnd={(event) => {
-          const start = touchStartRef.current;
-          const end = event.changedTouches[0]?.clientX;
-          if (start == null || end == null) {
-            pauseAutoplay();
+          if (isInteractiveTarget(event.target)) {
+            swipeStartXRef.current = null;
             return;
           }
+          swipeStartXRef.current = event.changedTouches[0]?.clientX ?? null;
+        }}
+        onTouchEnd={(event) => {
+          pauseAutoplay();
+          if (isInteractiveTarget(event.target)) {
+            swipeStartXRef.current = null;
+            return;
+          }
+          const start = swipeStartXRef.current;
+          const end = event.changedTouches[0]?.clientX;
+          swipeStartXRef.current = null;
+          if (start == null || end == null) return;
           const delta = end - start;
           if (Math.abs(delta) > 40) {
             setActiveIndex((current) => {
@@ -119,7 +126,6 @@ export function HeroSlider() {
               return (current - 1 + slides.length) % slides.length;
             });
           }
-          pauseAutoplay();
         }}
       >
         {slides.map((slide, index) => {
@@ -153,7 +159,11 @@ export function HeroSlider() {
                   <span>{slide.copy[1]}</span>
                 </p>
                 <div className="hero-slide-actions">
-                  <Link className={`button button-primary${slide.buttonClassName ? ` ${slide.buttonClassName}` : ""}`} href={slide.href}>
+                  <Link
+                    className={`button button-primary${slide.buttonClassName ? ` ${slide.buttonClassName}` : ""}`}
+                    href={slide.href}
+                    onClick={() => pauseAutoplay()}
+                  >
                     {slide.cta}
                   </Link>
                 </div>
