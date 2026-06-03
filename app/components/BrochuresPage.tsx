@@ -120,7 +120,7 @@ export function BrochuresPage() {
                       src={brochure.coverImage}
                       alt={brochure.coverAlt}
                       fill
-                      sizes="200px"
+                      sizes="(max-width: 900px) 100vw, 130px"
                       className="bro-card-cover-image"
                     />
                     <span className="bro-card-pdf-badge">PDF</span>

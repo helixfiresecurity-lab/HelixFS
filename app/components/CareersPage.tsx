@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   careerBenefits,
   careerPillars,
-  careerStats,
   careersEmail,
   openPositions,
   roleCategories,
@@ -15,7 +14,6 @@ import {
   CareerPillarIcon,
   CareersCheckIcon,
   CareersQuestionIcon,
-  CareerStatIcon,
   OpenPositionIcon,
 } from "./CareersIcons";
 
@@ -119,19 +117,6 @@ export function CareersPage() {
                 sizes="(max-width: 900px) 100vw, 50vw"
                 className="careers-why-image"
               />
-              <div className="careers-stats-bar" aria-label="Helix at a glance">
-                {careerStats.map((stat) => (
-                  <div key={stat.label} className="careers-stat">
-                    <span className="careers-stat-icon" aria-hidden="true">
-                      <CareerStatIcon icon={stat.icon} />
-                    </span>
-                    <div>
-                      <strong>{stat.value}</strong>
-                      <span>{stat.label}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

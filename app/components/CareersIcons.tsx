@@ -1,6 +1,5 @@
 import {
   Activity,
-  Award,
   CalendarClock,
   Check,
   CircleHelp,
@@ -12,12 +11,7 @@ import {
   Users,
   Wrench,
 } from "lucide-react";
-import type {
-  CareerBenefit,
-  CareerPillar,
-  CareerStat,
-  OpenPosition,
-} from "../lib/careers-data";
+import type { CareerBenefit, CareerPillar, OpenPosition } from "../lib/careers-data";
 import { helixIconProps } from "./ui/helix-icon";
 
 export function CareerPillarIcon({ icon }: { icon: CareerPillar["icon"] }) {
@@ -29,22 +23,6 @@ export function CareerPillarIcon({ icon }: { icon: CareerPillar["icon"] }) {
       return <TrendingUp {...props} />;
     case "one-team":
       return <Users {...props} />;
-    default:
-      return null;
-  }
-}
-
-export function CareerStatIcon({ icon }: { icon: CareerStat["icon"] }) {
-  const props = helixIconProps();
-  switch (icon) {
-    case "team":
-      return <Users {...props} />;
-    case "excellence":
-      return <Award {...props} />;
-    case "training":
-      return <GraduationCap {...props} />;
-    case "people-first":
-      return <ShieldCheck {...props} />;
     default:
       return null;
   }

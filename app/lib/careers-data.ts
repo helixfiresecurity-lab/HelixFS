@@ -5,12 +5,6 @@ export type CareerPillar = {
   icon: "make-impact" | "grow-with-us" | "one-team";
 };
 
-export type CareerStat = {
-  value: string;
-  label: string;
-  icon: "team" | "excellence" | "training" | "people-first";
-};
-
 export type OpenPosition = {
   title: string;
   location: string;
@@ -60,13 +54,6 @@ export const whyJoinChecks: string[] = [
   "Clear career progression",
   "Safe, inclusive and respectful workplace",
   "Make a real difference in the community",
-];
-
-export const careerStats: CareerStat[] = [
-  { value: "50+", label: "Team Members", icon: "team" },
-  { value: "10+", label: "Years of Excellence", icon: "excellence" },
-  { value: "100%", label: "Training Support", icon: "training" },
-  { value: "People First", label: "Always", icon: "people-first" },
 ];
 
 export const openPositions: OpenPosition[] = [

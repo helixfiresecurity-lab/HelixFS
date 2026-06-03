@@ -10872,64 +10872,6 @@ a:focus-visible .homepage-inline-arrow {
   object-fit: cover;
 }
 
-.careers-stats-bar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  padding: 0.85rem 0.5rem;
-  background: rgba(7, 26, 51, 0.88);
-  backdrop-filter: blur(6px);
-}
-
-.careers-stat {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.5rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.careers-stat:last-child {
-  border-right: 0;
-}
-
-.careers-stat-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.careers-stat-icon svg {
-  width: 16px;
-  height: 16px;
-}
-
-.careers-stat strong {
-  display: block;
-  color: #fff;
-  font-family: var(--font-heading-stack);
-  font-size: 0.9rem;
-  font-weight: var(--weight-bold);
-  line-height: 1.2;
-}
-
-.careers-stat span {
-  display: block;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.65rem;
-  line-height: 1.3;
-}
-
 .careers-positions {
   padding: clamp(3rem, 6vw, 5rem) var(--page-gutter);
   background: #fff;
@@ -11378,18 +11320,6 @@ a:focus-visible .homepage-inline-arrow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .careers-stats-bar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .careers-stat:nth-child(2) {
-    border-right: 0;
-  }
-
-  .careers-stat:nth-child(1),
-  .careers-stat:nth-child(2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
 }
 
 @media (max-width: 900px) {
@@ -11443,21 +11373,6 @@ a:focus-visible .homepage-inline-arrow {
 
   .careers-pillars-strip {
     margin-top: -2rem;
-  }
-
-  .careers-stats-bar {
-    grid-template-columns: 1fr;
-    position: relative;
-    margin-top: -1px;
-  }
-
-  .careers-stat {
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .careers-stat:last-child {
-    border-bottom: 0;
   }
 
   .careers-why-image-wrap {
@@ -12745,6 +12660,7 @@ a:focus-visible .homepage-inline-arrow {
 
 .bro-card-cover-image {
   object-fit: cover;
+  object-position: center;
 }
 
 .bro-card-pdf-badge {
@@ -12986,17 +12902,23 @@ a:focus-visible .homepage-inline-arrow {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .bro-card {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
 
+  .bro-card-top {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
   .bro-card-cover-wrap {
     grid-column: 1;
     grid-row: 2;
-    justify-content: flex-start;
-    margin: 0.75rem 0;
+    width: 100%;
+    justify-content: stretch;
+    margin: 0.85rem 0 0.25rem;
   }
 
   .bro-card-actions {
@@ -13006,10 +12928,13 @@ a:focus-visible .homepage-inline-arrow {
 
   .bro-card-cover {
     width: 100%;
-    max-width: 200px;
-    height: 120px;
+    aspect-ratio: 16 / 9;
+    max-width: none;
     transform: none;
   }
+}
+
+@media (max-width: 720px) {
 
   .bro-help-inner {
     grid-template-columns: 1fr;
