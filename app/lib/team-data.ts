@@ -50,8 +50,8 @@ export const teamAboutChecks = [
 /** Update names, photos and LinkedIn URLs when final headshots are supplied. */
 export const leadershipTeam: TeamMember[] = [
   {
-    name: "James Lawrence",
-    role: "Managing Director",
+    name: "Managing Director",
+    role: "Leadership & Strategic Direction",
     bio: "Leads Helix with a focus on accountable delivery, integrated fire and security support, and long-term client relationships across the UK.",
     image: "/images/000 - HOME PAGE/Contact Helix.png",
     linkedIn: "https://www.linkedin.com/company/helix-fire-security",
