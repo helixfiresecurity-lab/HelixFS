@@ -12427,8 +12427,8 @@ a:focus-visible .homepage-inline-arrow {
 }
 
 .bro-hero-stack-card--back {
-  width: 200px;
-  height: 260px;
+  width: 72%;
+  aspect-ratio: 567 / 800;
   right: 0;
   top: 40px;
   background: #1a2d68;
@@ -12436,8 +12436,8 @@ a:focus-visible .homepage-inline-arrow {
 }
 
 .bro-hero-stack-card--mid {
-  width: 210px;
-  height: 270px;
+  width: 74%;
+  aspect-ratio: 567 / 800;
   right: 24px;
   top: 24px;
   background: #243d7a;
@@ -12445,8 +12445,8 @@ a:focus-visible .homepage-inline-arrow {
 }
 
 .bro-hero-stack-card--front {
-  width: 220px;
-  height: 290px;
+  width: 76%;
+  aspect-ratio: 567 / 800;
   left: 0;
   top: 0;
   overflow: hidden;
@@ -12455,31 +12455,7 @@ a:focus-visible .homepage-inline-arrow {
 }
 
 .bro-hero-stack-image {
-  object-fit: cover;
-}
-
-.bro-hero-stack-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem 0.85rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(7, 26, 51, 0.92) 100%);
-  color: #fff;
-}
-
-.bro-hero-stack-label span {
-  font-family: var(--font-heading-stack);
-  font-size: 0.85rem;
-  font-weight: var(--weight-bold);
-  letter-spacing: 0.1em;
-}
-
-.bro-hero-stack-label p {
-  margin: 0.25rem 0 0;
-  font-size: 0.68rem;
-  line-height: 1.4;
-  opacity: 0.9;
+  object-fit: contain;
 }
 
 .bro-intro {
@@ -12537,7 +12513,7 @@ a:focus-visible .homepage-inline-arrow {
 
 .bro-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 130px;
+  grid-template-columns: minmax(0, 1fr) 140px;
   grid-template-rows: auto auto;
   gap: 0 1rem;
   padding: 1.25rem;
@@ -12630,25 +12606,10 @@ a:focus-visible .homepage-inline-arrow {
   line-height: 1.55;
 }
 
-.bro-card-service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.5rem;
-  color: #94a3b8;
-  font-size: 0.75rem;
-  font-weight: var(--weight-medium);
-  text-decoration: none;
-}
-
-.bro-card-service-link:hover {
-  color: var(--red);
-}
-
 .bro-card-cover {
   position: relative;
-  width: 110px;
-  height: 150px;
+  width: 125px;
+  aspect-ratio: 567 / 800;
   border-radius: 4px;
   overflow: hidden;
   box-shadow:
@@ -12659,22 +12620,8 @@ a:focus-visible .homepage-inline-arrow {
 }
 
 .bro-card-cover-image {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-}
-
-.bro-card-pdf-badge {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  background: var(--red);
-  color: #fff;
-  font-family: var(--font-heading-stack);
-  font-size: 0.58rem;
-  font-weight: var(--weight-bold);
-  letter-spacing: 0.06em;
 }
 
 .bro-btn-download,
@@ -12889,7 +12836,7 @@ a:focus-visible .homepage-inline-arrow {
   }
 
   .bro-hero-stack {
-    height: 280px;
+    height: 340px;
     margin: 0 auto;
   }
 
@@ -12917,7 +12864,7 @@ a:focus-visible .homepage-inline-arrow {
     grid-column: 1;
     grid-row: 2;
     width: 100%;
-    justify-content: stretch;
+    justify-content: center;
     margin: 0.85rem 0 0.25rem;
   }
 
@@ -12927,9 +12874,8 @@ a:focus-visible .homepage-inline-arrow {
   }
 
   .bro-card-cover {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    max-width: none;
+    width: min(60%, 190px);
+    aspect-ratio: 567 / 800;
     transform: none;
   }
 }

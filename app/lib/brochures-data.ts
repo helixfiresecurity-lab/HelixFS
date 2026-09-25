@@ -11,136 +11,69 @@ export type BrochureItem = {
   title: string;
   description: string;
   tone: BrochureTone;
-  icon: "fire" | "security" | "emergency" | "smart" | "compliance" | "integrated";
+  icon: "all" | "business" | "care" | "developers" | "food" | "home" | "landlords" | "agents" | "trade";
   pdfUrl: string;
   pdfFilename: string;
   coverImage: string;
   coverAlt: string;
-  serviceHref: string;
 };
 
 export const brochureHeroFeatures: BrochureHeroFeature[] = [
+  { title: "Built for your setting", text: "Choose the brochure that reflects your property or work.", icon: "expert" },
+  { title: "Free downloads", text: "Browse and download all nine brochures.", icon: "download" },
+  { title: "One accountable team", text: "Fire, security and compliance from Helix.", icon: "trusted" },
+];
+
+const brochureDetails: Array<Pick<BrochureItem, "id" | "title" | "description" | "tone" | "icon">> = [
   {
-    title: "Expert Insights",
-    text: "Detailed information from industry experts.",
-    icon: "expert",
+    id: "all-services", title: "All Services", tone: "red", icon: "all",
+    description: "The complete Helix overview: fire, security, emergency, smart systems and compliance, from survey through maintenance.",
   },
   {
-    title: "Free Downloads",
-    text: "All brochures are free to download.",
-    icon: "download",
+    id: "business-commercial", title: "Business & Commercial", tone: "blue", icon: "business",
+    description: "Fire, security and compliance support for offices, retail, industrial and hospitality premises.",
   },
   {
-    title: "Trusted Solutions",
-    text: "Professional services you can rely on.",
-    icon: "trusted",
+    id: "care-healthcare", title: "Care & Healthcare", tone: "green", icon: "care",
+    description: "Fire safety, emergency lighting, fire doors and nurse call planned around residents, patients and care routines.",
+  },
+  {
+    id: "developers-builders", title: "Developers & Builders", tone: "purple", icon: "developers",
+    description: "Fire alarms, AOV, emergency lighting, door entry and networks designed and certified for handover.",
+  },
+  {
+    id: "franchise-food-drink", title: "Franchise Food & Drink", tone: "red", icon: "food",
+    description: "Site-specific fire, security and compliance services coordinated across food and drink locations.",
+  },
+  {
+    id: "homeowners", title: "Homeowners", tone: "blue", icon: "home",
+    description: "Intruder alarms, CCTV, door entry and smart controls specified for your home and supported afterwards.",
+  },
+  {
+    id: "landlords-hmos", title: "Landlords & HMOs", tone: "green", icon: "landlords",
+    description: "Fire risk assessments, alarm servicing, emergency lighting and fire doors kept on schedule and on record.",
+  },
+  {
+    id: "managing-agents", title: "Managing Agents", tone: "purple", icon: "agents",
+    description: "Planned fire and security servicing, reporting and certificates across managed properties and blocks.",
+  },
+  {
+    id: "trade-partners", title: "Trade Partners", tone: "red", icon: "trade",
+    description: "Fire and security installation, commissioning and certification for electrical, FM and fit-out partners.",
   },
 ];
 
-export const brochures: BrochureItem[] = [
-  {
-    id: "fire-systems",
-    title: "Fire Systems Service Overview",
-    description:
-      "Fire alarms, extinguishers, AOV smoke ventilation, fire safety signage and ongoing maintenance — standards, scope and typical buildings.",
-    tone: "red",
-    icon: "fire",
-    pdfUrl: "/brochures/fire-systems-service-overview.pdf",
-    pdfFilename: "Helix_Fire_Systems_Service_Overview.pdf",
-    coverImage:
-      "/images/001 - FIRE SYSTEMS/001 - Fire Alarm Systems/Fire Alarm Sounder - Shown internally only - fixed to wall high up or to ceiling.jpg",
-    coverAlt: "Fire systems brochure cover preview",
-    serviceHref: "/fire-systems",
-  },
-  {
-    id: "security-systems",
-    title: "Security Systems Service Overview",
-    description:
-      "CCTV, intruder alarms, access control, intercom and gate automation — designed around how your building actually operates.",
-    tone: "blue",
-    icon: "security",
-    pdfUrl: "/brochures/security-systems-service-overview.pdf",
-    pdfFilename: "Helix_Security_Systems_Service_Overview.pdf",
-    coverImage: "/images/000 - HOME PAGE/CCTV External 1 - hero slide.png",
-    coverAlt: "Security systems brochure cover preview",
-    serviceHref: "/security-systems",
-  },
-  {
-    id: "emergency-systems",
-    title: "Emergency Systems Service Overview",
-    description:
-      "Emergency lighting, voice communication, nurse call and escape route signage — coordinated with your fire strategy.",
-    tone: "red",
-    icon: "emergency",
-    pdfUrl: "/brochures/emergency-systems-service-overview.pdf",
-    pdfFilename: "Helix_Emergency_Systems_Service_Overview.pdf",
-    coverImage:
-      "/images/003 - EMERGENCY SYSTEMS/004 - Emergency & Escape Route Signage/Emergency signage in executive corridor.png",
-    coverAlt: "Emergency systems brochure cover preview",
-    serviceHref: "/emergency-systems",
-  },
-  {
-    id: "smart-systems",
-    title: "Smart Systems Service Overview",
-    description:
-      "Smart home automation, Wi-Fi, network and IP infrastructure, plus minor electrical works for connected buildings.",
-    tone: "blue",
-    icon: "smart",
-    pdfUrl: "/brochures/smart-systems-service-overview.pdf",
-    pdfFilename: "Helix_Smart_Systems_Service_Overview.pdf",
-    coverImage:
-      "/images/004 - SMART SYSTEMS/001 - Smart Home Automation/Smart Home Automation in a modern home 1.png",
-    coverAlt: "Smart systems brochure cover preview",
-    serviceHref: "/smart-systems",
-  },
-  {
-    id: "compliance",
-    title: "Compliance Service Overview",
-    description:
-      "Certification, safety inspections, regulatory compliance and PAT testing — keeping records current and audit-ready.",
-    tone: "green",
-    icon: "compliance",
-    pdfUrl: "/brochures/compliance-service-overview.pdf",
-    pdfFilename: "Helix_Compliance_Service_Overview.pdf",
-    coverImage: "/images/005 - COMPLIANCE/Certification & Compliance 1.png",
-    coverAlt: "Compliance brochure cover preview",
-    serviceHref: "/compliance",
-  },
-  {
-    id: "integrated",
-    title: "Integrated Service Plan Overview",
-    description:
-      "How a complete Helix service plan covers fire, security, emergency and compliance under one contract and one team.",
-    tone: "red",
-    icon: "integrated",
-    pdfUrl: "/brochures/integrated-service-plan-overview.pdf",
-    pdfFilename: "Helix_Integrated_Service_Plan_Overview.pdf",
-    coverImage:
-      "/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png",
-    coverAlt: "Integrated service plan brochure cover preview",
-    serviceHref: "/compliance",
-  },
-];
+export const brochures: BrochureItem[] = brochureDetails.map((item) => ({
+  ...item,
+  pdfUrl: `/brochures/${item.id}.pdf`,
+  pdfFilename: `Helix_${item.id.replaceAll("-", "_")}.pdf`,
+  coverImage: `/brochures/covers/${item.id}.png`,
+  coverAlt: `Cover of the Helix ${item.title} brochure`,
+}));
 
 export const brochureCoveragePoints: { label: string; text: string }[] = [
-  {
-    label: "Service summaries",
-    text: "What is included in each discipline and at what level.",
-  },
-  {
-    label: "Building types supported",
-    text: "Typical environments where each service applies.",
-  },
-  {
-    label: "Standards and certifications",
-    text: "British Standards we work to and certifications we hold.",
-  },
-  {
-    label: "Maintenance and compliance",
-    text: "How ongoing service is structured and documented.",
-  },
-  {
-    label: "Practical next steps",
-    text: "What a survey, quote and onboarding process looks like.",
-  },
+  { label: "Services for your setting", text: "The fire, security and compliance work relevant to each audience." },
+  { label: "How Helix works", text: "Survey, planning, installation, servicing and documentation." },
+  { label: "Practical priorities", text: "The site needs, schedules and records that matter to your team." },
+  { label: "Next steps", text: "How to speak with Helix about a survey or a quote." },
 ];

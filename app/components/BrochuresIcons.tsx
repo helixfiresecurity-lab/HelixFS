@@ -1,14 +1,18 @@
 import {
   Award,
-  ClipboardCheck,
+  Building2,
   Download,
-  FileText,
-  Flame,
+  FileStack,
   FolderOpen,
+  Handshake,
   Headphones,
-  Monitor,
-  Shield,
+  HeartPulse,
+  House,
+  KeyRound,
+  Layers3,
   ShieldCheck,
+  Store,
+  Wrench,
 } from "lucide-react";
 import type { BrochureHeroFeature, BrochureItem } from "../lib/brochures-data";
 import { helixIconProps } from "./ui/helix-icon";
@@ -30,18 +34,24 @@ export function BrochureHeroFeatureIcon({ icon }: { icon: BrochureHeroFeature["i
 export function BrochureTypeIcon({ icon }: { icon: BrochureItem["icon"] }) {
   const props = helixIconProps();
   switch (icon) {
-    case "fire":
-      return <Flame {...props} />;
-    case "security":
-      return <Shield {...props} />;
-    case "emergency":
-      return <FileText {...props} />;
-    case "smart":
-      return <Monitor {...props} />;
-    case "compliance":
-      return <ClipboardCheck {...props} />;
-    case "integrated":
-      return <FileText {...props} />;
+    case "all":
+      return <FileStack {...props} />;
+    case "business":
+      return <Building2 {...props} />;
+    case "care":
+      return <HeartPulse {...props} />;
+    case "developers":
+      return <Wrench {...props} />;
+    case "food":
+      return <Store {...props} />;
+    case "home":
+      return <House {...props} />;
+    case "landlords":
+      return <KeyRound {...props} />;
+    case "agents":
+      return <Layers3 {...props} />;
+    case "trade":
+      return <Handshake {...props} />;
     default:
       return null;
   }

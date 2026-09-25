@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: "Brochures | Resources | Helix",
       description:
-        "Download free Helix service brochures — fire, security, emergency, smart systems, compliance and integrated service plan overviews.",
+        "Download nine Helix Fire & Security brochures, including the all services guide and tailored guides for businesses, care, homeowners, landlords, developers and trade partners.",
     };
   }
 

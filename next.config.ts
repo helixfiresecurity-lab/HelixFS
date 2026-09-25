@@ -26,6 +26,18 @@ const nextConfig: NextConfig = {
         destination: "/compliance/portable-appliance-testing-pat",
         permanent: true,
       },
+      ...[
+        "fire-systems-service-overview",
+        "security-systems-service-overview",
+        "emergency-systems-service-overview",
+        "smart-systems-service-overview",
+        "compliance-service-overview",
+        "integrated-service-plan-overview",
+      ].map((slug) => ({
+        source: `/brochures/${slug}.pdf`,
+        destination: "/brochures/all-services.pdf",
+        permanent: true,
+      })),
     ];
   },
   images: {

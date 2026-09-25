@@ -12,7 +12,7 @@ import {
 const heroImage =
   "/images/000 - HOME PAGE/Modern corporate office lobby - hero slide.png";
 const heroBrochureImage =
-  "/images/001 - FIRE SYSTEMS/Image for main fire systems page - reception scene.png";
+  "/brochures/covers/all-services.png";
 
 export function BrochuresPage() {
   return (
@@ -42,8 +42,8 @@ export function BrochuresPage() {
             </p>
             <h1>Our Brochures</h1>
             <p className="bro-hero-intro">
-              Download detailed brochures to learn more about our services, solutions and how we
-              can help protect what matters most.
+              Explore our complete service brochure and find the information tailored to your
+              property, business or trade.
             </p>
             <ul className="bro-hero-features">
               {brochureHeroFeatures.map((feature) => (
@@ -71,10 +71,6 @@ export function BrochuresPage() {
                   sizes="280px"
                   className="bro-hero-stack-image"
                 />
-                <div className="bro-hero-stack-label">
-                  <span>HELIX</span>
-                  <p>Protecting People. Securing Futures.</p>
-                </div>
               </div>
             </div>
           </div>
@@ -84,19 +80,17 @@ export function BrochuresPage() {
       <section className="bro-intro">
         <div className="bro-intro-inner">
           <p>
-            Each brochure summarises a service area in a couple of pages — what is covered, building
-            types, standards we work to, and what an integrated Helix service plan looks like. They
-            make conversations easier, not replace them.
+            Start with our all services overview, or choose a brochure written for your setting.
+            Each one shows how Helix approaches the work and who to contact to discuss your needs.
           </p>
         </div>
       </section>
 
       <section className="bro-grid-section" aria-labelledby="bro-grid-heading">
         <div className="bro-grid-inner">
-          <h2 id="bro-grid-heading">Explore Our Service Brochures</h2>
+          <h2 id="bro-grid-heading">Explore All Nine Brochures</h2>
           <p className="bro-grid-intro">
-            Download the overview that matches your needs, or request a tailored summary from our
-            team.
+            Select the overview that best matches your property, business or project.
           </p>
           <div className="bro-cards-grid">
             {brochures.map((brochure) => (
@@ -108,10 +102,6 @@ export function BrochuresPage() {
                   <div className="bro-card-copy">
                     <h3>{brochure.title}</h3>
                     <p>{brochure.description}</p>
-                    <Link className="bro-card-service-link" href={brochure.serviceHref}>
-                      View service area
-                      <span aria-hidden="true">→</span>
-                    </Link>
                   </div>
                 </div>
                 <div className="bro-card-cover-wrap">
@@ -123,7 +113,6 @@ export function BrochuresPage() {
                       sizes="(max-width: 900px) 100vw, 130px"
                       className="bro-card-cover-image"
                     />
-                    <span className="bro-card-pdf-badge">PDF</span>
                   </div>
                 </div>
                 <div className="bro-card-actions">
@@ -136,7 +125,7 @@ export function BrochuresPage() {
                     Download PDF
                   </a>
                   <Link className="bro-btn-request" href="/book-now">
-                    Request copy
+                    Book a survey
                   </Link>
                 </div>
               </article>
@@ -147,7 +136,7 @@ export function BrochuresPage() {
 
       <section className="bro-coverage" aria-labelledby="bro-coverage-heading">
         <div className="bro-coverage-inner">
-          <h2 id="bro-coverage-heading">What each brochure typically covers</h2>
+          <h2 id="bro-coverage-heading">What you will find inside</h2>
           <ul className="bro-coverage-list">
             {brochureCoveragePoints.map((point) => (
               <li key={point.label}>
@@ -157,9 +146,8 @@ export function BrochuresPage() {
             ))}
           </ul>
           <p className="bro-coverage-foot">
-            Brochures work well for internal reviews, procurement comparisons and early planning. For
-            a tailored summary for your property type,{" "}
-            <Link href="/book-now">let us know</Link> and we will put one together.
+            Want to discuss a specific building or project?{" "}
+            <Link href="/book-now">Book a survey</Link> with the Helix team.
           </p>
         </div>
       </section>
