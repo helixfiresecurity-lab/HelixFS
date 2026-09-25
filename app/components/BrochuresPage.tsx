@@ -96,7 +96,7 @@ export function BrochuresPage() {
             {brochures.map((brochure) => (
               <article key={brochure.id} className={`bro-card bro-card--${brochure.tone}`}>
                 <div className="bro-card-top">
-                  <span className="bro-card-icon" aria-hidden="true">
+                  <span className="bro-card-icon">
                     <BrochureTypeIcon icon={brochure.icon} />
                   </span>
                   <div className="bro-card-copy">
